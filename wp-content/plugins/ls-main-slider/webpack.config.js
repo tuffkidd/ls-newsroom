@@ -25,13 +25,12 @@ module.exports = (env, argv) => {
 		devtool: 'source-map',
 		mode: argv.mode === 'production' ? 'production' : 'development',
 		entry: {
-			lsbackend: ['./js/admin/app.js'],
-			lsnewsroom: ['./js/app.js'],
-			gutenberg: ['./js/admin/blocks.js', './sass/_gutenberg.scss']
+			'ls-main-slider-frontend': ['./js/admin/app.js'],
+			'ls-main-slider-backend': ['./js/app.js']
 		},
 		output: {
 			path: path.resolve(__dirname, 'assets/dist/'),
-			publicPath: '/wp-content/themes/LSNewsroom/assets/dist/',
+			publicPath: '/wp-content/plugins/ls-main-slider/assets/dist/',
 			filename: '[name].js'
 			// sourceMapFilename: "[name].js.map",
 		},
