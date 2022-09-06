@@ -1,0 +1,66 @@
+$imgPath: "/wp-content/themes/LSNewsroom/assets/images";
+
+// 폰트 사이즈
+$fontsize__h1: 50px;
+$fontsize__h2: 31px;
+$fontsize__h3: 26px;
+$fontsize__h4: 16px;
+$fontsize__h5: 14px;
+$fontsize__h6: 13px;
+$fontsize__base: 20px;
+$fontsize__list-title: 26px;
+$fontsize__content: 20px;
+
+// 백그라운드
+$color__background-body: #fff;
+$color__background-sig: #ef151d;
+$color__background-gray: #f6f5f4;
+
+$color__background-input: #fff;
+$color__background-button: #0073aa;
+$color__background-button-hover: #111;
+
+// 텍스트 컬러
+$color__text-main: #000;
+$color__text-main-light: lighten($color__text-main, 55%);
+$color__text-sig: #ef151d;
+$color__text-gray: #444444;
+$color__text-white: #fff;
+$color__text-hover: #f50000;
+$color__text-input: #666;
+$color__text-input-focus: #111;
+
+// 링크
+$color__link: #111;
+$color__link-visited: #111;
+$color__link-hover: darken($color__link, 10%);
+
+// 보더
+$color__border: #e1e1e1;
+$color__border-gnb: #ccddcc;
+$color__border-dark: #111;
+$color__border-link: #111;
+$color__border-link-hover: darken($color__link, 10%);
+
+// 폰트
+$font__default: "SUIT", --apple-system, "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", sans-serif;
+
+$font__line-height-body: 1.8;
+$font__line-height-pre: 1.6;
+$font__line-height-heading: 1.2;
+$font__line-height-double: 2 * $font__line-height-heading;
+
+// 본문용 폰트 사이즈
+$font-size__content_xl: 40px;
+$font-size__content_l: 26px;
+$font-size__content_n: 20px;
+$font-size__content_s: 16px;
+$font-size__content_xs: 13px;
+
+// include media 브레이크 포인트
+$breakpoints: (
+	mobile: 480px,
+	tablet: 768px,
+	desktop: 1024px,
+	container: 1280px,
+);

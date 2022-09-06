@@ -25,8 +25,8 @@ module.exports = (env, argv) => {
 		devtool: 'source-map',
 		mode: argv.mode === 'production' ? 'production' : 'development',
 		entry: {
-			lsbackend: ['./js/admin/app.js'],
-			lsnewsroom: ['./js/app.js'],
+			lscnsbackend: ['./js/admin/app.js'],
+			lscns: ['./js/app.js'],
 			gutenberg: ['./js/admin/blocks.js', './sass/_gutenberg.scss']
 		},
 		output: {
@@ -40,7 +40,7 @@ module.exports = (env, argv) => {
 				// BrowserSync options
 				{
 					proxy: 'news.lscns.test',
-					port: '3007',
+					port: '3003',
 					open: false,
 					files: [
 						{

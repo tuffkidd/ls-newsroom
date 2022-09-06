@@ -1,0 +1,17 @@
+{
+	"name": "i4u/lscns",
+	"description": "LS CNS Newsroom",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Dohoon Lee",
+			"email": "dhl@i4u.kr"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"LSCNS\\": ["classes/"]
+		}
+	},
+	"require": {}
+}
