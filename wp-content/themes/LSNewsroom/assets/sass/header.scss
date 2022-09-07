@@ -1,0 +1,235 @@
+#skip-link {
+	position: fixed;
+	height: 0px;
+	overflow: hidden;
+	z-index: 6000;
+	width: 100%;
+	text-align: center;
+	color: #ffffff;
+	background-color: $color__background-sig;
+}
+
+#skip-link:focus {
+	width: 100%;
+	height: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	text-decoration: underline;
+}
+
+
+#header-wrap {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	background-color: #fff;
+
+
+	/****************************************************************
+	* 좌측
+	*/
+	#header-left {
+		width: 1280px;
+		text-align: left;
+
+		#header-logo {
+			a {
+				position: relative;
+				z-index: 101;
+				display: block;
+				width: 222px;
+				height: 46px;
+				background: url(#{$imgPath}/logo.svg) no-repeat center center / auto 46px;
+			}
+		}
+	}
+
+	/***************************************************************
+	* 우측
+	*/
+	#header-right {
+		position: absolute;
+		width: 1280px;
+		max-width: 1280px;
+		height: 100px;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+		text-align: right;
+		right: 0;
+		display: flex;
+		justify-content: end;
+		align-items: center;
+
+		.open-search {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			z-index: 401;
+			margin-right: 50px;
+
+			a {
+				position: relative;
+				display: inherit;
+				// margin-right: 25px;
+
+				&:before {
+					content: "";
+					display: block;
+					width: 24px;
+					height: 24px;
+					background: url(#{$imgPath}/icon-search-header.png) no-repeat center center;
+				}
+			}
+		}
+
+		.lscns-link {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			z-index: 401;
+
+			a {
+				position: relative;
+				display: inherit;
+
+				&:before {
+					content: "";
+					display: block;
+					width: 86px;
+					height: 26px;
+					background: url(#{$imgPath}/logo-lscns-block.svg) no-repeat center center;
+				}
+			}
+		}
+	}
+
+	/****************************************************************8
+	* GNB
+	*/
+	#header-gnb {
+		position: absolute;
+		top: 0;
+		background-color: rgba(255, 255, 255, 0.95);
+		z-index: 100;
+		border-top: 1px solid $color__border;
+		text-align: center;
+		width: 100%;
+		display: block;
+		top: 100px;
+
+		&.active {
+			>ul {
+				>li {
+					>ul {
+						display: block;
+					}
+				}
+			}
+		}
+
+		>ul {
+			width: 100%;
+			margin: auto;
+			position: relative;
+			font-size: 0;
+
+			>li {
+				display: inline-block;
+				position: relative;
+				vertical-align: top;
+
+
+				&:hover {
+					>a:not(.gnb-fold) {
+						color: $color__text-sig;
+
+						// font-weight: 800;
+						// border-bottom: 3px solid $color__background-sig;
+
+						&:after {
+							transform: scaleX(1);
+						}
+					}
+				}
+
+				>a:not(.gnb-fold) {
+					display: block;
+					position: relative;
+					padding: 0 40px;
+					line-height: 100px;
+					margin-top: -100px;
+					text-transform: uppercase;
+					font-weight: 600;
+					font-size: 21px;
+					color: #000;
+					transition: color 0.3s;
+					letter-spacing: -1px;
+
+					&:after {
+						position: absolute;
+						display: block;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						content: "";
+						border-bottom: solid 3px $color__background-sig;
+						transform: scaleX(0);
+						transition: transform 200ms ease-in-out;
+					}
+				}
+
+				>a.gnb-fold {
+					display: none;
+				}
+
+				// 서브메뉴
+				>ul {
+					display: none;
+					width: 100%;
+					margin: 25px 0 35px 0;
+					padding: 0 0 40px;
+
+					>li {
+						>a {
+							display: block;
+							height: 40px;
+							line-height: 40px;
+							font-size: 16px;
+							letter-spacing: -1px;
+							color: #666;
+
+							span.post-sub-new {
+								background: #f50000;
+								border-radius: 2px;
+								font-size: 11px;
+								color: #000;
+								display: inline-block;
+								width: 15px;
+								height: 15px;
+								line-height: 15px;
+								letter-spacing: 0px;
+								font-family: "Open Sans";
+								vertical-align: middle;
+								margin: 0px 0px 5px 5px;
+							}
+						}
+
+						>a:hover {
+							font-weight: 800;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/********************************************************************
+* 검색
+*/

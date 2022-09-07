@@ -147,9 +147,8 @@ class Frontend extends Theme
 	// CSS JS 로딩
 	public function load_theme_assets()
 	{
-		wp_enqueue_script('vendors', THEME_URI  . 'assets/dist/vendors.js', '', current_time('Ymdhis'), true);
-		wp_enqueue_script('lscns', THEME_URI  . 'assets/dist/lscns.js', '', current_time('Ymdhis'), true);
-		// wp_enqueue_script('kakao-sdk', '//developers.kakao.com/sdk/js/kakao.min.js', '', '', true);
+		wp_enqueue_script('lscns', THEME_URI  . 'assets/dist/lscns.js', ['jquery'], current_time('Ymdhis'), true);
+		wp_enqueue_script('kakao-sdk', '//developers.kakao.com/sdk/js/kakao.min.js', '', '', true);
 
 		wp_localize_script(
 			'lscns',

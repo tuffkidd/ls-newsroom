@@ -1,3 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="174" height="54" viewBox="0 0 87 27">
-  <image id="Vector_Smart_Object" data-name="Vector Smart Object" width="87" height="27" xlink:href="data:img/png;base64,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"/>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 374.55 110.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #fa002d;
+      }
+    </style>
+    <clipPath id="clip-path" transform="translate(-187.28 212.15)">
+      <rect class="cls-1" x="187.28" y="-212.15" width="374.55" height="110.15"/>
+    </clipPath>
+  </defs>
+  <g class="cls-2">
+    <path class="cls-3" d="M420.65-129.46H407.56V-109c0,2.62.45,4.47,1.56,5.51a6.78,6.78,0,0,0,4.79,1.46h60.85v-11.46H420.65Z" transform="translate(-187.28 212.15)"/>
+    <polygon class="cls-3" points="274.72 88.02 287.49 88.02 287.49 34.29 274.72 34.29 274.72 48.04 263.16 48.04 263.16 59.52 274.72 59.52 274.72 88.02"/>
+    <path class="cls-3" d="M436.63-153.73l-.23-.27a19.22,19.22,0,0,1-4-10.43c0-.15-.31-1.81-.33-2h16.83v-11.48H402.09v11.48h16.75c0,.17-.31,1.83-.33,2a19.14,19.14,0,0,1-4,10.43l-.24.27c-2.85,3.53-7.09,5.77-12.57,6.65v12.19c.24,0,.45-.06.69-.09a34.11,34.11,0,0,0,13.06-4.36,25.28,25.28,0,0,0,10-10.06,25.41,25.41,0,0,0,10,10.06A34.16,34.16,0,0,0,448.51-135c.24,0,.46.07.7.09v-12.19c-5.48-.88-9.73-3.12-12.58-6.65" transform="translate(-187.28 212.15)"/>
+    <path class="cls-3" d="M507.73-129.46H494.64V-109c0,2.62.44,4.48,1.55,5.51A6.81,6.81,0,0,0,501-102h60.84v-11.46h-54.1Z" transform="translate(-187.28 212.15)"/>
+    <polygon class="cls-3" points="361.79 88.02 374.55 88.02 374.55 34.26 361.79 34.26 361.79 43.14 350.23 43.14 350.23 54.61 361.79 54.61 361.79 88.02"/>
+    <path class="cls-3" d="M524.39-156.84c-2.75-4.85-3.9-13.71-3.9-18.58v-2.46H507.43c0,.24,0,2.18,0,2.41,0,4.92-1.14,13.77-3.9,18.63-2.93,5.27-8.11,9-15.35,10v11.92a31.47,31.47,0,0,0,12.17-2.92c5.54-2.48,10.62-6.45,13.62-11.77,3,5.32,8.07,9.29,13.61,11.77a31.55,31.55,0,0,0,12.17,2.92v-11.92c-7.24-1-12.43-4.76-15.35-10" transform="translate(-187.28 212.15)"/>
+    <path class="cls-3" d="M330.86-141.58c6.43,0,10,.9,10.09,5.2a8.94,8.94,0,0,1-3.3,6.46c-3.93,3-7.38,3.36-25.82,3.36H220.88l17.57-73.37H208.06c-2,0-2.79.58-3.4,3L188-128.17C184.87-114.5,191.92-102,207.67-102h41.72c10.57,0,24.71-11.54,30.45-22.19.32-.59.52-1,.76-1.46,0,0,.12-.14.15.07h0c-.92,3.83-4.11,17.37-4.64,19.57-.67,2.88.83,4,2.21,4h44.89c38.07,0,52.93-18.11,54.23-39.85.73-12.21-7-20.12-28.87-20.12H331.79c-6,0-12.09-2-12.09-6.81s6.64-9.07,15.66-9.07h40.88s3.57-14.31,4.28-17.3c.88-3.77-.25-4.86-3-4.86H327c-29.34,0-42.51,19.63-42.51,33.62s11.29,24.81,40.42,24.81Z" transform="translate(-187.28 212.15)"/>
+    <path class="cls-4" d="M350.72-212.15H432l-41.83,21.49,2.19-9.13c.53-2.23-.18-3.91-3.33-4.55l-38.35-7.81" transform="translate(-187.28 212.15)"/>
+  </g>
 </svg>

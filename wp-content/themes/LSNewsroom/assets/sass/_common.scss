@@ -4,4 +4,83 @@ html,
 body {
 	margin: 0;
 	box-sizing: border-box;
+	font-family: $font__default;
+
+	>* {
+		word-break: keep-all;
+
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	font-size: $fontsize__h1;
+}
+
+h2 {
+	font-size: $fontsize__h2;
+}
+
+h3 {
+	font-size: $fontsize__h3;
+}
+
+h4 {
+	font-size: $fontsize__h4;
+}
+
+h5 {
+	font-size: $fontsize__h5;
+}
+
+h6 {
+	font-size: $fontsize__h6;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+	cursor: pointer;
+	border: 0;
+	font-family: $font__default;
+}
+
+.hide {
+	display: none;
+}
+
+.hidden-text {
+	white-space: nowrap;
+	font-size: 0;
+	text-indent: -9999px;
+	white-space: nowrap;
+	// height: 0px;
+	overflow: hidden;
+}
+
+.clearfix {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.container-wide {
+	max-width: 1360px;
+	margin: 0 auto;
 }
