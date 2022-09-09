@@ -31,7 +31,8 @@
 	* 좌측
 	*/
 	#header-left {
-		width: 1280px;
+		width: 1200px;
+		max-width: 1200px;
 		text-align: left;
 
 		#header-logo {
@@ -51,8 +52,8 @@
 	*/
 	#header-right {
 		position: absolute;
-		width: 1280px;
-		max-width: 1280px;
+		width: 1200px;
+		max-width: 1200px;
 		height: 100px;
 		margin: 0 auto;
 		top: 0;

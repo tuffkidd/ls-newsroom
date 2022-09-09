@@ -345,6 +345,33 @@
 			return false
 		})
 
+		/*******************
+		 * 맨위로
+		 */
+
+		$(document).on('click', '.go-to-top', function () {
+			$('html, body').animate({ scrollTop: 0 }, 400)
+			return false
+		})
+
+		$(window).scroll(function () {
+			if ($(window).innerWidth() > 768) {
+				if ($(window).scrollTop() > 400) {
+					$('.go-to-top').fadeIn()
+				} else {
+					$('.go-to-top').fadeOut()
+				}
+			} else if ($(window).innerWidth() <= 768) {
+				if ($(window).scrollTop() > 100) {
+					$('.go-to-top').fadeIn()
+				} else {
+					$('.go-to-top').fadeOut()
+				}
+			} else {
+				$('.go-to-top').fadeOut()
+			}
+		})
+
 		// 카카오톡 공유
 		$(document).on('click', '.entry-share .kakaotalk', function (e) {
 			e.preventDefault()

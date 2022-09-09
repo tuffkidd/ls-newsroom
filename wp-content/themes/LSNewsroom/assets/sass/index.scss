@@ -226,6 +226,7 @@
 					.post-date {
 						font-size: 14px;
 						margin-top: 20px;
+						font-weight: 400;
 					}
 				}
 			}
@@ -330,6 +331,86 @@
 					margin: 30px 0 0;
 				}
 			}
+		}
+	}
+}
+
+
+/**************************************************************************************************************************
+*
+* 회사소개
+*
+*/
+.main-about-lscns {
+	margin: 135px 0 60px 0;
+
+	>div {
+		padding: 70px 0;
+		width: 100%;
+		height: 410px;
+		background: url(#{$imgPath}/img-main-about-lscns.png) no-repeat center center;
+		background-size: cover;
+	}
+
+	.title {
+		color: #fff;
+		font-size: 36px;
+		line-height: 60px;
+		letter-spacing: -1px;
+		font-weight: 700;
+	}
+
+	.desc {
+		margin-top: 20px;
+		color: #fff;
+		font-size: 22px;
+		line-height: 32px;
+		letter-spacing: -1px;
+		font-weight: 300;
+
+		strong {
+			font-weight: 700;
+		}
+	}
+
+	a {
+		margin-top: 30px;
+		position: relative;
+		display: inline-block;
+		width: 70px;
+		height: 35px;
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 57px;
+			height: 1px;
+			background-color: #fff;
+			top: 19px;
+			left: 0;
+			transition: all 0.3s;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 20px;
+			height: 1px;
+			background-color: #fff;
+			top: 15px;
+			right: 13px;
+			transform: rotate(25deg);
+			transition: all 0.3s;
+		}
+
+		&:hover:after {
+			width: 70px;
+		}
+
+		&:hover:before {
+			right: 0px;
 		}
 	}
 }

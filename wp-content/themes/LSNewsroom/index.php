@@ -146,7 +146,13 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 	</div>
 </section>
 <section class="main-about-lscns">
-
+	<div>
+		<div class="container">
+			<div class="title">회사소개</div>
+			<div class="desc">더 멀리, 더 안정적으로<br><strong>케이블 솔루션 리더</strong>를 향해<br>LS전선이 나아갑니다.</div>
+			<a href="<?php echo site_url('/회사소개') ?>" class="hidden-text">더 보기</a>
+		</div>
+	</div>
 </section>
 
 <?php

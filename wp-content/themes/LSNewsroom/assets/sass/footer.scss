@@ -1,0 +1,124 @@
+footer {
+	background: #000;
+	padding: 26px 0 57px 0;
+
+	.footer-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo {
+			display: inline-block;
+			width: 87px;
+			height: 27px;
+			background: url(#{$imgPath}/logo-lscns-white.svg) no-repeat center center;
+		}
+
+		.footer-menu {
+			a {
+				font-size: 16px;
+				font-weight: 300;
+				color: #e1e1e1;
+
+				&:hover {
+					color: #fff;
+					font-weight: 700;
+				}
+			}
+
+			a+a {
+				margin-left: 30px;
+			}
+		}
+	}
+
+	.footer-bottom {
+		margin-top: 80px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.info {
+			.address {
+				color: #e1e1e1;
+				font-weight: 300;
+
+				a {
+					color: #e1e1e1;
+				}
+			}
+
+			.copy {
+				color: #e1e1e1;
+				font-weight: 300;
+				margin-top: 10px;
+			}
+		}
+
+		.social-links {
+			font-size: 0;
+
+			a {
+				position: relative;
+				display: inline-block;
+				width: 55px;
+				height: 55px;
+				background: #333;
+				border-radius: calc(55px / 2);
+			}
+
+			a+a {
+				margin-left: 20px;
+			}
+
+			.home {
+				background: url(#{$imgPath}/icon-footer-home.png) no-repeat center center;
+			}
+
+			.youtube {
+				background: url(#{$imgPath}/icon-footer-youtube.png) no-repeat center center;
+			}
+		}
+	}
+
+	.go-to-top {
+		display: none;
+		position: fixed;
+		left: calc(50% + 700px);
+		// right: 80px;
+		bottom: 170px;
+		font-size: 0;
+		width: 55px;
+		height: 55px;
+		background: #000;
+		border-radius: calc(55px / 2);
+
+		&:after {
+			position: absolute;
+			content: "";
+			display: block;
+			// left: calc(50% - 1px);
+			// top: calc(50% - 8px);
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 3px;
+			height: 25px;
+			background: #fff;
+		}
+
+		&:before {
+			position: absolute;
+			content: "";
+			display: block;
+			top: 50%;
+			left: 50%;
+			border-right: 3px solid #fff;
+			border-bottom: 3px solid #fff;
+			transform: translate(-50%, -70%) rotate(-135deg);
+			width: 13px;
+			height: 13px;
+			background-color: transparent;
+		}
+	}
+}
