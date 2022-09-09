@@ -1,6 +1,8 @@
 import 'normalize.css'
 
 import '../sass/_main.scss' // main
+
+import '../../node_modules/flatpickr/dist/themes/light.css'
 import flatpickr from 'flatpickr'
 const Korean = require('flatpickr/dist/l10n/ko.js').default.ko
 flatpickr.localize(Korean)

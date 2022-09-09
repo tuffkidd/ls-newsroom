@@ -17,6 +17,37 @@
 	text-decoration: underline;
 }
 
+header.menu-opened {
+	#header-wrap {
+		#header-gnb {
+			>ul {
+				>li {
+					.sub-menu {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+}
+
+header.search-opened {
+	#header-search-box {
+		display: block;
+	}
+
+	#header-wrap {
+		#header-right {
+			.open-search {
+				a {
+					&:before {
+						background: url(#{$imgPath}/icon-search-header-close.png) no-repeat center center;
+					}
+				}
+			}
+		}
+	}
+}
 
 #header-wrap {
 	position: relative;
@@ -123,15 +154,15 @@
 		display: block;
 		top: 100px;
 
-		&.active {
-			>ul {
-				>li {
-					>ul {
-						display: block;
-					}
-				}
-			}
-		}
+		// &.active {
+		// 	>ul {
+		// 		>li {
+		// 			>ul {
+		// 				display: block;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		>ul {
 			width: 100%;
@@ -190,7 +221,7 @@
 				}
 
 				// 서브메뉴
-				>ul {
+				.sub-menu {
 					display: none;
 					width: 100%;
 					margin: 25px 0 35px 0;
@@ -234,3 +265,318 @@
 /********************************************************************
 * 검색
 */
+
+#header-search-box {
+	background: #f7f7f7;
+	min-height: 309px;
+	display: none;
+	padding: 40px 0;
+
+	&.active {
+		display: block;
+	}
+
+	// 검색박스
+	#search-box {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+
+		// 검색옵션들 (날짜, 오더)
+		.search-option-wrap {
+			width: 510px;
+			font-size: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+
+			.search-option {
+				display: block;
+				position: relative;
+				width: 245px;
+				background: #fff;
+				border: 1px solid #e8e8e8;
+				border-radius: 4px;
+				padding: 5px 0;
+
+
+				.search-option-label {
+					position: relative;
+					display: block;
+					width: 100%;
+					height: 46px;
+					padding: 0 46px 0 20px;
+					background: #fff;
+					font-size: 18px;
+					text-align: left;
+
+					&:after {
+						position: absolute;
+						content: "";
+						display: block;
+						width: 0;
+						height: 0;
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						border-top: 5px solid #092550;
+						right: 20px;
+						top: calc(50% - 2px);
+					}
+
+					&.daterange:before {
+						content: "";
+						margin-right: 10px;
+						display: inline-block;
+						vertical-align: top;
+						width: 16px;
+						height: 18px;
+						background: url(#{$imgPath}/icon-searchform-daterange.png) no-repeat center center;
+					}
+
+					&.sort:before {
+						content: "";
+						margin-right: 10px;
+						display: inline-block;
+						vertical-align: top;
+						width: 21px;
+						height: 19px;
+						background: url(#{$imgPath}/icon-searchform-sort.png) no-repeat center center;
+					}
+
+					&.active {
+						z-index: 202;
+						// border: 1px solid $color__background-sig;
+					}
+				}
+
+				.search-option-label.sort+.option-list {
+					.option-value {
+						padding: 0 51px;
+					}
+				}
+
+				.option-list {
+					display: none;
+					position: relative;
+					width: 100%;
+					list-style: none;
+					padding: 13px 0;
+					margin-top: 5px;
+					z-index: 201;
+					background: #fff;
+
+					&:before {
+						content: "";
+						position: absolute;
+						top: 0px;
+						width: 90%;
+						margin-left: auto;
+						margin-right: auto;
+						left: 0;
+						right: 0;
+						height: 1px;
+						background: $color__border;
+					}
+
+					li:hover {
+						background-color: #f3f3f3;
+					}
+
+					.option-value {
+						display: block;
+						width: 100%;
+						// margin-bottom: -1px;
+						padding: 0 46px;
+						font-size: 18px;
+						background: none;
+						text-align: left;
+						line-height: 35px;
+					}
+				}
+			}
+		}
+
+
+		// 검색어 입력
+		.search-keywords {
+			width: 510px;
+
+			.search-keyword-wrap {
+				position: relative;
+				border-radius: 4px;
+				border: 1px solid #e8e8e8;
+				overflow: hidden;
+
+				input[name='s'] {
+					display: block;
+					border: none;
+					font-weight: 400;
+					font-size: 18px;
+					padding: 17px 100px 16px 25px;
+					// text-align: center;
+					width: 100%;
+					height: 100%;
+				}
+
+				#del-keyword {
+					position: absolute;
+					display: none;
+					right: 60px;
+					width: 26px;
+					height: 26px;
+					top: calc(50% - calc(26px / 2));
+					background: #f7f7f7;
+					cursor: pointer;
+					border-radius: calc(26px / 2);
+
+					&:after {
+						position: absolute;
+						content: "";
+						display: block;
+						width: 1px;
+						height: 15px;
+						transform: rotate(-45deg);
+						background: #000;
+						top: calc(50% - 7px);
+						left: 50%;
+					}
+
+					&:before {
+						position: absolute;
+						content: "";
+						display: block;
+						width: 1px;
+						height: 15px;
+						transform: rotate(-135deg);
+						background: #000;
+						top: calc(50% - 7px);
+						left: 50%;
+					}
+				}
+
+				#search-submit {
+					position: absolute;
+					position: absolute;
+					right: 20px;
+					width: 30px;
+					height: 30px;
+					border: none;
+					top: calc(50% - calc(30px / 2));
+					cursor: pointer;
+					background: url(#{$imgPath}/icon-search-header.png) no-repeat center center;
+				}
+			}
+
+		}
+
+		// 검색어 입력 끝.
+
+	}
+
+
+	// 구조가 엉망.
+	#gnbSearchFrm {
+		position: relative;
+	}
+
+	// 태그
+	.tags {
+		margin-top: 15px;
+		text-align: right;
+		font-size: 0;
+		position: absolute;
+		top: 60px;
+		right: 0;
+
+		a {
+			display: inline-block;
+			font-size: 16px;
+			border: 1px solid #e8e8e8;
+			border-radius: 20px;
+
+			padding: 9px 20px;
+			background: #fff;
+			color: #000;
+
+			&:before {
+				content: "#";
+			}
+
+			&:hover {
+				color: #fff;
+				background: $color__background-sig;
+				border: 1px solid $color__background-sig;
+			}
+		}
+
+		a+a {
+			margin-left: 25px;
+		}
+	}
+
+	// 달력
+	.search-date-picker-wrap {
+		position: absolute;
+		display: none;
+		// width: 78%;
+		width: 700px;
+		background: #fff;
+		z-index: 100;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+		border-radius: 3px;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 30px;
+
+		.calendar-wrap {
+			text-align: center;
+
+			.pc {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+			}
+		}
+
+		.date-from,
+		.date-to,
+		.date-range {
+			display: inline-block;
+			padding: 20px;
+			font-size: 0;
+
+			#date_from,
+			#date_to,
+			#date_range {
+				font-size: 16px;
+				width: 100%;
+				padding: 10px 20px;
+				text-align: center;
+				border: 1px solid $color__border;
+			}
+		}
+
+		.button-wrap {
+			text-align: center;
+			padding: 20px 0;
+
+			button {
+				border-radius: 10px;
+				padding: 10px 22px;
+				font-size: $fontsize__h4;
+				background: #fff;
+				border: 1px solid $color__border;
+			}
+
+			button.btn_ok {
+				background: $color__background-sig;
+				color: #fff;
+				border: none;
+			}
+
+			button+button {
+				margin-left: 20px;
+			}
+		}
+	}
+}
