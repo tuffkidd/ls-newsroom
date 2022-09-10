@@ -149,6 +149,7 @@ class Frontend extends Theme
 	{
 		wp_enqueue_script('lscns', THEME_URI  . 'assets/dist/lscns.js', ['jquery'], current_time('Ymdhis'), true);
 		wp_enqueue_script('kakao-sdk', '//developers.kakao.com/sdk/js/kakao.min.js', '', '', true);
+		wp_enqueue_script("jquery-effects-core");
 
 		wp_localize_script(
 			'lscns',

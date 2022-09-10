@@ -76,16 +76,48 @@ button {
 }
 
 .container {
+	display: block;
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
 .container-wide {
+	display: block;
 	max-width: 1360px;
 	margin: 0 auto;
 }
 
 .container-small {
+	display: block;
 	max-width: 1040px;
 	margin: 0 auto;
+}
+
+@include media("<=container") {
+
+	.container {
+		margin: 0 50px;
+	}
+
+	.container-wide {
+		margin: 0;
+	}
+}
+
+@include media("<=desktop") {
+
+	.container,
+	.container-small {
+		margin: 0 30px;
+	}
+
+}
+
+@include media("<=tablet") {
+
+	.container,
+	.container-small {
+		margin: 0 16px;
+	}
+
 }

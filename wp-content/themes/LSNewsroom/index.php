@@ -17,69 +17,71 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 
 ?>
 <?php if (is_plugin_active("ls-main-slider/index.php")) { ?>
-	<section class="main-slider-section container">
-		<div class="swiper" id="main-slider">
-			<div class="swiper-wrapper">
+	<section class="main-slider-section">
+		<div class="container">
+			<div class="swiper" id="main-slider">
+				<div class="swiper-wrapper">
 
-				<div class="swiper-slide">
-					<a href="#">
-						<div class="img">
-							<img src="https://picsum.photos/seed/picsum/1200/500">
-						</div>
-						<div class="meta">
-							<div class="cat">언론보도</div>
-							<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-							<div class="date">2022. 11. 11</div>
-						</div>
-					</a>
-				</div>
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="img">
+								<img src="https://picsum.photos/830/445?random=1">
+							</div>
+							<div class="meta">
+								<div class="cat">언론보도</div>
+								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
+								<div class="date">2022. 11. 11</div>
+							</div>
+						</a>
+					</div>
 
-				<div class="swiper-slide">
-					<a href="#">
-						<div class="img">
-							<img src="https://picsum.photos/seed/picsum/1200/500">
-						</div>
-						<div class="meta">
-							<div class="cat">언론보도</div>
-							<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-							<div class="date">2022. 11. 11</div>
-						</div>
-					</a>
-				</div>
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="img">
+								<img src="https://picsum.photos/830/445?random=2">
+							</div>
+							<div class="meta">
+								<div class="cat">언론보도</div>
+								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
+								<div class="date">2022. 11. 11</div>
+							</div>
+						</a>
+					</div>
 
-				<div class="swiper-slide">
-					<a href="#">
-						<div class="img">
-							<img src="https://picsum.photos/seed/picsum/1200/500">
-						</div>
-						<div class="meta">
-							<div class="cat">언론보도</div>
-							<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-							<div class="date">2022. 11. 11</div>
-						</div>
-					</a>
-				</div>
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="img">
+								<img src="https://picsum.photos/830/445?random=3">
+							</div>
+							<div class="meta">
+								<div class="cat">언론보도</div>
+								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
+								<div class="date">2022. 11. 11</div>
+							</div>
+						</a>
+					</div>
 
-				<div class="swiper-slide">
-					<a href="#">
-						<div class="img">
-							<img src="https://picsum.photos/seed/picsum/1200/500">
-						</div>
-						<div class="meta">
-							<div class="cat">언론보도</div>
-							<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-							<div class="date">2022. 11. 11</div>
-						</div>
-					</a>
+					<div class="swiper-slide">
+						<a href="#">
+							<div class="img">
+								<img src="https://picsum.photos/830/445?random=4">
+							</div>
+							<div class="meta">
+								<div class="cat">언론보도</div>
+								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
+								<div class="date">2022. 11. 11</div>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="swiper-numbers">
-			<span class="current"></span> / <span class="total"></span>
-			<a href="#" class="button-prev"></a>
-			<a href="#" class="button-next"></a>
-		</div>
-		<div class=" swiper-pagination">
+			<div class="swiper-numbers">
+				<span class="current"></span> / <span class="total"></span>
+				<a href="#" class="button-prev"></a>
+				<a href="#" class="button-next"></a>
+			</div>
+			<div class=" swiper-pagination">
+			</div>
 		</div>
 	</section>
 <?php } ?>

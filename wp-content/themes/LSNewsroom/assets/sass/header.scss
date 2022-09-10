@@ -49,12 +49,26 @@ header.search-opened {
 	}
 }
 
+@include media("<=desktop") {
+	header.search-opened {
+		#header-wrap {
+			#header-right {
+				.open-search {
+					a {
+						&:before {
+							background-size: auto 19px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 #header-wrap {
 	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
 	height: 100px;
+
 	background-color: #fff;
 
 
@@ -62,9 +76,12 @@ header.search-opened {
 	* 좌측
 	*/
 	#header-left {
-		width: 1200px;
 		max-width: 1200px;
-		text-align: left;
+		height: 100px;
+		display: flex;
+		align-items: center;
+		// max-width: 1200px;
+		// text-align: left;
 
 		#header-logo {
 			a {
@@ -83,14 +100,12 @@ header.search-opened {
 	*/
 	#header-right {
 		position: absolute;
-		width: 1200px;
-		max-width: 1200px;
+		width: 100%;
 		height: 100px;
-		margin: 0 auto;
 		top: 0;
 		left: 0;
-		text-align: right;
 		right: 0;
+
 		display: flex;
 		justify-content: end;
 		align-items: center;
@@ -262,6 +277,331 @@ header.search-opened {
 	}
 }
 
+// 헤더 - 컨테이너
+@include media("<=container") {
+	#header-wrap {
+		#header-right {
+			margin: auto;
+			margin-right: 50px;
+		}
+	}
+}
+
+// 헤더 - 데스크탑
+@include media("<=desktop") {
+	#header-wrap {
+		#header-left {
+			#header-logo {
+				a {
+					width: 168px;
+					height: 35px;
+					background-size: auto 35px;
+				}
+			}
+		}
+
+		#header-right {
+			margin-right: 30px;
+
+			#btn-mob-menu {
+				display: none;
+			}
+
+			.lscns-link {
+				a {
+					&:before {
+						width: 68px;
+						height: 20px;
+					}
+				}
+			}
+
+			.open-search {
+				margin-right: 30px;
+
+				a {
+					&:before {
+						width: 20px;
+						height: 20px;
+						background-size: auto 19px;
+					}
+				}
+			}
+		}
+
+		#header-gnb {
+			>ul {
+				>li {
+					>a:not(.gnb-fold) {
+						padding: 0 30px;
+						font-size: 19px;
+					}
+
+					>a.gnb-fold {
+						display: none;
+					}
+
+					// 서브메뉴
+					.sub-menu {
+						display: none;
+						width: 100%;
+						margin: 25px 0 35px 0;
+						padding: 0 0 40px;
+
+						>li {
+							>a {
+								display: block;
+								height: 40px;
+								line-height: 40px;
+								font-size: 16px;
+								letter-spacing: -1px;
+								color: #666;
+
+								span.post-sub-new {
+									background: #f50000;
+									border-radius: 2px;
+									font-size: 11px;
+									color: #000;
+									display: inline-block;
+									width: 15px;
+									height: 15px;
+									line-height: 15px;
+									letter-spacing: 0px;
+									font-family: "Open Sans";
+									vertical-align: middle;
+									margin: 0px 0px 5px 5px;
+								}
+							}
+
+							>a:hover {
+								font-weight: 800;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// 헤더 - 태블릿
+@include media("<=tablet") {
+	#header-wrap {
+		height: 55px;
+		border-bottom: 1px solid $color__border;
+
+		#header-gnb {
+			display: none;
+			background: #1c1d1f;
+			padding: 15px 15px 40px 15px;
+			top: 55px;
+
+			>ul {
+				padding: 0;
+
+				>li:first-child {
+					>a:not(.gnb-fold) {
+						// padding: 0 61px;
+						padding: 0;
+					}
+				}
+
+				>li {
+					display: block;
+					margin-top: 15px;
+
+					&:hover {
+						>a:not(.gnb-fold) {
+							color: #fff;
+
+							&:after {
+								display: none;
+							}
+						}
+					}
+
+					>a:not(.gnb-fold) {
+						color: #fff;
+						padding: 0;
+						text-align: left;
+						font-size: 20px;
+						font-weight: 500;
+						height: auto;
+						line-height: auto;
+						margin-top: 0;
+						margin-right: 50px;
+						height: 40px;
+						line-height: 40px;
+					}
+
+					a.gnb-fold {
+						position: absolute;
+						right: 0;
+						top: 0;
+						display: block;
+						width: 40px;
+						height: 40px;
+
+						&:before {
+							position: absolute;
+							content: "";
+							top: calc(50% - 4px);
+							left: calc(50% - 4px);
+							display: block;
+							border-right: 2px solid #d7d7d7;
+							border-bottom: 2px solid #d7d7d7;
+							transform: rotate(45deg);
+							width: 5px;
+							height: 5px;
+							background-color: transparent;
+						}
+
+						// background: url('#{$imgPath}/images/icon-mob-unfold.png') no-repeat center center / auto 7px;
+					}
+
+					a.gnb-fold.on {
+						&:before {
+							position: absolute;
+							content: "";
+							top: calc(50% - 1px);
+							left: calc(50% - 6px);
+							width: 8px;
+							height: 1px;
+							background: #fff;
+							transform: none;
+						}
+
+						// background: url('#{$imgPath}/images/icon-mob-fold.png') no-repeat center center / 7px auto;
+					}
+
+					/* sub menu */
+					.sub-menu {
+						display: none;
+						margin: 5px 0 35px 10px;
+						padding: 0;
+						// margin-bottom: 35px;
+
+						>li {
+							>a {
+								color: #ccc;
+								display: block;
+								height: 40px;
+								text-align: left;
+								line-height: 40px;
+								font-size: 16px;
+								font-weight: 400;
+								letter-spacing: -1px;
+
+								span.post-sub-new {
+									background: #F50000;
+									border-radius: 2px;
+									font-size: 11px;
+									color: #000;
+									display: inline-block;
+									width: 15px;
+									height: 15px;
+									line-height: 15px;
+									letter-spacing: 0px;
+									font-family: "Open Sans";
+									vertical-align: middle;
+									margin: 0px 0px 5px 5px;
+								}
+							}
+
+							>a:hover {
+								font-weight: 800;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		#header-left {
+			height: 55px;
+
+			#header-logo {
+				a {
+					width: 134px;
+					height: 28px;
+					background-size: auto 28px;
+				}
+			}
+		}
+
+		#header-right {
+			height: 55px;
+			margin-right: 16px;
+
+			.open-search {
+				margin-right: 20px;
+			}
+
+			#btn-mob-menu {
+				z-index: 300;
+				display: flex;
+				align-items: center;
+				width: 18px;
+				height: 18px;
+				transform: rotate(0deg);
+				transition: .5s ease-in-out;
+				cursor: pointer;
+
+				span {
+					display: block;
+					position: absolute;
+					height: 2px;
+					width: 100%;
+					background: #111;
+					opacity: 1;
+					left: 0;
+					transform: rotate(0deg);
+					transition: .25s ease-in-out;
+				}
+
+
+				span:nth-child(1) {
+					top: 0px;
+					transform-origin: left center;
+				}
+
+				span:nth-child(2) {
+					top: 8px;
+					transform-origin: left center;
+				}
+
+				span:nth-child(3) {
+					top: 16px;
+					transform-origin: left center;
+				}
+
+				&.open span:nth-child(1) {
+					transform: rotate(45deg);
+					width: 23px;
+					// top: -3px;
+					// left: 8px;
+				}
+
+				&.open span:nth-child(2) {
+					width: 0%;
+					opacity: 0;
+				}
+
+				&.open span:nth-child(3) {
+					transform: rotate(-45deg);
+					width: 23px;
+					// top: 39px;
+					// left: 8px;
+				}
+			}
+
+			.lscns-link {
+				display: none;
+			}
+		}
+	}
+}
+
 /********************************************************************
 * 검색
 */
@@ -271,6 +611,9 @@ header.search-opened {
 	min-height: 309px;
 	display: none;
 	padding: 40px 0;
+	z-index: 99;
+	position: absolute;
+	width: 100%;
 
 	&.active {
 		display: block;
@@ -281,125 +624,118 @@ header.search-opened {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
+		font-size: 0;
+		gap: 20px;
 
-		// 검색옵션들 (날짜, 오더)
-		.search-option-wrap {
-			width: 510px;
-			font-size: 0;
-			display: flex;
-			justify-content: space-between;
-			align-items: flex-start;
+		.search-option {
+			display: block;
+			position: relative;
+			background: #fff;
+			border: 1px solid #e8e8e8;
+			border-radius: 4px;
+			padding: 5px 0;
+			flex: 1;
 
-			.search-option {
-				display: block;
+			.search-option-label {
 				position: relative;
-				width: 245px;
+				display: block;
+				width: 100%;
+				height: 46px;
+				padding: 0 46px 0 20px;
 				background: #fff;
-				border: 1px solid #e8e8e8;
-				border-radius: 4px;
-				padding: 5px 0;
+				font-size: 18px;
+				text-align: left;
 
-
-				.search-option-label {
-					position: relative;
+				&:after {
+					position: absolute;
+					content: "";
 					display: block;
-					width: 100%;
-					height: 46px;
-					padding: 0 46px 0 20px;
-					background: #fff;
-					font-size: 18px;
-					text-align: left;
-
-					&:after {
-						position: absolute;
-						content: "";
-						display: block;
-						width: 0;
-						height: 0;
-						border-left: 5px solid transparent;
-						border-right: 5px solid transparent;
-						border-top: 5px solid #092550;
-						right: 20px;
-						top: calc(50% - 2px);
-					}
-
-					&.daterange:before {
-						content: "";
-						margin-right: 10px;
-						display: inline-block;
-						vertical-align: top;
-						width: 16px;
-						height: 18px;
-						background: url(#{$imgPath}/icon-searchform-daterange.png) no-repeat center center;
-					}
-
-					&.sort:before {
-						content: "";
-						margin-right: 10px;
-						display: inline-block;
-						vertical-align: top;
-						width: 21px;
-						height: 19px;
-						background: url(#{$imgPath}/icon-searchform-sort.png) no-repeat center center;
-					}
-
-					&.active {
-						z-index: 202;
-						// border: 1px solid $color__background-sig;
-					}
+					width: 0;
+					height: 0;
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					border-top: 5px solid #092550;
+					right: 20px;
+					top: calc(50% - 2px);
 				}
 
-				.search-option-label.sort+.option-list {
-					.option-value {
-						padding: 0 51px;
-					}
+				&.daterange:before {
+					content: "";
+					margin-right: 10px;
+					display: inline-block;
+					vertical-align: top;
+					width: 16px;
+					height: 18px;
+					background: url(#{$imgPath}/icon-searchform-daterange.png) no-repeat center center;
 				}
 
-				.option-list {
-					display: none;
-					position: relative;
-					width: 100%;
-					list-style: none;
-					padding: 13px 0;
-					margin-top: 5px;
-					z-index: 201;
-					background: #fff;
+				&.sort:before {
+					content: "";
+					margin-right: 10px;
+					display: inline-block;
+					vertical-align: top;
+					width: 21px;
+					height: 19px;
+					background: url(#{$imgPath}/icon-searchform-sort.png) no-repeat center center;
+				}
 
-					&:before {
-						content: "";
-						position: absolute;
-						top: 0px;
-						width: 90%;
-						margin-left: auto;
-						margin-right: auto;
-						left: 0;
-						right: 0;
-						height: 1px;
-						background: $color__border;
-					}
-
-					li:hover {
-						background-color: #f3f3f3;
-					}
-
-					.option-value {
-						display: block;
-						width: 100%;
-						// margin-bottom: -1px;
-						padding: 0 46px;
-						font-size: 18px;
-						background: none;
-						text-align: left;
-						line-height: 35px;
-					}
+				&.active {
+					z-index: 202;
+					// border: 1px solid $color__background-sig;
 				}
 			}
+
+			.search-option-label.sort+.option-list {
+				.option-value {
+					padding: 0 51px;
+				}
+			}
+
+			.option-list {
+				display: none;
+				position: relative;
+				width: 100%;
+				list-style: none;
+				padding: 13px 0;
+				margin-top: 5px;
+				z-index: 201;
+				background: #fff;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0px;
+					width: 90%;
+					margin-left: auto;
+					margin-right: auto;
+					left: 0;
+					right: 0;
+					height: 1px;
+					background: $color__border;
+				}
+
+				li:hover {
+					background-color: #f3f3f3;
+				}
+
+				.option-value {
+					display: block;
+					width: 100%;
+					// margin-bottom: -1px;
+					padding: 0 46px;
+					font-size: 18px;
+					background: none;
+					text-align: left;
+					line-height: 35px;
+				}
+			}
+
 		}
 
 
 		// 검색어 입력
 		.search-keywords {
-			width: 510px;
+			flex: 2;
 
 			.search-keyword-wrap {
 				position: relative;
@@ -521,12 +857,12 @@ header.search-opened {
 		// width: 78%;
 		width: 700px;
 		background: #fff;
-		z-index: 100;
 		box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 		border-radius: 3px;
 		left: 50%;
 		transform: translateX(-50%);
 		margin-top: 30px;
+		z-index: 501;
 
 		.calendar-wrap {
 			text-align: center;
@@ -577,6 +913,70 @@ header.search-opened {
 			button+button {
 				margin-left: 20px;
 			}
+		}
+	}
+}
+
+// 검색 - 데스크탑
+@include media("<=desktop") {
+
+	#header-search-box {
+		min-height: 222px;
+		display: none;
+		padding: 20px 0;
+
+		// 검색박스
+		#search-box {
+			gap: 15px;
+
+			.search-option {
+
+				.search-option-label {
+					height: 36px;
+					font-size: 16px;
+				}
+
+				.option-list {
+					padding: 9px 0;
+
+					.option-value {
+						font-size: 16px;
+						line-height: 28px;
+					}
+				}
+			}
+
+			// 검색어 입력
+			.search-keywords {
+				.search-keyword-wrap {
+					input[name='s'] {
+						font-size: 16px;
+						padding: 13px 80px 13px 25px;
+					}
+
+					#search-submit {
+						background-size: auto 19px;
+					}
+				}
+			}
+		}
+
+		// 태그
+		.tags {
+			top: 50px;
+
+			a {
+				font-size: 14px;
+			}
+
+			a+a {
+				margin-left: 15px;
+			}
+		}
+
+		// 달력
+		.search-date-picker-wrap {
+			margin-top: -30px;
 		}
 	}
 }

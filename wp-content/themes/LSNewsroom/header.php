@@ -37,14 +37,23 @@ if (is_home()) {
 			wp_nav_menu([
 				'container' => 'nav',
 				'theme_location' => 'primary',
-				'container_id' => 'header-gnb'
+				'container_id' => 'header-gnb',
+				'walker' => new LSNavWalker,
 			]);
 			?>
 
-			<div class="continaer" id="header-right">
+
+
+			<div class="container" id="header-right">
 				<div class="open-search">
 					<a href="#" class="btn-search-toggle hidden-text">검색창 토글</a>
 				</div>
+
+				<a href="#" id="btn-mob-menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
 
 				<div class="lscns-link">
 					<a href="https://www.lscns.co.kr/" target="_blank" class="hidden-text">LS전선 바로가기</a>
@@ -54,26 +63,22 @@ if (is_home()) {
 		<div id="header-search-box">
 			<div class="container-small">
 				<form id="gnbSearchFrm" method="get" action="<?php echo site_url() ?>">
-					<input type="hidden" name="d" value="">
-					<input type="hidden" name="o" value="">
 					<div id="search-box">
-						<div class="search-option-wrap">
-							<div class="search-option">
-								<button type="button" class="search-option-label daterange" data-option="d">전체</button>
-								<ul class="option-list">
-									<li><button type="button" class="option-value" data-value="all">전체</button></li>
-									<li><button type="button" class="option-value" data-value="month">최근 1개월</button></li>
-									<li><button type="button" class="option-value" data-value="year">최근 1년</button></li>
-									<li><button type="button" class="option-value date-picker" data-value="term">직접입력</button></li>
-								</ul>
-							</div>
-							<div class="search-option">
-								<button type="button" class="search-option-label sort" data-option="o">최신순</button>
-								<ul class="option-list">
-									<li><button type="button" class="option-value" data-value="latest">최신순</button></li>
-									<li><button type="button" class="option-value" data-value="relevance">관련순</button></li>
-								</ul>
-							</div>
+						<div class="search-option">
+							<button type="button" class="search-option-label daterange" data-option="d">전체</button>
+							<ul class="option-list">
+								<li><button type="button" class="option-value" data-value="all">전체</button></li>
+								<li><button type="button" class="option-value" data-value="month">최근 1개월</button></li>
+								<li><button type="button" class="option-value" data-value="year">최근 1년</button></li>
+								<li><button type="button" class="option-value date-picker" data-value="term">직접입력</button></li>
+							</ul>
+						</div>
+						<div class="search-option">
+							<button type="button" class="search-option-label sort" data-option="o">최신순</button>
+							<ul class="option-list">
+								<li><button type="button" class="option-value" data-value="latest">최신순</button></li>
+								<li><button type="button" class="option-value" data-value="relevance">관련순</button></li>
+							</ul>
 						</div>
 						<div class="search-keywords">
 							<div class="search-keyword-wrap">
@@ -109,6 +114,8 @@ if (is_home()) {
 							<button type="button" class="btn_cancel" id="select-date-cancel">선택취소</button>
 						</div>
 					</div>
+					<input type="hidden" name="d" value="">
+					<input type="hidden" name="o" value="">
 				</form>
 			</div>
 		</div>

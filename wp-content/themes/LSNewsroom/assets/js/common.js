@@ -42,7 +42,8 @@
 			},
 
 			resetGnb: function () {
-				$('#header-gnb').removeClass('active')
+				$('header').removeClass('menu-opened')
+				$('header').removeClass('search-opened')
 				$('#header-gnb > ul > li > a').removeClass('on')
 				$(document).off('click.gnb')
 				$(document).off('click.mob-gnb')
@@ -96,7 +97,7 @@
 
 							$('#header-gnb')
 								.stop(true, true)
-								.slideUp(400, function () {
+								.slideUp(300, 'easeInQuad', function () {
 									$('#header-wrap').removeClass('active')
 									$('#header-gnb > ul > li > a.gnb-fold').removeClass('on')
 									$('#header-gnb > ul > li > ul.sub-menu').hide()
@@ -107,7 +108,7 @@
 							$(this).addClass('open')
 							$('#header-gnb')
 								.stop(true, true)
-								.slideDown()
+								.slideDown(300, 'easeOutQuad')
 						}
 						return false
 					})
@@ -120,12 +121,9 @@
 						'click.gnb',
 						'#header-gnb > ul > li > a:not(.on)',
 						function () {
-							$('#header-wrap').addClass('active')
+							$('header').addClass('menu-opened')
 							$('#header-gnb > ul > li > a').removeClass('on')
-							$('.sub-menu').show()
 							$(this).addClass('on')
-
-							$('#header-gnb').addClass('active')
 							return false
 						}
 					)
@@ -134,10 +132,8 @@
 						'click.gnb',
 						'#header-gnb > ul > li > a.on',
 						function () {
-							$('#header-wrap').removeClass('active')
+							$('header').removeClass('menu-opened')
 							$(this).removeClass('on')
-							$('.sub-menu').hide()
-							$('#header-gnb').removeClass('active')
 							return false
 						}
 					)
@@ -197,18 +193,18 @@
 						'click.tabletsearch',
 						'.btn-search-toggle',
 						function () {
-							if ($('#header-search').is(':visible')) {
-								$('#header-wrap').removeClass('active')
-								$('#header-gnb').show()
+							if ($('#header-search-box').is(':visible')) {
+								$('header').removeClass('search-opened')
+								// $('#header-gnb').show()
 								$('#header-gnb > ul > li > a').removeClass('on')
-								$('#header-search').hide()
+								// $('#header-search').hide()
 							} else {
-								$('#header-wrap').addClass('active')
-								$('#header-gnb').hide()
-								$('#header-search').show()
-								$('.sub-menu').hide()
+								$('header').addClass('search-opened')
+								// $('#header-gnb').hide()
+								// $('#header-search').show()
+								// $('.sub-menu').hide()
 								// $("#menu-gnb").hide();
-								$('#search-input').focus()
+								// $('#search-input').focus()
 							}
 
 							return false
@@ -289,10 +285,7 @@
 
 		Layout.init()
 
-		/*******************
-		 * 맨위로
-		 */
-
+		// 맨 위로
 		$(document).on('click', '.go-to-top', function () {
 			$('html, body').animate({ scrollTop: 0 }, 400)
 			$('#header-logo a').focus()
@@ -360,34 +353,30 @@
 		 * 헤더 검색
 		 *
 		 */
-		// 검색창 열기
-		// $(document).on('click', '#header-wrap .btn-search-toggle', function () {
-		// 	$(this).toggleClass('opened')
-		// 	// 서브 메뉴가 열려있으면 메뉴 닫기
-		// 	$('.sub-menu').hide()
-		// 	$('#header-search').toggle()
-		// 	return false
-		// })
 
 		// 검색 옵션 라벨 클릭 시 하위 리스트 열기
-		$(document).on('click', '#header-search .search-option-label', function () {
-			if ($(this).hasClass('active')) {
-				$(this).removeClass('active')
-			} else {
-				$(this).addClass('active')
+		$(document).on(
+			'click',
+			'#header-search-box .search-option-label',
+			function () {
+				if ($(this).hasClass('active')) {
+					$(this).removeClass('active')
+				} else {
+					$(this).addClass('active')
+				}
+
+				$(this)
+					.siblings('.option-list')
+					.toggle()
+
+				$('.search-date-picker-wrap').hide()
 			}
-
-			$(this)
-				.siblings('.option-list')
-				.toggle()
-
-			$('.search-date-picker-wrap').hide()
-		})
+		)
 
 		// 옵션 클릭 시
 		$(document).on(
 			'click',
-			'#header-search .option-value:not(.date-picker)',
+			'#header-search-box .option-value:not(.date-picker)',
 			function () {
 				var text = $(this).text()
 				var option_value = $(this).data('value')
@@ -413,7 +402,7 @@
 		)
 
 		// 키워드 삭제
-		$(document).on('click', '#header-search #del-keyword', function () {
+		$(document).on('click', '#header-search-box #del-keyword', function () {
 			$(this)
 				.siblings('label')
 				.find('input[name="s"]')
@@ -424,18 +413,18 @@
 		})
 
 		// 검색어 입력시 모두지우기 버튼
-		$(document).on('keyup', '#header-search input[name="s"]', function () {
+		$(document).on('keyup', '#header-search-box input[name="s"]', function () {
 			if ($(this).val() != '') {
-				$('#header-search #del-keyword').show()
+				$('#header-search-box #del-keyword').show()
 			} else {
-				$('#header-search #del-keyword').hide()
+				$('#header-search-box #del-keyword').hide()
 			}
 		})
 
 		// 기간 설정 클릭시
 		$(document).on(
 			'click',
-			'#header-search .option-value.date-picker',
+			'#header-search-box .option-value.date-picker',
 			function () {
 				$(this)
 					.closest('.search-option-wrap')
@@ -500,7 +489,7 @@
 		)
 
 		// 날짜 설정 완료
-		$(document).on('click', '#header-search #select-date', function () {
+		$(document).on('click', '#header-search-box #select-date', function () {
 			var date_from = $('#date_from').val()
 			var date_to = $('#date_to').val()
 			var date_range = $('#date_range').val()
