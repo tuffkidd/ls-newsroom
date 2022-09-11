@@ -81,6 +81,7 @@ Thumbs.db
 !package.json
 !package-lock.json
 !.htaccess
+!.babelrc.json
 
 # 프로젝트 관련, 테마, 플러그인 허용
 !wp-content/themes/LSNewsroom/
