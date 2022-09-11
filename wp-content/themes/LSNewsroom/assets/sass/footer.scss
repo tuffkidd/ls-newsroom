@@ -86,47 +86,6 @@ footer {
 			}
 		}
 	}
-
-	.go-to-top {
-		display: none;
-		position: fixed;
-		left: calc(50% + 700px);
-		// right: 80px;
-		bottom: 170px;
-		font-size: 0;
-		width: 55px;
-		height: 55px;
-		background: #000;
-		border-radius: calc(55px / 2);
-
-		&:after {
-			position: absolute;
-			content: "";
-			display: block;
-			// left: calc(50% - 1px);
-			// top: calc(50% - 8px);
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			width: 3px;
-			height: 25px;
-			background: #fff;
-		}
-
-		&:before {
-			position: absolute;
-			content: "";
-			display: block;
-			top: 50%;
-			left: 50%;
-			border-right: 3px solid #fff;
-			border-bottom: 3px solid #fff;
-			transform: translate(-50%, -70%) rotate(-135deg);
-			width: 13px;
-			height: 13px;
-			background-color: transparent;
-		}
-	}
 }
 
 // 푸터 - 데스크탑
@@ -183,47 +142,6 @@ footer {
 						background-size: 44px;
 					}
 				}
-			}
-		}
-
-		.go-to-top {
-			display: none;
-			position: fixed;
-			left: calc(50% + 700px);
-			// right: 80px;
-			bottom: 170px;
-			font-size: 0;
-			width: 55px;
-			height: 55px;
-			background: #000;
-			border-radius: calc(55px / 2);
-
-			&:after {
-				position: absolute;
-				content: "";
-				display: block;
-				// left: calc(50% - 1px);
-				// top: calc(50% - 8px);
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				width: 3px;
-				height: 25px;
-				background: #fff;
-			}
-
-			&:before {
-				position: absolute;
-				content: "";
-				display: block;
-				top: 50%;
-				left: 50%;
-				border-right: 3px solid #fff;
-				border-bottom: 3px solid #fff;
-				transform: translate(-50%, -70%) rotate(-135deg);
-				width: 13px;
-				height: 13px;
-				background-color: transparent;
 			}
 		}
 	}
@@ -331,6 +249,94 @@ footer {
 					}
 				}
 			}
+		}
+	}
+}
+
+
+// 맨위로
+.go-to-top {
+	display: none;
+	position: fixed;
+	left: calc(50% + 700px);
+	// right: 80px;
+	bottom: 246px;
+	font-size: 0;
+	background: #000;
+	width: 55px;
+	height: 55px;
+	border-radius: calc(55px / 2);
+
+	&:after {
+		position: absolute;
+		content: "";
+		display: block;
+		// left: calc(50% - 1px);
+		// top: calc(50% - 8px);
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 3px;
+		border-radius: 1px;
+		height: 25px;
+		background: #fff;
+	}
+
+	&:before {
+		position: absolute;
+		content: "";
+		display: block;
+		top: 50%;
+		left: 50%;
+		border-right: 3px solid #fff;
+		border-bottom: 3px solid #fff;
+		transform: translate(-50%, -70%) rotate(-135deg);
+		width: 13px;
+		height: 13px;
+		border-radius: 1px;
+		background-color: transparent;
+	}
+}
+
+@include media("<=1500px") {
+	.go-to-top {
+		left: auto;
+		right: 50px;
+	}
+}
+
+@include media("<=tablet") {
+	.go-to-top {
+		// transform: translateY(-100px);
+		bottom: 60px;
+		left: auto;
+		right: 16px;
+		width: 48px;
+		height: 48px;
+		border-radius: calc(48px / 2);
+		transition: all 0.3s;
+
+		&.regen {
+			transform: translateY(-150px);
+		}
+
+
+		&:after {
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: 3px;
+			height: 18px;
+			background: #fff;
+		}
+
+		&:before {
+			border-right: 3px solid #fff;
+			border-bottom: 3px solid #fff;
+			transform: translate(-50%, -60%) rotate(-135deg);
+			width: 10px;
+			height: 10px;
+			background-color: transparent;
 		}
 	}
 }

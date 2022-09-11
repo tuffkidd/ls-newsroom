@@ -164,21 +164,14 @@
 					// 모바일
 					$(document).on('click.mobsearch', '.btn-search-toggle', function () {
 						if ($('#header-gnb').is(':visible')) {
-							$('#header-gnb').hide()
+							$('header').removeClass('search-opened')
 							$('#header-gnb > ul > li > a').removeClass('on')
-							$('#header-gnb > ul > li > ul.sub-menu').hide()
-							$('#btn-mob-menu').removeClass('open')
 						}
 
-						if ($('#header-search').is(':visible')) {
-							console.log('header search visible')
-							$('#header-wrap').removeClass('active')
-							$('#header-search').hide()
+						if ($('#header-search-box').is(':visible')) {
+							$('header').removeClass('search-opened')
 						} else {
-							console.log('header search no')
-							$('#header-search').show()
-							$('#search-input').focus()
-							$('#header-wrap').addClass('active')
+							$('header').addClass('search-opened')
 						}
 
 						return false
@@ -195,16 +188,9 @@
 						function () {
 							if ($('#header-search-box').is(':visible')) {
 								$('header').removeClass('search-opened')
-								// $('#header-gnb').show()
 								$('#header-gnb > ul > li > a').removeClass('on')
-								// $('#header-search').hide()
 							} else {
 								$('header').addClass('search-opened')
-								// $('#header-gnb').hide()
-								// $('#header-search').show()
-								// $('.sub-menu').hide()
-								// $("#menu-gnb").hide();
-								// $('#search-input').focus()
 							}
 
 							return false
@@ -218,22 +204,6 @@
 						$('header').toggleClass('search-opened')
 					})
 				}
-
-				$(document).on('click', '.btn-search-close', function () {
-					$('#header-search-open').css({ display: 'inline-block' })
-					$('#header-search').hide()
-					$('#header-gnb > ul > li > a').removeClass('on') // 메뉴 on 비활성화
-					$('#header-gnb ul.sub-menu').hide() // 서브메뉴 비활성화
-					// $("#header-gnb").show();
-					$('#header-gnb-close').hide()
-					$('#header-gnb-open').css({ display: 'inline-block' })
-					return false
-				})
-
-				// $(document).on('click', '.close-search-box', function () {
-				// 	$('#header-wrap').removeClass('active')
-				// 	$('#header-search').hide()
-				// })
 
 				$(document).on('submit', '#gnbSearchFrm', function () {
 					if ($("#gnbSearchFrm input[name='s']").val() == '') {
@@ -294,14 +264,24 @@
 
 		$(window).scroll(function () {
 			if ($(window).innerWidth() > 768) {
-				if ($(window).scrollTop() > 400) {
+				if ($(window).scrollTop() > 500) {
 					$('.go-to-top').fadeIn()
 				} else {
 					$('.go-to-top').fadeOut()
 				}
 			} else if ($(window).innerWidth() <= 768) {
-				if ($(window).scrollTop() > 100) {
+				if ($(window).scrollTop() > 300) {
 					$('.go-to-top').fadeIn()
+					var scrollBottom =
+						$(document).height() - $(window).height() - $(window).scrollTop()
+
+					if (scrollBottom <= 120) {
+						// $('.go-to-top').css({ bottom: '210px' })
+						$('.go-to-top').addClass('regen')
+					} else {
+						// $('.go-to-top').css({ bottom: '110px' })
+						$('.go-to-top').removeClass('regen')
+					}
 				} else {
 					$('.go-to-top').fadeOut()
 				}

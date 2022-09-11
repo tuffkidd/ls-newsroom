@@ -61,24 +61,26 @@ if (is_home()) {
 			</div>
 		</div>
 		<div id="header-search-box">
-			<div class="container-small">
-				<form id="gnbSearchFrm" method="get" action="<?php echo site_url() ?>">
-					<div id="search-box">
-						<div class="search-option">
-							<button type="button" class="search-option-label daterange" data-option="d">전체</button>
-							<ul class="option-list">
-								<li><button type="button" class="option-value" data-value="all">전체</button></li>
-								<li><button type="button" class="option-value" data-value="month">최근 1개월</button></li>
-								<li><button type="button" class="option-value" data-value="year">최근 1년</button></li>
-								<li><button type="button" class="option-value date-picker" data-value="term">직접입력</button></li>
-							</ul>
-						</div>
-						<div class="search-option">
-							<button type="button" class="search-option-label sort" data-option="o">최신순</button>
-							<ul class="option-list">
-								<li><button type="button" class="option-value" data-value="latest">최신순</button></li>
-								<li><button type="button" class="option-value" data-value="relevance">관련순</button></li>
-							</ul>
+			<form id="gnbSearchFrm" method="get" action="<?php echo site_url() ?>">
+				<div class="container-small">
+					<div class="search-box-wrap">
+						<div id="search-box">
+							<div class="search-option">
+								<button type="button" class="search-option-label daterange" data-option="d">전체</button>
+								<ul class="option-list">
+									<li><button type="button" class="option-value" data-value="all">전체</button></li>
+									<li><button type="button" class="option-value" data-value="month">최근 1개월</button></li>
+									<li><button type="button" class="option-value" data-value="year">최근 1년</button></li>
+									<li><button type="button" class="option-value date-picker" data-value="term">직접입력</button></li>
+								</ul>
+							</div>
+							<div class="search-option">
+								<button type="button" class="search-option-label sort" data-option="o">최신순</button>
+								<ul class="option-list">
+									<li><button type="button" class="option-value" data-value="latest">최신순</button></li>
+									<li><button type="button" class="option-value" data-value="relevance">관련순</button></li>
+								</ul>
+							</div>
 						</div>
 						<div class="search-keywords">
 							<div class="search-keyword-wrap">
@@ -116,8 +118,8 @@ if (is_home()) {
 					</div>
 					<input type="hidden" name="d" value="">
 					<input type="hidden" name="o" value="">
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
 
 	</header>

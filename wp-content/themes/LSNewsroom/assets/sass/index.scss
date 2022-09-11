@@ -553,7 +553,7 @@
 	.medialibrary-box {
 		font-size: 0;
 		display: grid;
-		grid-template-columns: repeat(2, minmax(auto, 50%));
+		grid-template-columns: repeat(2, minmax(auto, 51%));
 
 		.img {
 			width: 100%;
@@ -642,8 +642,8 @@
 	}
 }
 
-// 미디어라이브러리 - 데스크탑
-@include media("<=desktop") {
+// 미디어라이브러리 - 컨테이너
+@include media("<=container") {
 
 	.main-medialibrary {
 		margin: 80px 0 0;
@@ -866,7 +866,7 @@
 // 회사소개 - 태블릿
 @include media("<=tablet") {
 	.main-about-lscns {
-		margin: 40px 0 60px 0;
+		margin: 40px 0 75px 0;
 		height: 315px;
 
 		>div {
