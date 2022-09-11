@@ -1,0 +1,32 @@
+{
+	"name": "i4u/lscns",
+	"description": "LSCNS Newsroom",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org",
+			"only": ["wpackagist-plugin/*"]
+		}
+	],
+	"require": {
+		"wpackagist-plugin/all-in-one-wp-security-and-firewall": "*",
+		"wpackagist-plugin/disable-comments": "*",
+		"wpackagist-plugin/disable-json-api": "*",
+		"wpackagist-plugin/disable-xml-rpc-pingback": "*",
+		"wpackagist-plugin/post-views-counter": "*",
+		"wpackagist-plugin/password-hash": "*",
+		"wpackagist-plugin/prevent-xss-vulnerability": "*",
+		"wpackagist-plugin/simple-history": "*",
+		"wpackagist-plugin/slim-seo": "*"
+	},
+	"autoload": {
+		"psr-0": {
+			"Acme": "src/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
+}

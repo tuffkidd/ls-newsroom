@@ -87,14 +87,11 @@
 					// console.log("reseted");
 					$(document).on('click.mob-gnb', '#btn-mob-menu', function (e) {
 						// e.preventDefault();
-						if ($('#header-search').is(':visible')) {
-							$('#header-wrap').removeClass('active')
-							$('#header-search').hide()
+						if ($('#header-search-box').is(':visible')) {
+							$('header').removeClass('search-opened')
 						}
 
 						if ($('#header-gnb').is(':visible')) {
-							$('#header-search').hide()
-
 							$('#header-gnb')
 								.stop(true, true)
 								.slideUp(300, 'easeInQuad', function () {
@@ -164,8 +161,10 @@
 					// 모바일
 					$(document).on('click.mobsearch', '.btn-search-toggle', function () {
 						if ($('#header-gnb').is(':visible')) {
-							$('header').removeClass('search-opened')
+							$('#header-wrap').removeClass('active')
+							$('#header-gnb').hide()
 							$('#header-gnb > ul > li > a').removeClass('on')
+							$('#btn-mob-menu').removeClass('open')
 						}
 
 						if ($('#header-search-box').is(':visible')) {
