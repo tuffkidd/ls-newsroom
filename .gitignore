@@ -77,6 +77,9 @@ Thumbs.db
 !README.md
 !CHANGELOG.md
 !composer.json
+!composer.lock
+!package.json
+!package-lock.json
 !.htaccess
 
 # 프로젝트 관련, 테마, 플러그인 허용
