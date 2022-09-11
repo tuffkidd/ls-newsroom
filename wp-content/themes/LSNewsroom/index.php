@@ -17,7 +17,7 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 
 ?>
 <?php if (is_plugin_active("ls-main-slider/index.php")) { ?>
-	<section class="main-slider-section">
+	<section class="main-slider-section" id="content">
 		<div class="container">
 			<div class="swiper" id="main-slider">
 				<div class="swiper-wrapper">
@@ -107,8 +107,7 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 						$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
 						<div class="latest-content-1-item">
 							<a href="<?php echo get_the_permalink() ?>">
-								<img src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail', false)[0]; ?>">
-
+								<?php the_post_thumbnail('post-list') ?>
 							</a>
 							<div class="post-meta">
 								<div class="post-title">

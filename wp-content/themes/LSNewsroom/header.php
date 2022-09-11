@@ -23,7 +23,7 @@ if (is_home()) {
 </head>
 
 <body <?php body_class(); ?> data-page="<?php echo $onPage; ?>">
-	<a id="skip-link" href="#content-wrap"><?php _e('본문 바로가기', 'spc'); ?></a>
+	<a id="skip-link" href="#content"><?php _e('본문 바로가기', 'spc'); ?></a>
 	<?php wp_body_open(); ?>
 	<header>
 		<div id="header-wrap">

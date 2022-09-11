@@ -1,0 +1,110 @@
+.pagination {
+	text-align: center;
+
+	.page-links {
+		font-size: 0;
+
+		.page-numbers:not(.prev):not(.next) {
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			min-width: 42px;
+			height: 42px;
+			border-radius: calc(42px /2);
+			font-size: 16px;
+			color: #000;
+
+			&.current {
+				background: $color__background-sig;
+				color: #fff;
+			}
+		}
+
+		.prev,
+		.next {
+			font-size: 14px;
+			border: 1px solid #e8e8e8;
+			border-radius: 18px;
+			padding: 8px 18px;
+			color: #212121;
+		}
+
+		.prev {
+			span {
+				position: relative;
+				padding-left: 15px;
+
+				&:before {
+					position: absolute;
+					content: "";
+					display: block;
+					width: 7px;
+					height: 7px;
+					border-right: 1px solid #212121;
+					border-bottom: 1px solid #212121;
+					top: 50%;
+					left: 0;
+					transform: translate(0, -50%) rotate(135deg);
+				}
+			}
+		}
+
+		.next {
+			span {
+				position: relative;
+				padding-right: 15px;
+
+				&:after {
+					position: absolute;
+					content: "";
+					display: block;
+					width: 7px;
+					height: 7px;
+					border-right: 1px solid #212121;
+					border-bottom: 1px solid #212121;
+					top: 50%;
+					right: 0;
+					transform: translate(0, -50%) rotate(-45deg);
+				}
+			}
+		}
+	}
+}
+
+@include media("<=tablet") {
+	.pagination {
+		.page-links {
+			.page-numbers:not(.prev):not(.next) {
+				min-width: 30px;
+				height: 30px;
+				border-radius: calc(30px /2);
+				font-size: 11px;
+			}
+
+			.prev,
+			.next {
+				font-size: 11px;
+				border-radius: 13px;
+				padding: 4px 9px;
+			}
+
+			.prev {
+				span {
+					&:before {
+						width: 5px;
+						height: 5px;
+					}
+				}
+			}
+
+			.next {
+				span {
+					&:after {
+						width: 5px;
+						height: 5px;
+					}
+				}
+			}
+		}
+	}
+}

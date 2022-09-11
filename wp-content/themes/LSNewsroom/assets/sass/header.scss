@@ -105,10 +105,13 @@ header.search-opened {
 		top: 0;
 		left: 0;
 		right: 0;
-
 		display: flex;
 		justify-content: end;
 		align-items: center;
+
+		#btn-mob-menu {
+			display: none;
+		}
 
 		.open-search {
 			display: flex;
@@ -303,9 +306,6 @@ header.search-opened {
 		#header-right {
 			margin-right: 30px;
 
-			#btn-mob-menu {
-				display: none;
-			}
 
 			.lscns-link {
 				a {
