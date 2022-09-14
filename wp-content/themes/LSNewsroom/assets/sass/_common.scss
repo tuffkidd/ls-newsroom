@@ -42,6 +42,7 @@ h5 {
 
 h6 {
 	font-size: $fontsize__h6;
+	line-height: 1em;
 }
 
 a {
@@ -92,6 +93,7 @@ button {
 	max-width: 1040px;
 	margin: 0 auto;
 }
+
 
 @include media("<=container") {
 

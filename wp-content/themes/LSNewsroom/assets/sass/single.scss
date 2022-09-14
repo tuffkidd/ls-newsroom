@@ -1,0 +1,718 @@
+.entry-wrap {
+	padding: 100px 0;
+	max-width: 770px;
+	margin: 0 auto;
+
+	.entry-header {
+		border-bottom: 1px solid $color__border;
+		position: relative;
+
+		padding: 0 0 20px 0;
+
+		.entry-header-title {
+			margin: 0 0 40px 0;
+			line-height: 54px;
+		}
+
+		.entry-meta {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+
+			.entry-categories {
+				position: relative;
+				margin-right: 15px;
+				padding-right: 15px;
+
+				a {
+					display: block;
+					color: #2c2c2c;
+					font-size: 16px;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					width: 1px;
+					height: 19px;
+					background-color: #878787;
+					right: 0;
+					top: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			.entry-top-date {
+				color: #2c2c2c;
+				font-size: 16px;
+			}
+		}
+	}
+
+	.entry-body {
+		padding: 52px 0;
+
+		>* {
+			letter-spacing: -0.05em;
+		}
+
+		h2 {
+			margin: 50px 0;
+		}
+
+		h3 {
+			margin: 50px 0 10px;
+		}
+
+		.entry-body-wrap {
+			max-width: 770px;
+			margin: auto;
+
+			>*:first-child {
+				margin-top: 0;
+			}
+
+			p {
+				font-weight: 300;
+				font-size: $fontsize__content;
+				line-height: 35px;
+				margin: 10px 0;
+			}
+
+			figure {
+				margin: 50px 0;
+			}
+
+			b,
+			strong {
+				font-weight: 700;
+			}
+
+
+			p {
+				>img {
+					max-width: 100%;
+					width: 100%;
+					height: auto;
+				}
+			}
+
+
+			ol,
+			ul {
+				padding-left: 30px;
+			}
+
+			>ol,
+			>ul {
+
+
+				>li {
+					line-height: 36px;
+					font-size: 21px;
+
+					>ol,
+					>ul {
+						>li {
+							line-height: 31px;
+							font-size: 19px;
+
+							>ol,
+							>ul {
+								>li {
+									line-height: 28px;
+									font-size: 17px;
+								}
+							}
+						}
+					}
+
+					>ol {
+						list-style-type: upper-roman;
+
+						>li {
+							>ol {
+								list-style-type: lower-alpha;
+							}
+						}
+					}
+				}
+			}
+
+			.wp-block-gallery {
+				ul {
+					margin: 0;
+
+					li {
+
+						&:before {
+							display: none;
+						}
+					}
+				}
+			}
+
+			sub,
+			sup {
+				font-size: 75%;
+				line-height: 0;
+				position: relative;
+				vertical-align: baseline;
+			}
+
+			sub {
+				bottom: -0.25em;
+			}
+
+			sup {
+				top: -0.5em;
+			}
+
+			a {
+				color: #2271b1;
+				// text-decoration: underline;
+			}
+
+
+			.wp-block-image {
+				&.no-margin {
+					font-size: 0;
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				margin: 50px 0;
+
+				figcaption {
+					margin-top: 14px;
+					font-size: 14px;
+					color: #606060; // 웹접근성 위배
+					// color: #555555;
+				}
+
+				img {
+					height: auto;
+				}
+			}
+
+			.wp-block-columns {
+				.wp-block-image {
+					margin: 0;
+				}
+			}
+
+			.wp-block-image.alignfull,
+			.wp-block-image.alignwide {
+				margin-left: -150px;
+				margin-right: -150px;
+			}
+
+			.wp-block-cover {
+				&.alignfull {
+					width: 100vw;
+					position: relative;
+					margin-left: -50vw;
+					margin-right: -50vw;
+					left: 50%;
+					right: 50%;
+				}
+
+				p {
+					color: #fff;
+					line-height: 2em;
+				}
+			}
+
+			.wp-block-quote,
+			.wp-block-pullquote {
+				border-left: none;
+				margin: 60px 0;
+				padding-left: 0;
+				text-align: center;
+				// background: #f5f5f5;
+				width: 100%;
+				line-height: 1.6;
+				padding: 25px 0;
+				color: #333;
+				font-style: italic;
+				position: relative;
+				background: #f7f7f7;
+				border-radius: 10px;
+
+				p {
+					padding: 0 20px;
+					margin: 0;
+				}
+
+				&:before {
+					content: "";
+					display: block;
+					width: 27px;
+					height: 20px;
+					position: absolute;
+					left: 58px;
+					top: -5px;
+					background: url(#{$imgPath}/quote-left.png) no-repeat center center;
+				}
+
+				&:after {
+					content: "";
+					display: block;
+					width: 27px;
+					height: 20px;
+					position: absolute;
+					right: 58px;
+					bottom: -5px;
+					background: url(#{$imgPath}/quote-right.png) no-repeat center center;
+				}
+			}
+
+			.wp-block-pullquote {
+				border: none;
+			}
+
+			.wp-block-video {
+				video {
+					width: 100%;
+				}
+			}
+
+			/** costom class **/
+			.box.dotted {
+				padding: 5px 10px;
+				border: 1px dashed #444;
+			}
+
+			/* Gutenberg Tweaks */
+			.wp-block-image .aligncenter,
+			.wp-block-image .alignleft,
+			.wp-block-image .alignright,
+			.wp-block-image.is-resized {
+				margin: auto;
+			}
+
+			.wp-block-image .alignleft {
+				margin: 0 30px 7px 0;
+			}
+
+			.wp-block-image .alignright {
+				margin: 0 0 7px 30px;
+			}
+
+			// 코드 블럭
+			.wp-block-code {
+				overflow-x: auto;
+			}
+
+			// 워드프레스 임베드
+			.wp-block-embed-wordpress {
+				overflow-x: auto;
+			}
+
+			.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+				padding: 10px;
+				background: rgba(255, 255, 255, 0.5);
+				color: #606060;
+			}
+
+			.wp-block-embed {
+
+				embed,
+				iframe {
+					border-radius: 25px;
+					overflow: hidden;
+				}
+			}
+
+			.wp-block-image {
+				border-radius: 25px;
+				overflow: hidden;
+			}
+
+			.wp-block-cover .wp-block-cover-image-text,
+			.wp-block-cover .wp-block-cover-text,
+			.wp-block-cover h2,
+			.wp-block-cover-image .wp-block-cover-image-text,
+			.wp-block-cover-image .wp-block-cover-text,
+			.wp-block-cover-image h2 {
+				max-width: 770px;
+			}
+
+			.wp-block-table {
+				// overflow-x: initial;
+
+				&.is-style-stripes {
+					border-bottom: 0;
+
+					tbody {
+						tr:nth-child(odd) {
+							background-color: #f5f5f5;
+						}
+					}
+				}
+
+				thead {
+					border-bottom: 1px double $color__border;
+
+					tr {
+						th {
+							background-color: #ececec;
+						}
+					}
+				}
+
+				tfoot {
+					border-top: 1px double $color__border;
+				}
+
+				figcaption {
+					font-size: 14px;
+					color: #606060;
+					padding: 20px;
+				}
+			}
+
+			.wp-block-table th {
+				border: 1px solid $color__border;
+				border-bottom: 3px double $color__border;
+			}
+
+			.wp-block-table td {
+				border: 1px solid $color__border;
+			}
+
+			// 추가 블럭 : 비디오 자막
+			.wp-block-sss-extend-block-video-subtitle {
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+
+				a.toggle-video-subtitle {
+					font-size: 16px;
+					display: block;
+					float: right;
+					position: relative;
+					margin-bottom: 10px;
+				}
+
+				.video-subtitle {
+
+					display: none;
+					border: 1px solid #e8e8e8;
+					border-radius: 5px;
+					font-family: inherit;
+					line-height: 1.8;
+					font-size: 0.8em;
+					padding: 10px;
+					box-sizing: border-box;
+					white-space: normal;
+					word-wrap: break-word;
+					width: 100%;
+					overflow-x: auto;
+					height: 100px;
+					background-color: #F7F7F7;
+
+					&:before {
+						content: "영상 자막";
+						position: absolute;
+						text-indent: -9999px;
+						left: 0;
+						font-size: 0;
+						top: 0;
+
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+// 데스크탑
+@include media("<=desktop") {
+	.entry-wrap {
+		.entry-header {
+			.entry-header-title {
+				margin: 0 0 30px 0;
+				line-height: 43px;
+				font-size: 28px;
+			}
+
+			.entry-meta {
+				.entry-categories {
+					a {
+						font-size: 14px;
+					}
+				}
+
+				.entry-top-date {
+					font-size: 14px;
+				}
+			}
+		}
+
+		.entry-body {
+			padding: 30px 0;
+
+			h2 {
+				font-size: 24px;
+				margin: 35px 0;
+			}
+
+			h3 {
+				font-size: 18px;
+				margin: 35px 0 10px;
+			}
+
+			.entry-body-wrap {
+
+				p {
+					font-size: 18px;
+					line-height: 27px;
+					margin: 10px 0;
+				}
+
+				figure {
+					margin: 35px 0;
+				}
+
+
+				ol,
+				ul {
+					padding-left: 20px;
+				}
+
+				>ol,
+				>ul {
+
+
+					>li {
+						line-height: 32px;
+						font-size: 18px;
+
+						>ol,
+						>ul {
+							>li {
+								line-height: 27px;
+								font-size: 16px;
+
+								>ol,
+								>ul {
+									>li {
+										line-height: 21px;
+										font-size: 14px;
+									}
+								}
+							}
+						}
+					}
+				}
+
+
+				.wp-block-image {
+					margin: 35px 0;
+
+					figcaption {
+						margin-top: 10px;
+						font-size: 12px;
+					}
+				}
+
+				.wp-block-image.alignfull,
+				.wp-block-image.alignwide {
+					margin: auto;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 태블릿
+@include media("<=tablet") {
+	.entry-wrap {
+		margin: auto 16px;
+		padding: 30px 0;
+
+		.entry-header {
+			.entry-header-title {
+				margin: 0 0 20px 0;
+				line-height: 28px;
+				font-size: 22px;
+			}
+
+			.entry-meta {
+				.entry-categories {
+					a {
+						font-size: 12px;
+					}
+
+					&:after {
+						height: 14px;
+					}
+				}
+
+				.entry-top-date {
+					font-size: 12px;
+				}
+			}
+		}
+
+		.entry-body {
+			padding: 30px 0;
+
+			h2 {
+				font-size: 20px;
+				line-height: 28px;
+				margin: 20px 0;
+			}
+
+			h3 {
+				font-size: 16px;
+				line-height: 25px;
+				margin: 20px 0 0;
+			}
+
+			.entry-body-wrap {
+
+				p {
+					font-size: 16px;
+					line-height: 25px;
+					margin: 0 0 10px 0;
+				}
+
+				figure {
+					margin: 20px 0;
+				}
+
+
+				ol,
+				ul {
+					padding-left: 20px;
+				}
+
+				>ol,
+				>ul {
+
+
+					>li {
+						line-height: 25px;
+						font-size: 16px;
+
+						>ol,
+						>ul {
+							>li {
+								line-height: 27px;
+								font-size: 16px;
+
+								>ol,
+								>ul {
+									>li {
+										line-height: 21px;
+										font-size: 14px;
+									}
+								}
+							}
+						}
+					}
+				}
+
+
+				.wp-block-image {
+					margin: 35px 0;
+
+					figcaption {
+						margin: 10px auto 0;
+						font-size: 12px;
+						width: 80%;
+						min-width: 80%;
+					}
+				}
+
+				.wp-block-image.alignfull,
+				.wp-block-image.alignwide {
+					margin: auto;
+				}
+			}
+		}
+	}
+}
+
+/******************************
+인쇄용
+*/
+@media all {
+	#print-content {
+		display: none;
+	}
+}
+
+@media print {
+	body * {
+		visibility: hidden;
+	}
+
+	#print-content,
+	#print-content * {
+		visibility: visible;
+	}
+
+	#print-content {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+
+		.wp-block-image {
+			.aligncenter {
+				display: block;
+				margin: 0 auto;
+			}
+
+			figcaption {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		.entry-footer {
+			margin-top: 50px;
+		}
+
+		img {
+			display: block !important;
+			margin: 0 auto;
+		}
+	}
+
+	.wp-block-image .aligncenter,
+	.wp-block-image .alignleft,
+	.wp-block-image .alignright {
+		display: block;
+	}
+}

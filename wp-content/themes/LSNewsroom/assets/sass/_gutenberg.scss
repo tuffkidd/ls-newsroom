@@ -1,3 +1,345 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,800&subset=korean');
+@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css");
 @import './variables.scss';
-$font_family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', sans-serif;
+$font_family: "SUIT", --apple-system, "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", sans-serif;
+
+/* Main column width */
+.wp-block {
+	max-width: 720px;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+	max-width: 1080px;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+// 타이틀
+body {
+	font-family: $font-family;
+	// overflow-x: hidden;
+	font-size: 16px;
+	color: #000;
+	font-weight: 300;
+
+	>* {
+		letter-spacing: -0.05em;
+	}
+}
+
+.wp-block.editor-post-title__block {
+	max-width: 770px;
+	border-bottom: 1px solid #d7d7d7;
+}
+
+// 본문 루트 컨테이너
+.block-editor-block-list__layout.is-root-container {
+	margin-top: 37px;
+}
+
+.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+	font-family: $font-family;
+	font-size: 20px;
+}
+
+h1 {
+	font-size: $fontsize__h1;
+	line-height: 54px;
+}
+
+h2 {
+	font-size: $fontsize__h2;
+	margin: 50px 0;
+}
+
+h3 {
+	font-size: $fontsize__h3;
+	margin: 50px 0 10px;
+}
+
+h4 {
+	font-size: $fontsize__h4;
+}
+
+h5 {
+	font-size: $fontsize__h5;
+}
+
+h6 {
+	font-size: $fontsize__h6;
+}
+
+p {
+	font-weight: 300;
+	font-size: 21px;
+	line-height: 35px;
+	margin: 10px 0;
+}
+
+// 캡션들
+.wp-block-audio figcaption,
+.wp-block-video figcaption,
+.wp-block-image figcaption,
+.wp-block-embed-youtube figcaption,
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+	margin-top: 16px;
+	font-size: 14px;
+	color: #606060; // 웹접근성 위배
+	// color: #555555;
+}
+
+// 코드 블럭
+.wp-block-code {
+	overflow-x: auto;
+}
+
+.wp-block-cover {
+	p {
+		color: #fff;
+	}
+}
+
+// 진하게
+b,
+strong {
+	font-weight: 700;
+}
+
+/** costom class **/
+.box.dotted {
+	padding: 5px 10px;
+	border: 1px dashed #000;
+}
+
+// 인용
+.wp-block-quote,
+.wp-block-pullquote {
+	border-left: none;
+	margin: 60px auto;
+	// padding-left: 0;
+	text-align: center;
+	// background: #f5f5f5;
+	width: 100%;
+	line-height: 1.6;
+	padding: 25px 0;
+	color: #333;
+	font-style: italic;
+	position: relative;
+	background: #f7f7f7;
+	border-radius: 10px;
+
+
+	p {
+		padding: 0 20px;
+		margin: 0;
+	}
+
+	&:before {
+		content: "";
+		display: block;
+		width: 27px;
+		height: 20px;
+		position: absolute;
+		left: 58px;
+		top: -5px;
+		background: url(#{$imgPath}/quote-left.png) no-repeat center center;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		width: 27px;
+		height: 20px;
+		position: absolute;
+		right: 58px;
+		bottom: -5px;
+		left: auto;
+		top: auto;
+		background: url(#{$imgPath}/quote-right.png) no-repeat center center;
+	}
+}
+
+.wp-block-pullquote {
+	border: none;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+	padding: 10px;
+	background: rgba(255, 255, 255, 0.5);
+	color: #606060;
+}
+
+.wp-block-image,
+.wp-block-video,
+.wp-block-embed-youtube {
+	border-radius: 25px;
+	overflow: hidden;
+	margin: 50px auto;
+}
+
+iframe,
+embed {
+	border-radius: 25px;
+	overflow: hidden;
+}
+
+.wp-block-image {
+	&.no-margin {
+		font-size: 0;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+// video
+.wp-block-video {
+	video {
+		width: 100%;
+	}
+}
+
+// list
+
+ol,
+ul {
+	padding-left: 30px;
+
+	>li {
+		line-height: 36px;
+		font-size: 21px;
+
+		>ol,
+		>ul {
+			>li {
+				line-height: 31px;
+				font-size: 19px;
+
+				>ol,
+				>ul {
+					>li {
+						line-height: 28px;
+						font-size: 17px;
+					}
+				}
+			}
+		}
+
+		>ol {
+			list-style-type: upper-roman;
+
+			>li {
+				>ol {
+					list-style-type: lower-alpha;
+				}
+			}
+		}
+	}
+}
+
+
+a {
+	text-decoration: none;
+}
+
+// table
+.wp-block-table {
+	// overflow-x: initial;
+
+	&.is-style-stripes {
+		border-bottom: 0;
+
+		tbody {
+			tr:nth-child(odd) {
+				background-color: #f5f5f5;
+			}
+		}
+	}
+
+	thead {
+		border-bottom: 1px double $color__border;
+
+		tr {
+			th {
+				background-color: #ececec;
+			}
+		}
+	}
+
+	tfoot {
+		border-top: 1px double $color__border;
+	}
+
+	figcaption {
+		font-size: 14px;
+		color: #606060;
+		padding: 20px;
+	}
+}
+
+.wp-block-table th {
+	border: 1px solid $color__border;
+	border-bottom: 3px double $color__border;
+}
+
+.wp-block-table td {
+	border: 1px solid $color__border;
+}
+
+.wp-block-paragraph {
+	&.has-drop-cap:not(:focus)::first-letter {
+		// font-family: $font__heading;
+		// font-size: 3.2em;
+		// line-height: 1;
+		// font-weight: bold;
+		// margin: 0 0.25em 0 0;
+		// float: left;
+		font-weight: 700;
+		font-size: 4rem;
+		line-height: 0.65;
+		margin: 0.2em 0.1em 0.2em 0;
+	}
+}
+
+.wp-block-sss-extend-block-video-subtitle {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	a.toggle-video-subtitle {
+		font-size: 16px;
+		display: block;
+		float: right;
+		position: relative;
+	}
+
+	.video-subtitle {
+		border: 1px solid #e8e8e8;
+		border-radius: 5px;
+		font-family: inherit;
+		line-height: 1.8;
+		font-size: 0.8em;
+		padding: 10px;
+		box-sizing: border-box;
+		white-space: normal;
+		word-wrap: break-word;
+		width: 100%;
+		overflow-x: auto;
+		height: 100px;
+		background-color: #f7f7f7;
+
+		&:before {
+			content: "영상 자막";
+			position: absolute;
+			text-indent: -9999px;
+			left: 0;
+			font-size: 0;
+			top: 0;
+		}
+	}
+}
