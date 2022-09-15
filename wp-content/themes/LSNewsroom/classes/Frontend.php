@@ -262,4 +262,44 @@ class Frontend extends Theme
 
 		return (array_unique(array_column($term, 'term_id')));*/
 	}
+
+
+	/***************************************
+	 * 연관글 가져오기
+	 ****************************************/
+	public function get_relevent_posts($post_id, $limit = 3)
+	{
+		$tags = array_column(wp_get_post_tags($post_id), 'term_id');
+		array_shift($tags);
+		// 두번째 태그부터
+
+		$post = "";
+
+		if (is_array($tags)) {
+			$args = [
+				'orderby'			=> 'date',
+				'order'				=> 'DESC',
+				'post_type'			=> ['post'],
+				'post__not_in'		=> [$post_id],
+				'paged'				=> 1,
+				'offset'			=> 0,
+				'posts_per_page'	=> $limit,
+				'tag__in'			=> $tags,
+				'post_status'		=> 'publish',
+				'suppress_filters'	=> false,
+				'tax_query' => [
+					[
+						'taxonomy'  => 'category',
+						'field'     => 'slug',
+						'terms'     => 'uncategorized',
+						'operator'  => 'NOT IN'
+					]
+				]
+			];
+
+			$posts = new \WP_Query($args);
+		}
+
+		return $posts;
+	}
 }

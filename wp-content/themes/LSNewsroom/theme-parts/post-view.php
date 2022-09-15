@@ -10,6 +10,13 @@ if ($cats) {
 	}
 }
 ?>
+<div class="entry-share pc-share">
+	<a href="#" class="post-share copy-url hidden-text">URL 복사</a>
+	<a href="#" class="post-share email hidden-text">이메일로 공유</a>
+	<a href="#" class="post-share kakaotalk hidden-text">카카오톡으로 공유</a>
+	<a href="#" class="post-share facebook hidden-text">페이스북으로 공유</a>
+	<a href="#" class="print-page hidden-text">인쇄하기</a>
+</div>
 <div class="entry-wrap container" id="content-wrap">
 	<div id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
 		<!-- 헤더 -->
@@ -31,9 +38,8 @@ if ($cats) {
 				<?php the_content(); ?>
 			</div>
 		</div>
-		<input type="hidden" id="content-url" value="<?php echo $bitly_link; ?>">
-		<?php get_template_part('theme-templates/content', 'footer-tag'); ?>
-		<?php get_template_part('theme-templates/content', 'prevnext'); ?>
+		<?php get_template_part('theme-parts/post', 'footer-tag'); ?>
+		<?php get_template_part('theme-parts/post', 'related'); ?>
 	</div>
 
 
@@ -55,6 +61,7 @@ if ($cats) {
 				<?php the_content(); ?>
 			</div>
 		</div>
-		<?php get_template_part('theme-templates/content', 'footer-tag'); ?>
+		<?php get_template_part('theme-parts/post', 'footer-tag'); ?>
+		<input type="hidden" id="content-url" value="<?php echo the_permalink(); ?>">
 	</div>
 </div>

@@ -926,12 +926,14 @@ header.search-opened {
 	}
 }
 
+
 // 검색 - 데스크탑
 @include media("<=desktop") {
 
 	#header-search-box {
-		min-height: 222px;
-		padding: 20px 0;
+		min-height: 225px;
+		padding: 40px 0 50px 0;
+
 
 		// 검색박스
 		.search-box-wrap {
@@ -954,6 +956,7 @@ header.search-opened {
 						}
 					}
 				}
+
 			}
 
 			// 검색어 입력
@@ -992,74 +995,7 @@ header.search-opened {
 }
 
 
-// 검색 - 데스크탑
-@include media("<=desktop") {
-
-	#header-search-box {
-		min-height: 225px;
-		padding: 40px 0 50px 0;
-
-
-		// 검색박스
-		.search-box-wrap {
-			#search-box {
-				gap: 15px;
-
-				.search-option {
-
-					.search-option-label {
-						height: 36px;
-						font-size: 16px;
-					}
-
-					.option-list {
-						padding: 9px 0;
-
-						.option-value {
-							font-size: 16px;
-							line-height: 28px;
-						}
-					}
-				}
-
-				// 검색어 입력
-				.search-keywords {
-					.search-keyword-wrap {
-						input[name='s'] {
-							font-size: 16px;
-							padding: 13px 80px 13px 25px;
-						}
-
-						#search-submit {
-							background-size: auto 19px;
-						}
-					}
-				}
-			}
-		}
-
-		// 태그
-		.tags {
-			top: 50px;
-
-			a {
-				font-size: 14px;
-			}
-
-			a+a {
-				margin-left: 15px;
-			}
-		}
-
-		// 달력
-		.search-date-picker-wrap {
-			margin-top: -30px;
-		}
-	}
-}
-
-
-// 검색 - 데스크탑
+// 검색 - 태블릿
 @include media("<=tablet") {
 
 	#header-search-box {

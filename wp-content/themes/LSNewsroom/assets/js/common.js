@@ -276,10 +276,10 @@
 
 					if (scrollBottom <= 120) {
 						// $('.go-to-top').css({ bottom: '210px' })
-						$('.go-to-top').addClass('regen')
+						$('.utils').addClass('regen')
 					} else {
 						// $('.go-to-top').css({ bottom: '110px' })
-						$('.go-to-top').removeClass('regen')
+						$('.utils').removeClass('regen')
 					}
 				} else {
 					$('.go-to-top').fadeOut()
@@ -287,44 +287,6 @@
 			} else {
 				$('.go-to-top').fadeOut()
 			}
-		})
-
-		// 카카오톡 공유
-		$(document).on('click', '.entry-share .kakaotalk', function (e) {
-			e.preventDefault()
-			Kakao.init('c5578fc29e2d18395a59d77d9792d9c2')
-			var mobileWebUrl = $(this).data('url')
-			var webUrl = $(this).data('url')
-			var title = $(this).data('title')
-			var thumb = $(this).data('thumb')
-
-			Kakao.Link.sendDefault({
-				objectType: 'feed',
-				content: {
-					title: title,
-					// description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-					imageUrl: thumb,
-					link: {
-						mobileWebUrl: mobileWebUrl,
-						webUrl: webUrl
-					}
-				},
-				// social: {
-				// 	likeCount: 286,
-				// 	commentCount: 45,
-				// 	sharedCount: 845
-				// },
-				buttons: [
-					{
-						title: '웹으로 보기',
-						link: {
-							mobileWebUrl: mobileWebUrl,
-							webUrl: webUrl
-						}
-					}
-				]
-			})
-			return false
 		})
 
 		/*****************************************************************

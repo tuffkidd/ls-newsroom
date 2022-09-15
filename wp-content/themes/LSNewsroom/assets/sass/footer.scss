@@ -254,7 +254,15 @@ footer {
 }
 
 
-// 맨위로
+
+
+
+
+
+/***********************************************************
+* 맨 위로
+***********************************************************/
+
 .go-to-top {
 	display: none;
 	position: fixed;
@@ -266,6 +274,7 @@ footer {
 	width: 55px;
 	height: 55px;
 	border-radius: calc(55px / 2);
+	z-index: 400;
 
 	&:after {
 		position: absolute;
@@ -306,6 +315,14 @@ footer {
 }
 
 @include media("<=tablet") {
+	.utils {
+		transition: all 0.3s;
+
+		&.regen {
+			transform: translateY(-100px);
+		}
+	}
+
 	.go-to-top {
 		// transform: translateY(-100px);
 		bottom: 60px;
@@ -314,12 +331,6 @@ footer {
 		width: 48px;
 		height: 48px;
 		border-radius: calc(48px / 2);
-		transition: all 0.3s;
-
-		&.regen {
-			transform: translateY(-150px);
-		}
-
 
 		&:after {
 			left: 50%;
@@ -337,6 +348,124 @@ footer {
 			width: 10px;
 			height: 10px;
 			background-color: transparent;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***
+모바일 쉐어
+***/
+.mob-util {
+	display: none;
+}
+
+@include media("<=tablet") {
+	.mob-share-dim {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: 98;
+	}
+
+	.utils {
+		position: relative;
+		z-index: 400;
+	}
+
+	.mob-util {
+		display: block;
+		position: fixed;
+		// z-index: 400;
+		bottom: 120px;
+		right: 18px;
+
+		&.on {
+			.entry-share {
+				display: grid;
+			}
+
+			.mob-share-toggle {
+				background: $color__background-sig url("../images/icon-mob-share-close.png") no-repeat center center;
+			}
+		}
+
+		.entry-share {
+			position: absolute;
+			top: -148px;
+			right: 2px;
+			display: none;
+			// display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-column-gap: 10px;
+			grid-row-gap: 10px;
+
+			a {
+				display: block;
+				width: 42px;
+				height: 42px;
+				border-radius: 21px;
+
+				&.mob-share-facebook {
+					background: #fff url("../images/icon-mob-share-facebook.png") no-repeat center center;
+				}
+
+				&.mob-share-twitter {
+					background: #fff url("../images/icon-mob-share-twitter.png") no-repeat center center;
+				}
+
+				&.mob-share-email {
+					background: #fff url("../images/icon-mob-share-email.png") no-repeat center center;
+				}
+
+				&.mob-copy {
+					background: #fff url("../images/icon-mob-copy.png") no-repeat center center;
+				}
+
+				&.mob-share-kakaotalk {
+					background: #fff url("../images/icon-mob-share-kakaotalk.png") no-repeat center center;
+				}
+
+				&.mob-share-linkedin {
+					background: #fff url("../images/icon-mob-share-linkedin.png") no-repeat center center;
+				}
+			}
+
+		}
+
+		.mob-share-toggle {
+			// display: none;
+			position: absolute;
+			width: 48px;
+			height: 48px;
+			border-radius: 24px;
+			right: -1px;
+			margin-top: -45px;
+			background: $color__background-sig url("../images/icon-mob-share.png") no-repeat center center;
+		}
+
+		.mob-go-to-top {
+			position: absolute;
+			display: block;
+			width: 48px;
+			right: 0;
+			margin-right: -3px;
+			margin-top: 10px;
 		}
 	}
 }
