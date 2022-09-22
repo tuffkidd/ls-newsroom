@@ -15,8 +15,8 @@ class Frontend
 
 		$this->action = $_REQUEST['action'] ?? "";
 
-		if (!isset($this->db->cj_main_slider)) {
-			$this->db->cj_main_slider = $this->db->prefix . 'cj_main_slider';
+		if (!isset($this->db->ls_main_slider)) {
+			$this->db->ls_main_slider = $this->db->prefix . 'ls_main_slider';
 		}
 
 		add_action('init', [&$this, 'enqueueMainSliderAssets']);
@@ -34,8 +34,13 @@ class Frontend
 
 	public function get_sliders()
 	{
-		$sql = "SELECT * FROM " . $this->db->cj_main_slider . " WHERE is_output = 'Y' ORDER BY seq ASC";
+		if (is_user_logged_in()) {
+			$sql = "SELECT * FROM " . $this->db->ls_main_slider . " ORDER BY seq ASC";
+		} else {
+			$sql = "SELECT * FROM " . $this->db->ls_main_slider . " WHERE is_output = 'Y' ORDER BY seq ASC";
+		}
 		$sliders = $this->db->get_results($sql);
+
 		if (isset($sliders)) {
 			$return = $sliders;
 		} else {

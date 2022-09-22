@@ -57,10 +57,10 @@
 		<div class="utils">
 			<div class="mob-util">
 				<div class="entry-share">
-					<a href="#" class="mob-copy copy-url hidden-text">URL 복사</a>
-					<a href="#" class="mob-share-kakaotalk post-share kakaotalk hidden-text" data-url="<?php echo urldecode(the_permalink()); ?>" data-title="<?php echo the_title(); ?>" data-thumb="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'main-tile-1') ?>">카카오톡으로 공유</a>
-					<a href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>" class="mob-share-facebook post-share facebook hidden-text" title="Share on Facebook" target="_blank">페이스북으로 공유</a>
-					<a href="mailto:?subject=<?php the_title(); ?>&amp;body=<?php echo the_permalink(); ?>" class="mob-share-email post-share email hidden-text" title="Send to email">이메일로 공유</a>
+					<a href="#" class="mob-copy copy-url hidden-text" title="URL 복사">URL 복사</a>
+					<a href="#" class="mob-share-kakaotalk post-share kakaotalk hidden-text" data-url="<?php echo urldecode(the_permalink()); ?>" data-title="<?php echo the_title(); ?>" data-thumb="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'slider') ?>" title="새창으로 카카오톡 공유">카카오톡으로 공유</a>
+					<a href="http://www.facebook.com/sharer.php?u=<?php echo the_permalink(); ?>" class="mob-share-facebook post-share facebook hidden-text" title="새창으로 페이스북 공유" target="_blank">페이스북으로 공유</a>
+					<a href="mailto:?subject=<?php the_title(); ?>&amp;body=<?php echo the_permalink(); ?>" class="mob-share-email post-share email hidden-text" title="새창으로 이메일 공유">이메일로 공유</a>
 				</div>
 				<a href="#" class="mob-share-toggle hidden-text">포스트 공유</a>
 			</div>

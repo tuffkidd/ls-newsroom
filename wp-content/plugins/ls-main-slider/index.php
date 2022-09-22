@@ -8,7 +8,7 @@ Author: Dohoon Lee@i4uworks
 Author URI: http://www.i4u.kr
 */
 
-use LSCNS\MainSlider\Admin;
+use LSCNS\MainSlider\Backend;
 use LSCNS\MainSlider\Frontend;
 // use Newsroom\SearchStats\SearchStatsFrontend;
 
@@ -30,8 +30,8 @@ if (!defined('LSMS_DB_VERSION'))		define('LSMS_DB_VERSION', '1.0');
 
 if (is_admin()) {
 	require(LSMS_CONTROLLERS_DIR . "/backend.php");
-	new Admin();
+	new Backend();
 } else {
 	require(LSMS_CONTROLLERS_DIR . "/Frontend.php");
-	new Frontend();
+	$sliderFrontend = new Frontend();
 }

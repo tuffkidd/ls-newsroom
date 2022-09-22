@@ -1,8 +1,11 @@
 <?php
+global $sliderFrontend;
 get_header();
 // 최신글
 $latest_posts_1 = $Frontend->get_latest_posts([]);
 
+// 슬라이더 가져오기
+$sliders = $sliderFrontend->get_sliders();
 /***********************************************
  * 탭스타일
  */
@@ -16,75 +19,57 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 // $latest_posts_5 = $Frontend->get_latest_posts(['tags' => '보도자료']);
 
 ?>
-<?php if (is_plugin_active("ls-main-slider/index.php")) { ?>
-	<section class="main-slider-section" id="content">
-		<div class="container">
-			<div class="swiper" id="main-slider">
-				<div class="swiper-wrapper">
-
-					<div class="swiper-slide">
-						<a href="#">
-							<div class="img">
-								<img src="https://picsum.photos/830/445?random=1">
-							</div>
-							<div class="meta">
-								<div class="cat">언론보도</div>
-								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-								<div class="date">2022. 11. 11</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="swiper-slide">
-						<a href="#">
-							<div class="img">
-								<img src="https://picsum.photos/830/445?random=2">
-							</div>
-							<div class="meta">
-								<div class="cat">언론보도</div>
-								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공 [casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-								<div class="date">2022. 11. 11</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="swiper-slide">
-						<a href="#">
-							<div class="img">
-								<img src="https://picsum.photos/830/445?random=3">
-							</div>
-							<div class="meta">
-								<div class="cat">언론보도</div>
-								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-								<div class="date">2022. 11. 11</div>
-							</div>
-						</a>
-					</div>
-
-					<div class="swiper-slide">
-						<a href="#">
-							<div class="img">
-								<img src="https://picsum.photos/830/445?random=4">
-							</div>
-							<div class="meta">
-								<div class="cat">언론보도</div>
-								<div class="title">[casestudy] LG 사이언스 파크 Cat6A & 지능형 솔루션 제공</div>
-								<div class="date">2022. 11. 11</div>
-							</div>
-						</a>
+<?php
+if (is_plugin_active("ls-main-slider/index.php")) {
+	if ($sliders) {
+?>
+		<section class="main-slider-section" id="content">
+			<div class="container">
+				<div class="swiper" id="main-slider">
+					<div class="swiper-wrapper">
+						<?php foreach ($sliders as $slide) : ?>
+							<?php if ($slide->type == 'P') : $post = get_post($slide->post_id);
+								$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
+								<div class="swiper-slide">
+									<a href="<?php echo get_the_permalink($post->ID) ?>">
+										<div class="img">
+											<?php echo get_the_post_thumbnail($post->ID, 'slider') ?>
+										</div>
+										<div class="meta">
+											<div class="cat"><?php echo $term[0]->name; ?></div>
+											<div class="title"><?php echo $post->post_title; ?></div>
+											<div class="date"><?php echo get_the_date('Y.m.d', $post->ID) ?></div>
+										</div>
+									</a>
+								</div>
+							<?php else : ?>
+								<div class="swiper-slide link">
+									<a href="<?php echo $slide->url; ?>" target="_blank">
+										<div class="img">
+											<img src="<?php echo $slide->thumb; ?>" alt="<?php echo $slide->title; ?>">
+										</div>
+										<div class="meta">
+											<div class="cat"></div>
+											<div class="title"><?php echo $slide->title; ?></div>
+											<div class="date"><?php echo date('Y.m.d', strtotime($slide->created_at)) ?></div>
+										</div>
+									</a>
+								</div>
+							<?php endif; ?>
+						<?php endforeach; ?>
 					</div>
 				</div>
+				<div class="swiper-numbers">
+					<span class="current"></span> / <span class="total"></span>
+					<a href="#" class="button-prev"></a>
+					<a href="#" class="button-next"></a>
+				</div>
+				<div class=" swiper-pagination">
+				</div>
 			</div>
-			<div class="swiper-numbers">
-				<span class="current"></span> / <span class="total"></span>
-				<a href="#" class="button-prev"></a>
-				<a href="#" class="button-next"></a>
-			</div>
-			<div class=" swiper-pagination">
-			</div>
-		</div>
-	</section>
-<?php } ?>
+		</section>
+<?php }
+} ?>
 <section class="main-latest">
 	<div class="container">
 		<div class="latest-tabs">

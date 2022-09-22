@@ -371,7 +371,7 @@ footer {
 	display: none;
 }
 
-@include media("<=tablet") {
+@include media("<=desktop") {
 	.mob-share-dim {
 		display: block;
 		position: fixed;
@@ -392,8 +392,8 @@ footer {
 		display: block;
 		position: fixed;
 		// z-index: 400;
-		bottom: 120px;
-		right: 18px;
+		bottom: 320px;
+		right: 50px;
 
 		&.on {
 			.entry-share {
@@ -407,7 +407,7 @@ footer {
 
 		.entry-share {
 			position: absolute;
-			top: -148px;
+			top: -160px;
 			right: 2px;
 			display: none;
 			// display: grid;
@@ -417,9 +417,9 @@ footer {
 
 			a {
 				display: block;
-				width: 42px;
-				height: 42px;
-				border-radius: 21px;
+				width: 48px;
+				height: 48px;
+				border-radius: 24px;
 
 				&.mob-share-facebook {
 					background: #fff url("../images/icon-mob-share-facebook.png") no-repeat center center;
@@ -451,12 +451,51 @@ footer {
 		.mob-share-toggle {
 			// display: none;
 			position: absolute;
-			width: 48px;
-			height: 48px;
-			border-radius: 24px;
+			width: 55px;
+			height: 55px;
+			border-radius: 28px;
 			right: -1px;
 			margin-top: -45px;
 			background: $color__background-sig url("../images/icon-mob-share.png") no-repeat center center;
+		}
+
+		.mob-go-to-top {
+			position: absolute;
+			display: block;
+			width: 48px;
+			right: 0;
+			margin-right: -3px;
+			margin-top: 10px;
+		}
+	}
+}
+
+@include media("<=tablet") {
+	.mob-util {
+		display: block;
+		position: fixed;
+		// z-index: 400;
+		bottom: 120px;
+		right: 18px;
+
+		.entry-share {
+			position: absolute;
+			top: -148px;
+			right: 2px;
+
+			a {
+				display: block;
+				width: 42px;
+				height: 42px;
+				border-radius: 21px;
+			}
+
+		}
+
+		.mob-share-toggle {
+			width: 48px;
+			height: 48px;
+			border-radius: 24px;
 		}
 
 		.mob-go-to-top {

@@ -1,5 +1,5 @@
 <?php
-global $Frontend;
+global $Frontend, $recommendTagsFrontend;
 $onPage = '';
 if (is_home()) {
 	$onPage = 'index';
@@ -10,6 +10,8 @@ if (is_home()) {
 } else if (is_category()) {
 	$onPage = 'category';
 }
+
+$r_tags = $recommendTagsFrontend->getRecommendTags();
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -90,11 +92,13 @@ if (is_home()) {
 							</div>
 						</div>
 					</div>
-					<div class="tags">
-						<a href="<?php echo site_url("/tag/신재생에너지") ?>">신재생에너지</a>
-						<a href="<?php echo site_url("/tag/2022채용공고") ?>">2022채용공고</a>
-						<a href="<?php echo site_url("/tag/ESG") ?>">ESG</a>
-					</div>
+					<?php if ($r_tags) : ?>
+						<div class="tags">
+							<?php foreach ($r_tags as $t) : $ta = get_term_by('id', $t->term_id, 'post_tag'); ?>
+								<a href="<?php echo site_url('/tag/' . $ta->slug) ?>"><?php echo $ta->name; ?></a>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
 					<div class="search-date-picker-wrap">
 						<div class="calendar-wrap">
 							<div class="pc">

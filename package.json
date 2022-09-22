@@ -3,7 +3,7 @@
 		"concurrently": "^7.3.0"
 	},
 	"scripts": {
-		"dev-all": "concurrently \"npm run watch --prefix wp-content/themes/LSNewsroom/\" \"npm run watch --prefix wp-content/plugins/ls-main-slider\"",
-		"prod-all": "concurrently \"npm run prod --prefix wp-content/themes/LSNewsroom/\" \"npm run prod --prefix wp-content/plugins/ls-main-slider\""
+		"dev-all": "concurrently \"npm run watch --prefix wp-content/themes/LSNewsroom/\" \"npm run watch --prefix wp-content/plugins/ls-main-slider\" \"npm run watch --prefix wp-content/plugins/ls-recommend-tags\"",
+		"prod-all": "concurrently \"npm run prod --prefix wp-content/themes/LSNewsroom/\" \"npm run prod --prefix wp-content/plugins/ls-main-slider\" \"npm run prod --prefix wp-content/plugins/ls-recommend-tags\""
 	}
 }

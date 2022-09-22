@@ -125,7 +125,7 @@ class Theme
 			add_image_size('post-list', 385, 205, true); // 메인/목록
 			// add_image_size('list', 385, 205, true); // 메인/목록
 			add_image_size('content', 770, 99999999, true); // 메인 컨텐츠룸
-			add_image_size('slider', 815, 446, true); // 메인슬라이더
+			add_image_size('slider', 815, 445, true); // 메인슬라이더
 			add_image_size('media', 840, 99999999, true); // 컨텐츠용
 		}
 

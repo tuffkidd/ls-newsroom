@@ -302,4 +302,174 @@ class Frontend extends Theme
 
 		return $posts;
 	}
+
+	/*************************************************************
+	 * 포스트 검색결과
+	 */
+
+	public function get_search_posts($s, $d, $o, $c, $paged)
+	{
+		// global $wp_query;
+		$search_args = array();
+
+		// 검색어
+		$search_args['s'] = $s;
+		// 페이지당 글수
+		$search_args['posts_per_page'] = 3;
+		// 검색 필드
+		$search_args['fields'] = 'post_title, post_content';
+		// 포스트 타입
+		$search_args['post_type'] = "post";
+		// 글의 상태 : 공개된글만
+		$search_args['post_status'] = "publish";
+		// 페이지
+		$search_args['paged'] = $paged ? $paged : '1';
+
+		// 날짜
+		if ($d == "all" || $d == "") {
+
+			// } else if( $d == "day" ) {
+			// 	$search_args['date_query'] = array(
+			// 		"after" => "-1 day"
+			// 	);
+		} else if ($d == "week") {
+			$search_args['date_query'] = array(
+				"after" => "-1 week"
+			);
+		} else if ($d == "month") {
+			$search_args['date_query'] = array(
+				"after" => "last month"
+			);
+		} else if ($d == "year") {
+			$search_args['date_query'] = array(
+				"after" => "-365 days"
+			);
+		} else {
+			list($date_from, $date_to) = explode('~', $d);
+			$search_args['date_query'] = array(
+				"after" => $date_from,
+				"before" => $date_to
+				// "after" => date('Y-m-d', strtotime($date_from)),
+				// "before" => date('Y-m-d', strtotime($date_to))
+			);
+		}
+
+		// 정렬
+		switch ($o) {
+			case "relevance":
+				add_filter('posts_orderby', [&$this, 'search_posts_orderby'], 10, 2);
+				break;
+			case "popular";
+				$search_args['orderby'] = 'meta_value_num';
+				$search_args['meta_key'] = 'post_views_count';
+				break;
+			case "latest":
+			default:
+				$search_args['orderby'] = [
+					'date'	=> 'DESC'
+				];
+				break;
+		}
+
+		// 카테고리
+		if ($c == "all" || $c == "") {
+			unset($search_args['cat']);
+		} else {
+			$search_args['cat'] = $c;
+			// $term_children = $c.','.join( ',', array_values( get_term_children( $c, 'category' ) ) );
+			// $search_query['category__in'] = $term_children;
+		}
+
+		// $wp_query = new \WP_Query( $search_query );
+		$search_query = new \WP_Query($search_args);
+		// print_r2($search_query);
+
+		if ($o == 'relevance') {
+			remove_filter('posts_orderby', [&$this, 'search_posts_orderby']);
+		}
+
+		return $search_query;
+	}
+
+	/******************************************************8
+	 * 미디어 검색결과
+	 */
+	public function get_search_medias($s, $d, $o, $c, $paged, $post_type = 'multimedia')
+	{
+
+
+		// 검색어
+		$search_args['s'] = $s;
+		// 페이지당 글수
+		$search_args['posts_per_page'] = 15;
+		// 검색 필드
+		// $search_args['fields'] = 'post_title';
+		// 포스트 타입
+		$search_args['post_type'] = $post_type;
+		// 글의 상태 : 공개된글만
+		$search_args['post_status'] = "publish";
+		// 페이지
+		$search_args['paged'] = $paged ? $paged : '1';
+
+		// 날짜
+		if ($d == "all" || $d == "") {
+
+			// } else if( $d == "day" ) {
+			// 	$search_args['date_query'] = array(
+			// 		"after" => "-1 day"
+			// 	);
+		} else if ($d == "week") {
+			$search_args['date_query'] = array(
+				"after" => "-1 week"
+			);
+		} else if ($d == "month") {
+			$search_args['date_query'] = array(
+				"after" => "last month"
+			);
+		} else if ($d == "year") {
+			$search_args['date_query'] = array(
+				"after" => "-365 days"
+			);
+		} else {
+			list($date_from, $date_to) = explode('~', $d);
+			$search_args['date_query'] = array(
+				"after" => $date_from,
+				"before" => $date_to
+				// "after" => date('Y-m-d', strtotime($date_from)),
+				// "before" => date('Y-m-d', strtotime($date_to))
+			);
+		}
+
+		// 정렬
+		switch ($o) {
+			case "relevance":
+				add_filter('posts_orderby', [&$this, 'search_posts_orderby'], 10, 2);
+				break;
+			case "popular";
+				$search_args['orderby'] = 'meta_value_num';
+				$search_args['meta_key'] = 'post_views_count';
+				break;
+			case "latest":
+			default:
+				$search_args['orderby'] = [
+					'date'	=> 'DESC'
+				];
+				break;
+		}
+
+		$result = new \WP_Query($search_args);
+
+		return $result;
+	}
+
+	public function get_top_menu($menu_name = 'gnb')
+	{
+		$menu = wp_get_nav_menu_items($menu_name);
+		foreach ($menu as $key => $val) {
+			// $new_menu = [];
+			if ($val->menu_item_parent != 0) continue;
+			$new_menu[$key] = $val;
+		}
+		return $new_menu;
+	}
 }

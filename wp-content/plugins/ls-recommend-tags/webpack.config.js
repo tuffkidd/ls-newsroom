@@ -25,13 +25,12 @@ module.exports = (env, argv) => {
 		devtool: 'source-map',
 		mode: argv.mode === 'production' ? 'production' : 'development',
 		entry: {
-			'ls-main-slider-vendors': ['tablednd/dist/jquery.tablednd.js'],
-			'ls-main-slider-backend': ['./js/admin/app.js'],
-			'ls-main-slider-frontend': ['./js/app.js']
+			'ls-recommendtags-vendors': ['tablednd/dist/jquery.tablednd.js'],
+			'ls-recommendtags-backend': ['./js/admin/app.js']
 		},
 		output: {
 			path: path.resolve(__dirname, 'assets/dist/'),
-			publicPath: '/wp-content/plugins/ls-main-slider/assets/dist/',
+			publicPath: '/wp-content/plugins/ls-recommendtags/assets/dist/',
 			filename: '[name].js'
 			// sourceMapFilename: "[name].js.map",
 		},
