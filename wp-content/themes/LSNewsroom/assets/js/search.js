@@ -114,7 +114,7 @@ jQuery(function ($) {
 				.closest('.search-option-wrap')
 				.find('.option-list')
 				.hide()
-			$('.search-date-picker-wrap').show()
+			$('#search-result .search-date-picker-wrap').show()
 			if ($(window).innerWidth() <= 768) {
 				$('.dim-screen').show()
 			}

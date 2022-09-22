@@ -371,7 +371,7 @@
 					.closest('.search-option-wrap')
 					.find('.option-list')
 					.hide()
-				$('.search-date-picker-wrap').show()
+				$('#header-search-box .search-date-picker-wrap').show()
 				if ($(window).innerWidth() <= 768) {
 					$('.dim-screen').show()
 				}
@@ -383,7 +383,7 @@
 		lastmonth.setMonth(lastmonth.getMonth() - 1)
 
 		var search_date_from = flatpickr(
-			'.search-date-picker-wrap .calendar-wrap .date-from #date_from',
+			'#header-search-box .search-date-picker-wrap .calendar-wrap .date-from #date_from',
 			{
 				altFormat: 'y.n.j',
 				dateFormat: 'y.n.j',
@@ -396,7 +396,7 @@
 		)
 
 		var search_date_to = flatpickr(
-			'.search-date-picker-wrap .calendar-wrap .date-to #date_to',
+			'#header-search-box .search-date-picker-wrap .calendar-wrap .date-to #date_to',
 			{
 				// altInput: true,
 				altFormat: 'y.n.j',
@@ -410,7 +410,7 @@
 		// 모바일용 달력
 
 		var search_date_range = flatpickr(
-			'.search-date-picker-wrap .calendar-wrap .date-range #date_range',
+			'#header-search-box .search-date-picker-wrap .calendar-wrap .date-range #date_range',
 			{
 				mode: 'range',
 				altFormat: 'y.n.j',
@@ -422,7 +422,7 @@
 					dateStr.replace(' to ', '~')
 					// console.log(dateStr.replace(' to ', '~'));
 					$(
-						'.search-date-picker-wrap .calendar-wrap .date-range #date_range'
+						'#header-search-box .search-date-picker-wrap .calendar-wrap .date-range #date_range'
 					).val(dateStr.replace(' to ', '~'))
 					return false
 				}
