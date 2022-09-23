@@ -472,4 +472,166 @@ class Frontend extends Theme
 		}
 		return $new_menu;
 	}
+
+	/**************************************************************************
+	 * 커스텀 택소노미
+	 */
+
+	/** 커스텀 택소노미용 */
+	public function get_albums($paged, $taxo = 'album')
+	{
+		// $args = array(
+		// 	'taxonomy' => 'album',
+		// 	'orderby' => 'meta_value_num',
+		// 	'order' => 'ASC',
+		// 	'hide_empty' => false,
+		// 	'exclude' => [],
+		// 	'exclude_tree' => [],
+		// 	'number' => '',
+		// 	'offset' => 0,
+		// 	'fields' => 'all',
+		// 	'name' => '',
+		// 	'slug' => '',
+		// 	'hierarchical' => true,
+		// 	'search' => '',
+		// 	'name__like' => '',
+		// 	'description__like' => '',
+		// 	'pad_counts' => false,
+		// 	'get' => '',
+		// 	'child_of' => 0,
+		// 	'parent' => '',
+		// 	'childless' => false,
+		// 	'cache_domain' => 'core',
+		// 	'update_term_meta_cache' => true,
+		// 	'meta_query' => null,
+		// 	'meta_key' => '_cj_album_priority'
+		// );
+		$args = array(
+			'taxonomy' => $taxo,
+			'hide_empty' => false,
+		);
+
+		$deprecated = '';
+		$result = get_terms($args, $deprecated);
+
+		return $result;
+	}
+
+	public function get_current_media($taxo = 'album', $post_type = 'multimedia', $limit = 3)
+	{
+		$args = [
+			'posts_per_page'			=> $limit,
+			'offset' 					=> 0,
+			'paged'						=> 1,
+			'post_type'					=> $post_type,
+			'order_by'					=> 'date',
+			'order'						=> 'DESC',
+			'post_status'				=> 'publish',
+			'has_password'   			=> false,
+			'tax_query' 				=> [
+				'taxonomy'		=> $taxo
+			]
+		];
+
+		$result = new \WP_Query($args);
+		return $result->posts;
+	}
+
+	public function get_medias($album_id = 0, $paged = 1, $post_per_page = 10, $taxo = 'album', $post_type = 'multimedia')
+	{
+		$args = [
+			'posts_per_page'			=> $post_per_page,
+			'paged'						=> $paged,
+			'post_type'					=> $post_type,
+			'order_by'					=> 'date',
+			'order'						=> 'DESC',
+			'post_status'				=> 'publish',
+			'has_password'   			=> false
+		];
+
+		if ($album_id && $album_id > 0) {
+			$args += [
+				'tax_query'					=> [
+					[
+						'taxonomy'		=> $taxo,
+						'field'			=> 'term_id',
+						'terms'			=> $album_id
+					]
+				]
+			];
+		}
+
+		$result = new \WP_Query($args);
+		return $result;
+	}
+
+	public function get_media_video_content($post_type = 'multimedia')
+	{
+		$args = [
+			'post_type'				=> $post_type,
+			's'						=> 'wp-block-embed-youtube',
+			'posts_per_page'		=> 1,
+			'offset'				=> 0,
+			'order_by'				=> 'date',
+			'order'					=> 'DESC',
+			'has_password'			=> false,
+			'post_status'			=> 'publish',
+		];
+
+		$result = new \WP_Query($args);
+
+		$args = [
+			'post_type'				=> $post_type,
+			's'						=> 'wp-block-video',
+			'posts_per_page'		=> 1,
+			'offset'				=> 0,
+			'order_by'				=> 'date',
+			'order'					=> 'DESC',
+			'has_password'			=> false,
+			'post_status'			=> 'publish',
+		];
+
+		$result2 = new \WP_Query($args);
+		$p1 = $result->posts[0];
+		$p2 = $result2->posts[0];
+
+
+		if (strtotime($p1->post_date) > strtotime($p2->post_date)) {
+			$po = $p1;
+		} else {
+			$po = $p2;
+		}
+
+		if ($po) {
+			global $post;
+			$post = $po;
+			$video_content = apply_filters('the_content', $po->post_content);
+			$video_content = preg_replace('#<div class="wp-block-cj-extend-block-video-subtitle">(.*?)</div>#', '', $video_content);
+			$return = [
+				'video_content' => $video_content,
+				'ID' => $post->ID
+			];
+			return $return;
+		} else {
+			return "";
+		}
+		// return $result->posts;
+	}
+
+	public function get_latest_medias($exclude_id, $count = 3, $post_type = 'multimedia')
+	{
+		$args = [
+			'posts_per_page'			=> $count,
+			'paged'						=> '1',
+			'post__not_in'				=> [$exclude_id],
+			'post_type'					=> $post_type,
+			'order_by'					=> 'date',
+			'order'						=> 'DESC',
+			'post_status'				=> 'publish',
+			'has_password'   			=> false
+		];
+
+		$result = new \WP_Query($args);
+		return $result->posts;
+	}
 }

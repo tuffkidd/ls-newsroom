@@ -1,7 +1,7 @@
 <?php
 define('THEME_URI', get_template_directory_uri() . '/');
 define('THEME_PATH', get_template_directory() . '/');
-define('THEME_TEMPLATE_PATH', get_template_directory() . '/' . 'theme-templates');
+define('THEME_TEMPLATE_PATH', get_template_directory() . '/' . 'theme-parts');
 define('THEME_IMAGE_URI', THEME_URI . 'assets/images');
 define('THEME_IMAGE_PATH', THEME_PATH . 'assets/images');
 

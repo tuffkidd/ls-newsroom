@@ -64,6 +64,7 @@ class Theme
 				$scripts->registered['jquery']->deps = array_diff($scripts->registered['jquery']->deps, ['jquery-migrate']);
 			}
 		});
+		flush_rewrite_rules();
 	}
 
 	// public function register_callback()
