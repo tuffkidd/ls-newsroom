@@ -28,6 +28,8 @@ if (!defined('LSRT_ASSETS_URL'))		define('LSRT_ASSETS_URL', LSRT_URL . '/assets'
 if (!defined('LSRT_FILE'))				define('LSRT_FILE', __FILE__);
 if (!defined('LSRT_DB_VERSION'))		define('LSRT_DB_VERSION', '1.0');
 
+require __DIR__ . '/vendor/autoload.php';
+
 if (is_admin()) {
 	require(LSRT_CONTROLLERS_DIR . "/Backend.php");
 	new Backend();

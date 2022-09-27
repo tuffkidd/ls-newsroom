@@ -1,0 +1,18 @@
+{
+	"name": "i4u/ls-recommend-tags",
+	"description": "LS Newsroom recommend tags",
+	"authors": [
+		{
+			"name": "Dohoon Lee",
+			"email": "dhl@i4u.kr"
+		}
+	],
+	"config": {
+		"vendor-dir": "./vendor"
+	},
+	"autoload": {
+		"psr-4": {
+			"LSCNS\\RecommendTags\\": "classes/"
+		}
+	}
+}

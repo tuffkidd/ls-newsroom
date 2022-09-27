@@ -4,6 +4,7 @@
 	<div class="descriptions">
 		<ul>
 			<li><a class="button button-default" style="vertical-align: baseline;">노출하기</a> 상태로 등록됩니다. (미 노출 상태)</li>
+			<li>관리자 로그인 상태에서는 <a class="button button-default" style="vertical-align: baseline;">노출하기</a> 상태의 슬라이더도 노출됩니다.</li>
 			<li><a class="button button-default" style="vertical-align: baseline;">노출하기</a> 버튼을 클릭하여 <a class="button button-primary" style="vertical-align: baseline;">노출중지</a>로 변경되면 공개됩니다. (노출하기/노출중지 토글)</li>
 		</ul>
 	</div>

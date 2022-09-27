@@ -28,8 +28,10 @@ if (!defined('LSMS_ASSETS_URL'))		define('LSMS_ASSETS_URL', LSMS_URL . '/assets'
 if (!defined('LSMS_FILE'))				define('LSMS_FILE', __FILE__);
 if (!defined('LSMS_DB_VERSION'))		define('LSMS_DB_VERSION', '1.0');
 
+require __DIR__ . '/vendor/autoload.php';
+
 if (is_admin()) {
-	require(LSMS_CONTROLLERS_DIR . "/backend.php");
+	require(LSMS_CONTROLLERS_DIR . "/Backend.php");
 	new Backend();
 } else {
 	require(LSMS_CONTROLLERS_DIR . "/Frontend.php");

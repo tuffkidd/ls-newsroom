@@ -15,7 +15,7 @@ class Backend extends Theme
 	// 시작 시 실행
 	public function admin_init_startup()
 	{
-		wp_enqueue_script('lscns-backend', THEME_URI  . 'assets/dist/lsbackend.js', ['jquery', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor', 'wp-edit-post'], '', true);
+		wp_enqueue_script('lscns-backend', THEME_URI  . 'assets/dist/lscnsbackend.js', ['jquery', 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor', 'wp-edit-post'], '', true);
 
 		wp_localize_script('lscns-backend', 'lscns_backend', [
 			'ajaxurl' => admin_url('admin-ajax.php'),
