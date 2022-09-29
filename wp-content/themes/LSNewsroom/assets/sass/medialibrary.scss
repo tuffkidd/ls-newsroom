@@ -1,0 +1,211 @@
+/******************************************************************************
+* 미디어라이브러리 공통
+******************************************************************************/
+.medialibrary-wrap {
+	margin: 100px 0;
+}
+
+.medialibrary-header {
+	display: flex;
+	align-items: flex-end;
+	padding: 0 0 20px 0;
+	border-bottom: 1px solid $color__border;
+
+	h1 {
+		padding: 0;
+		margin: 0 25px 0 0;
+		font-size: 33px;
+	}
+
+	span {
+		font-size: 16px;
+		font-weight: 400;
+		padding-bottom: 5px;
+	}
+}
+
+.medialibrary-control {
+	margin: 50px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.switch-album {
+		a {
+			position: relative;
+			display: inline-block;
+			font-size: 22px;
+			font-weight: 800;
+			color: #000;
+
+			&.selected:after {
+				position: absolute;
+				display: block;
+				left: 0;
+				bottom: -10px;
+				width: 100%;
+				height: 100%;
+				content: "";
+				border-bottom: solid 3px #e22424;
+			}
+		}
+
+		a+a {
+			margin-left: 40px;
+		}
+	}
+
+	.medialibrary-search {
+		.medialibrary-search-box {
+			font-size: 0;
+			position: relative;
+			border-radius: 30px;
+			border: 2px solid #0d4672;
+			overflow: hidden;
+			width: 385px;
+
+
+			input[name='mkeyword'] {
+				display: block;
+				border: none;
+				border-radius: 30px;
+				font-weight: 400;
+				font-size: 18px;
+				padding: 14px 100px 13px 25px;
+				// text-align: center;
+				width: 100%;
+				height: 100%;
+			}
+
+			#del-mkeyword {
+				position: absolute;
+				display: none;
+				right: 60px;
+				width: 26px;
+				height: 26px;
+				top: calc(50% - calc(26px / 2));
+				background: #f7f7f7;
+				cursor: pointer;
+				border-radius: calc(26px / 2);
+
+				&:after {
+					position: absolute;
+					content: "";
+					display: block;
+					width: 1px;
+					height: 15px;
+					transform: rotate(-45deg);
+					background: #000;
+					top: calc(50% - 7px);
+					left: 50%;
+				}
+
+				&:before {
+					position: absolute;
+					content: "";
+					display: block;
+					width: 1px;
+					height: 15px;
+					transform: rotate(-135deg);
+					background: #000;
+					top: calc(50% - 7px);
+					left: 50%;
+				}
+			}
+
+			#album-search-submit {
+				position: absolute;
+				position: absolute;
+				right: 20px;
+				width: 30px;
+				height: 30px;
+				border: none;
+				top: calc(50% - calc(30px / 2));
+				cursor: pointer;
+				background: url(#{$imgPath}/icon-search-header.png) no-repeat center center;
+			}
+		}
+	}
+}
+
+
+/******************************************************************************
+* 미디어라이브러리 메인
+******************************************************************************/
+
+.album-list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 22px 58px;
+
+	.album-item-wrap {
+		max-width: 282px;
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+
+			&:hover,
+			&:focus {
+				.album-thumb-wrap {
+					img {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			.album-thumb-wrap {
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+				font-size: 0;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: transform 0.3s;
+				}
+			}
+
+			.album-title {
+				display: block;
+				color: #000;
+				margin-top: 20px;
+				font-size: 20px;
+				line-height: 28px;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+
+
+/******************************************************************************
+* 앨범페이지
+******************************************************************************/
+.album-wrap {
+	.album-header {
+		margin: 50px 0;
+
+		.album-selector {
+			>a {
+				font-size: 20px;
+				line-height: 28px;
+				color: #000;
+				font-weight: 600;
+			}
+
+			>div {
+				position: relative;
+				display: inline-block;
+				border: 1px solid #e8e8e8;
+				border-radius: 4px;
+				background: #fff;
+				padding: 5px 0;
+			}
+		}
+	}
+}

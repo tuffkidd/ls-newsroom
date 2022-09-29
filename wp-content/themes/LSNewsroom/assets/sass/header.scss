@@ -748,7 +748,7 @@ header.search-opened {
 		}
 
 		// 검색어 입력
-		.search-keywords {
+		.search-keyword {
 			width: 50%;
 
 			.search-keyword-wrap {
@@ -880,6 +880,10 @@ header.search-opened {
 				justify-content: space-between;
 				align-items: flex-start;
 			}
+
+			.mobile {
+				display: none;
+			}
 		}
 
 		.date-from,
@@ -922,20 +926,6 @@ header.search-opened {
 				margin-left: 20px;
 			}
 		}
-
-
-
-		.calendar-wrap {
-
-			.pc {
-				display: none;
-			}
-
-			.mobile {
-				display: block;
-			}
-		}
-
 	}
 }
 
@@ -973,7 +963,7 @@ header.search-opened {
 			}
 
 			// 검색어 입력
-			.search-keywords {
+			.search-keyword {
 				.search-keyword-wrap {
 					input[name='s'] {
 						font-size: 16px;
@@ -1082,7 +1072,7 @@ header.search-opened {
 			}
 
 			// 검색어 입력
-			.search-keywords {
+			.search-keyword {
 				width: 100%;
 				order: 1;
 
@@ -1139,6 +1129,16 @@ header.search-opened {
 		// 달력
 		.search-date-picker-wrap {
 			margin-top: -30px;
+
+			.calendar-wrap {
+				.pc {
+					display: none;
+				}
+
+				.mobile {
+					display: block;
+				}
+			}
 		}
 	}
 }

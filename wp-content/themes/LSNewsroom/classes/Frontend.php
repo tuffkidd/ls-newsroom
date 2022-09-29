@@ -549,6 +549,7 @@ class Frontend extends Theme
 			'has_password'   			=> false
 		];
 
+
 		if ($album_id && $album_id > 0) {
 			$args += [
 				'tax_query'					=> [
@@ -560,6 +561,7 @@ class Frontend extends Theme
 				]
 			];
 		}
+
 
 		$result = new \WP_Query($args);
 		return $result;

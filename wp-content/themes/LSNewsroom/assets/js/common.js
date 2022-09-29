@@ -368,7 +368,7 @@
 			'#header-search-box .option-value.date-picker',
 			function () {
 				$(this)
-					.closest('.search-option-wrap')
+					.closest('.search-option')
 					.find('.option-list')
 					.hide()
 				$('#header-search-box .search-date-picker-wrap').show()

@@ -84,7 +84,7 @@ $r_tags = $recommendTagsFrontend->getRecommendTags();
 								</ul>
 							</div>
 						</div>
-						<div class="search-keywords">
+						<div class="search-keyword">
 							<div class="search-keyword-wrap">
 								<label for="s"><input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="검색어를 입력하세요."></label>
 								<a href="#" id="del-keyword" class="hidden-text" title="검색어 삭제">검색어 삭제</a>
