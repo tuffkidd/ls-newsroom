@@ -133,18 +133,22 @@ if ($matches) {
 				</div>
 				<div class="media-thumbs">
 					<div>
-						<a href="<?php echo get_the_permalink($prev2_id) ?>" title="<?php echo get_the_title($prev2_id) ?>">
-							<div class="img">
-								<?php echo get_the_post_thumbnail($prev2_id, 'post-list'); ?>
-							</div>
-						</a>
+						<?php if (isset($prev2_id)) : ?>
+							<a href="<?php echo get_the_permalink($prev2_id) ?>" title="<?php echo get_the_title($prev2_id) ?>">
+								<div class="img">
+									<?php echo get_the_post_thumbnail($prev2_id, 'post-list'); ?>
+								</div>
+							</a>
+						<?php endif; ?>
 					</div>
 					<div>
-						<a href="<?php echo get_the_permalink($prev_id) ?>" title="<?php echo get_the_title($prev_id) ?>">
-							<div class="img">
-								<?php echo get_the_post_thumbnail($prev_id, 'post-list'); ?>
-							</div>
-						</a>
+						<?php if (isset($prev_id)) : ?>
+							<a href="<?php echo get_the_permalink($prev_id) ?>" title="<?php echo get_the_title($prev_id) ?>">
+								<div class="img">
+									<?php echo get_the_post_thumbnail($prev_id, 'post-list'); ?>
+								</div>
+							</a>
+						<?php endif; ?>
 					</div>
 					<div>
 						<span class="media-current">
@@ -154,18 +158,22 @@ if ($matches) {
 						</span>
 					</div>
 					<div>
-						<a href="<?php echo get_the_permalink($next_id) ?>" title="<?php echo get_the_title($next_id) ?>">
-							<div class="img">
-								<?php echo get_the_post_thumbnail($next_id, 'post-list'); ?>
-							</div>
-						</a>
+						<?php if (isset($next_id)) : ?>
+							<a href="<?php echo get_the_permalink($next_id) ?>" title="<?php echo get_the_title($next_id) ?>">
+								<div class="img">
+									<?php echo get_the_post_thumbnail($next_id, 'post-list'); ?>
+								</div>
+							</a>
+						<?php endif; ?>
 					</div>
 					<div>
-						<a href="<?php echo get_the_permalink($next2_id) ?>" title="<?php echo get_the_title($next2_id) ?>">
-							<div class="img">
-								<?php echo get_the_post_thumbnail($next2_id, 'post-list'); ?>
-							</div>
-						</a>
+						<?php if (isset($next2_id)) : ?>
+							<a href="<?php echo get_the_permalink($next2_id) ?>" title="<?php echo get_the_title($next2_id) ?>">
+								<div class="img">
+									<?php echo get_the_post_thumbnail($next2_id, 'post-list'); ?>
+								</div>
+							</a>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

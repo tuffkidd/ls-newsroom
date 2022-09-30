@@ -266,7 +266,7 @@
 	.media-slider {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: stretch;
 		width: 100%;
 		max-width: 1080px;
 		margin: 0 auto;
@@ -277,10 +277,10 @@
 			position: relative;
 			display: block;
 			width: 80px;
-			height: 76px;
 		}
 
 		#media-prev {
+
 			a {
 				display: block;
 
@@ -329,11 +329,15 @@
 		max-width: 840px;
 		margin: 30px auto;
 
+		div {
+			width: 160px;
+			height: 94px;
+		}
+
 		a,
 		span {
 			display: block;
-			width: 160px;
-			height: 94px;
+
 			font-size: 0;
 
 			&:hover,
