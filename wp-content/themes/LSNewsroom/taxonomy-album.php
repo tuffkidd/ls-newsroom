@@ -55,15 +55,15 @@ $albums = $Frontend->get_albums($paged);
 		*/
 				?>
 				<div class="media-wrap">
-					<div class="media-justified">
-						<?php
-						if ($medias->have_posts()) :
-							while ($medias->have_posts()) : $medias->the_post();
-								get_template_part('theme-parts/media', 'list');
-							endwhile;
-						endif;
-						?>
-					</div>
+
+					<?php
+					if ($medias->have_posts()) :
+						while ($medias->have_posts()) : $medias->the_post();
+							get_template_part('theme-parts/media', 'list');
+						endwhile;
+					endif;
+					?>
+
 				</div>
 				<?php get_template_part('theme-parts/medialibrary-pagination', ''); ?>
 			</div>

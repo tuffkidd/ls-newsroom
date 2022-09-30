@@ -32,10 +32,10 @@ $url = get_the_permalink();
 	<?php } */ ?>
 
 	<a href="<?php echo $url ?>" class="media-item-wrap">
-		<?php the_post_thumbnail('thumb-720', ['alt' => get_the_title()]); ?>
+		<?php the_post_thumbnail('post-list', ['alt' => get_the_title()]); ?>
 		<span class="media-title"><?php echo get_the_title(); ?></span>
 		<div class="media-bg"></div>
 		<div class="media-gradient-overlay"></div>
 	</a>
-	<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . get_post_thumbnail_id($post->ID) . '&size=full'); ?>" class="download-media" title="다운로드"><span>다운로드</span></a>
+
 </div>

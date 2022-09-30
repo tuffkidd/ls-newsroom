@@ -12,6 +12,7 @@ $albums = $Frontend->get_albums($paged, $taxo);
 // $album_id = get_queried_object()->term_id;
 // $medias = $Frontend->get_medias($album_id, $page, 20);
 // $albums = $Frontend->get_albums($paged);
+
 ?>
 
 <section id="content">
@@ -28,7 +29,6 @@ $albums = $Frontend->get_albums($paged, $taxo);
 				</div>
 			</div>
 
-
 			<div class="album-list">
 				<?php
 				if ($albums) :
@@ -39,7 +39,8 @@ $albums = $Frontend->get_albums($paged, $taxo);
 						$img = wp_get_attachment_image_src(attachment_url_to_postid(get_term_meta($album->term_id, "album_img", TRUE)), 'category-list-header-thumb');
 				?>
 						<div class="album-item-wrap">
-							<a href="<?php echo get_category_link($album->term_id); ?>">
+							<!-- <a href="<?php echo get_category_link($album->term_id); ?>"> -->
+							<a href="<?php echo get_the_permalink($album->post->ID); ?>">
 								<?php /*
 								<span class="album-photo-count">
 									<img src="<?php echo THEME_IMAGE_URI . '/icon-photo-count.png'; ?>" alt="미디어 수 아이콘"> <?php echo number_format($total_posts); ?>

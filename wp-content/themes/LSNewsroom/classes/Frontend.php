@@ -514,6 +514,13 @@ class Frontend extends Theme
 		$deprecated = '';
 		$result = get_terms($args, $deprecated);
 
+		// 첫 포스트 구하기
+		if ($result) {
+			foreach ($result as $key => $val) {
+				$post = $this->get_medias($val->term_id, 1, 1, 'album', 'multimedia');
+				$result[$key]->post = $post->post;
+			}
+		}
 		return $result;
 	}
 
