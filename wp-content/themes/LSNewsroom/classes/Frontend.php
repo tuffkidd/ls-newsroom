@@ -544,7 +544,7 @@ class Frontend extends Theme
 		return $result->posts;
 	}
 
-	public function get_medias($album_id = 0, $paged = 1, $post_per_page = 10, $taxo = 'album', $post_type = 'multimedia')
+	public function get_medias($album_id = 0, $paged = 1, $post_per_page = 10, $taxo = 'album', $post_type = 'multimedia', $keyword = '')
 	{
 		$args = [
 			'posts_per_page'			=> $post_per_page,
@@ -556,6 +556,11 @@ class Frontend extends Theme
 			'has_password'   			=> false
 		];
 
+		if ($keyword != "") {
+			$args += [
+				's' => $keyword
+			];
+		}
 
 		if ($album_id && $album_id > 0) {
 			$args += [

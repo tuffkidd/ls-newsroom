@@ -277,6 +277,7 @@ class Theme
 	public function ls_template_query_vars($vars)
 	{
 		$vars[] = 'medialib';
+		$vars[] = 'mkeyword';
 		return $vars;
 	}
 

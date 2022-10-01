@@ -65,7 +65,7 @@
 			width: 385px;
 
 
-			input[name='mkeyword'] {
+			input[name='s'] {
 				display: block;
 				border: none;
 				border-radius: 30px;
@@ -314,11 +314,14 @@
 			}
 		}
 
-		.media-thumb {
+		.media-thumb,
+		.video-thumb {
 			max-width: 840px;
+			width: 100%;
 			border-radius: 20px;
 			overflow: hidden;
 			font-size: 0;
+
 		}
 	}
 
@@ -375,6 +378,130 @@
 				height: 100%;
 				transition: all 0.3s;
 			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************
+*
+* 포토스트림
+*
+********************************************************************/
+.media-list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 58px 24px;
+
+	.media-item-wrap {
+
+		&:hover,
+		&:focus {
+			.media-thumb-wrap {
+				.media-thumb-overay {
+					display: flex;
+				}
+
+				.media-thumb {
+					img {
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+
+	.media-item-wrap {
+		width: 282px;
+
+		.media-thumb-wrap {
+			width: 100%;
+			height: 173px;
+			position: relative;
+			font-size: 0;
+			border-radius: 20px;
+			overflow: hidden;
+
+			.media-thumb-overay {
+				z-index: 1;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background: rgba(0, 0, 0, 0.7);
+				display: none;
+				justify-content: space-between;
+				align-items: stretch;
+
+				a {
+					flex: 1;
+					color: #fff;
+					font-size: 14px;
+					font-weight: 500;
+					// text-align: center;
+					display: flex;
+					align-items: center;
+					flex-direction: column;
+					justify-content: center;
+					position: relative;
+
+					&.media-detail {
+						&:before {
+							display: block;
+							margin-bottom: 5px;
+							content: url(#{$imgPath}/icon-media-detail.png);
+						}
+					}
+
+					&.media-download {
+						&:before {
+							display: block;
+							margin-bottom: 5px;
+							content: url(#{$imgPath}/icon-media-download.png);
+						}
+
+						&:after {
+							position: absolute;
+							content: "";
+							display: block;
+							width: 1px;
+							height: 83px;
+							left: 0;
+							background-color: #fff;
+						}
+					}
+				}
+			}
+
+			.media-thumb {
+				height: 100%;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: transform 0.3s;
+				}
+			}
+
+		}
+
+		.media-title {
+			margin-top: 20px;
+			font-size: 20px;
+			line-height: 26px;
+			font-weight: 600;
+			@include ellipsis(2, 26px);
 		}
 	}
 }

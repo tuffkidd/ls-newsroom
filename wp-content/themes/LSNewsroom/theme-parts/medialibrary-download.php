@@ -106,8 +106,15 @@ function selectedDownload($medias)
 
 if ($_POST['type'] == 'all') {
 	selectedDownload($_POST['medias']);
+	// } else if ($_GET['type'] == 'video') {
+	// 	$src = $_GET['video_src'];
+	// 	header('Content-Type: application/octet-stream');
+	// 	header('Content-Transfer-Encoding: Binary');
+	// 	header('Content-disposition: attachment; filename="video.mp4"');
+	// 	readfile($src);
 } else {
 	$thumb_id = $_GET['attach_id'];
 	$thumb_size = $_GET['size'];
+
 	singleDownload($thumb_id, $thumb_size);
 }

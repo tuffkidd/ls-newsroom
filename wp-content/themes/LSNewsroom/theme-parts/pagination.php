@@ -1,13 +1,16 @@
 <?php
-global $wp_query, $search_posts, $allposts;
-// print_r($search_posts);
+global $wp_query, $search_posts, $allposts, $photostream_medias, $photostream_query_var;
 
-if (is_search()) {
+// print_r2($wp_query);
+if (is_search() && 0 === $wp_query->found_posts) {
 	$tmp_wp_query = $wp_query;
 	$wp_query = $search_posts;
 } else if (is_page_template('page-templates/page-latest.php')) {
 	$tmp_wp_query = $wp_query;
 	$wp_query = $allposts;
+} else if ($wp_query->query_vars['medialib'] == 'photostream') {
+	$tmp_wp_query = $wp_query;
+	$wp_query = $photostream_medias;
 }
 
 // $wp_query = $search_posts;
