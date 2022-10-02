@@ -22,8 +22,8 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 			</div>
 			<div class="medialibrary-control">
 				<div class="switch-album">
-					<a href="<?php echo site_url($lib . '/albums'); ?>" class="cj-button button-default <?php if (get_query_var($lb) == 'albums') { ?>selected<?php } ?>">앨범</a>
-					<a href="<?php echo site_url($lib . '/photostream'); ?>" class="cj-button button-default <?php if (get_query_var($lb) == 'photostream') { ?>selected<?php } ?>">포토스트림</a>
+					<a href="<?php echo site_url($lib . '/albums'); ?>" class="<?php if (get_query_var($lb) == 'albums') { ?>selected<?php } ?>">앨범</a>
+					<a href="<?php echo site_url($lib . '/photostream'); ?>" class="<?php if (get_query_var($lb) == 'photostream') { ?>selected<?php } ?>">포토스트림</a>
 				</div>
 				<div class="medialibrary-search">
 					<div class="medialibrary-search-box">
@@ -56,7 +56,7 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 										<?php } ?>
 									</div>
 									<div class="media-thumb">
-										<?php the_post_thumbnail('post-list'); ?>
+										<?php the_post_thumbnail('category-list'); ?>
 									</div>
 								</div>
 								<div class="media-title">

@@ -26,5 +26,6 @@ switch (Utils.currentPage) {
 		break
 	case 'medialibrary':
 		import('./medialibrary')
+		import('./video')
 		break
 }

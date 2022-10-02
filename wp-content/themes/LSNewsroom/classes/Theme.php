@@ -128,6 +128,7 @@ class Theme
 			add_image_size('content', 770, 99999999, true); // 메인 컨텐츠룸
 			add_image_size('slider', 815, 445, true); // 메인슬라이더
 			add_image_size('media', 840, 99999999, true); // 컨텐츠용
+			add_image_size('category-list', 282, 173, true); // Medialibrary list
 		}
 
 		register_nav_menus(

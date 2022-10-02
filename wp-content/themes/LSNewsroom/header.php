@@ -12,6 +12,19 @@ if (is_home()) {
 }
 
 $r_tags = $recommendTagsFrontend->getRecommendTags();
+
+
+$custom_taxo_page = "";
+if (is_tax('album') || get_query_var('medialib') || get_query_var('post_type') == 'multimedia') {
+	$custom_taxo_page = "multimedia";
+}
+
+if ($custom_taxo_page == 'multimedia') {
+	$onPage = 'medialibrary';
+	$body_class = "medialibrary";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">

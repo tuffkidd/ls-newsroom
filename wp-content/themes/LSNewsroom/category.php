@@ -1,6 +1,7 @@
 <?php
 global $Frontend, $wp_query;
 get_header();
+$total_posts = $wp_query->found_posts;
 ?>
 <section id="content">
 	<div class="container">
@@ -15,7 +16,28 @@ get_header();
 				<ul class="post-list">
 					<?php
 					while (have_posts()) : the_post();
-						get_template_part('theme-parts/post', 'list');
+					?>
+						<li class="post-item-wrap" id="post-<?php the_ID(); ?>">
+							<div class="post-thumb">
+								<a href="<?php the_permalink(); ?>" class="thumbnail-link">
+									<?php the_post_thumbnail('category-list') ?>
+								</a>
+							</div>
+							<div class="post-detail">
+								<a href="<?php the_permalink(); ?>" class="post-title">
+									<?php the_title(); ?>
+								</a>
+
+								<div class="post-etc">
+									<span class="post-date"><?php the_date('Y.m.d'); ?></span>
+								</div>
+
+								<div class="post-excerpt">
+									<?php echo get_the_excerpt() ?>
+								</div>
+							</div>
+						</li>
+					<?php
 					endwhile;
 					?>
 				</ul>

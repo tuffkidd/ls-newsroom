@@ -1018,3 +1018,110 @@
 		display: block;
 	}
 }
+
+/*************************************************************************
+*
+* 커스텀 블록
+*
+*************************************************************************/
+/**********************************************************
+	    * 커스텀 블록
+	    */
+
+// 동영상 자막 박스
+.arrow-down {
+	position: relative;
+	color: #000;
+
+	&:before {
+		position: absolute;
+		content: "";
+		display: block;
+		left: -20px;
+		top: 2px;
+		border-right: 2px solid #111;
+		border-bottom: 2px solid #111;
+		transform: rotate(45deg);
+		width: 8px;
+		height: 8px;
+		background-color: transparent;
+		// z-index:200;
+		// margin-left:100px;
+	}
+}
+
+.arrow-up {
+	position: relative;
+	color: #000;
+
+	&:before {
+		position: absolute;
+		content: "";
+		display: block;
+		left: -20px;
+		top: 7px;
+		border-right: 2px solid #111;
+		border-bottom: 2px solid #111;
+		transform: rotate(225deg);
+		width: 8px;
+		height: 8px;
+		background-color: transparent;
+		// z-index:200;
+		// margin-left:100px;
+	}
+}
+
+// 추가 블럭 : 비디오 자막
+.wp-block-wildworks-extend-block-video-subtitle {
+	margin: 20px 0;
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	a.toggle-video-subtitle {
+		margin-bottom: 10px;
+		font-size: 16px;
+		display: block;
+		float: right;
+		position: relative;
+	}
+
+	.video-subtitle {
+		display: none;
+		border: 1px solid #e8e8e8;
+		border-radius: 5px;
+		font-family: inherit;
+		line-height: 1.8;
+		font-size: 14px;
+		padding: 10px;
+		box-sizing: border-box;
+		white-space: normal;
+		word-wrap: break-word;
+		width: 100%;
+		overflow-x: auto;
+		text-align: left;
+		height: 100px;
+		background-color: #f7f7f7;
+
+		&:before {
+			content: "영상 자막";
+			position: absolute;
+			text-indent: -9999px;
+			left: 0;
+			font-size: 0;
+			top: 0;
+		}
+	}
+}
+
+@include media("<=mobile") {
+	.wp-block-wildworks-extend-block-video-subtitle {
+		.video-subtitle {
+			height: 50px;
+			font-size: 0.5em;
+		}
+	}
+}

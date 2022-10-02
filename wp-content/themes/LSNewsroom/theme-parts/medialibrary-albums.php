@@ -24,8 +24,8 @@ $albums = $Frontend->get_albums($paged, $taxo);
 			</div>
 			<div class="medialibrary-control">
 				<div class="switch-album">
-					<a href="<?php echo site_url($lib . '/albums'); ?>" class="cj-button button-default <?php if (get_query_var($lb) == 'albums') { ?>selected<?php } ?>">앨범</a>
-					<a href="<?php echo site_url($lib . '/photostream'); ?>" class="cj-button button-default <?php if (get_query_var($lb) == 'photostream') { ?>selected<?php } ?>">포토스트림</a>
+					<a href="<?php echo site_url($lib . '/albums'); ?>" class="<?php if (get_query_var($lb) == 'albums') { ?>selected<?php } ?>">앨범</a>
+					<a href="<?php echo site_url($lib . '/photostream'); ?>" class="<?php if (get_query_var($lb) == 'photostream') { ?>selected<?php } ?>">포토스트림</a>
 				</div>
 			</div>
 
@@ -36,7 +36,7 @@ $albums = $Frontend->get_albums($paged, $taxo);
 						// count
 						// $medias = $Frontend->get_medias($album->term_id, 1, -1, $taxo, $post_type)->posts;
 						// $total_posts = count($medias);
-						$img = wp_get_attachment_image_src(attachment_url_to_postid(get_term_meta($album->term_id, "album_img", TRUE)), 'category-list-header-thumb');
+						$img = wp_get_attachment_image_src(attachment_url_to_postid(get_term_meta($album->term_id, "album_img", TRUE)), 'category-list');
 				?>
 						<div class="album-item-wrap">
 							<!-- <a href="<?php echo get_category_link($album->term_id); ?>"> -->

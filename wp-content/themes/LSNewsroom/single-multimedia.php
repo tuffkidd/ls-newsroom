@@ -1,5 +1,5 @@
 <?php
-global $Frontend, $wp_query;
+global $Frontend, $wp_query, $post;
 get_header();
 
 $tax_name = get_query_var('album');
@@ -16,60 +16,60 @@ $s = isset($_GET['type']) ? esc_attr($_GET['s']) : '';
 if ($type == 'photostream') {
 	$back_url = site_url('/medialibrary/photostream?paged=' .  get_query_var('paged') . '&s=' . $s);
 } else {
-	$back_url = site_url('.medialibrary/albums');
+	$back_url = site_url('/medialibrary/albums');
 }
 
 /**************************************************
  * 슬라이더 처리
  */
-$args = [
-	'posts_per_page'			=> -1,
-	'post_type'					=> get_query_var('post_type'),
-	'order_by'					=> 'date',
-	'order'						=> 'DESC',
-	'post_status'				=> 'publish',
-	'has_password'  			=> false,
-	's' => $s,
-	'fields' => 'ids'
-];
+if ($type == 'photostream') {
+	$current_post = $post;
+	for ($i = 1; $i <= 2; $i++) {
+		$post = get_previous_post(false, '', 'album');
+		if ($post) {
+			${'prev_' . $i} = $post;
+			setup_postdata($post);
+		}
+	}
+	$post = $current_post;
+	for ($i = 1; $i <= 2; $i++) {
+		$post = get_next_post(false, '', 'album');
+		if ($post) {
+			${'next_' . $i} = $post;
+			setup_postdata($post);
+		}
+	}
+	$post = $current_post;
+	setup_postdata($post);
+} else {
+	$current_post = $post;
+	for ($i = 1; $i <= 2; $i++) {
+		$post = get_previous_post(true, '', 'album');
+		if ($post) {
+			${'prev_' . $i} = $post;
+			setup_postdata($post);
+		}
+	}
 
-$all_posts = new \WP_Query($args);
-
-// 현재 위치
-$this_index = array_search($post->ID, $all_posts->posts);
-
-// 이전
-if (isset($all_posts->posts[$this_index - 1])) {
-	$prev_id = $all_posts->posts[$this_index - 1];
-	$prev_post = get_next_post(true, '', $taxo);
-}
-// 다음
-if (isset($all_posts->posts[$this_index + 1])) {
-	$next_id = $all_posts->posts[$this_index + 1];
-	$next_post = get_previous_post(true, '', $taxo);
-}
-
-// 2개 이전
-if (isset($all_posts->posts[$this_index - 2])) {
-	$prev2_id = $all_posts->posts[$this_index - 2];
-	$prev2_post = get_next_post(true, '', $taxo);
-}
-
-// 2개 다음
-if (isset($all_posts->posts[$this_index + 2])) {
-	$next2_id = $all_posts->posts[$this_index + 2];
-	$next2_post = get_previous_post(true, '', $taxo);
+	$post = $current_post;
+	for ($i = 1; $i <= 2; $i++) {
+		$post = get_next_post(true, '', 'album');
+		if ($post) {
+			${'next_' . $i} = $post;
+			setup_postdata($post);
+		}
+	}
+	$post = $current_post;
+	setup_postdata($post);
 }
 
 /****************************************************
  * 비디오 처리
  */
 
-$pattern = '/(?:<video[^>]+src=\")(?<src>[^"]+)/';
 $content = get_the_content();
-
+$pattern = '/(?:<video[^>]+src=\")(?<src>[^"]+)/';
 preg_match($pattern, $content, $matches);
-
 
 if ($matches) {
 	$video_src = $matches['src'];
@@ -80,6 +80,9 @@ if ($matches) {
 
 	preg_match($pattern, $content, $matches);
 	$video_content = $matches[0];
+
+	preg_match("/<div class=\"wp-block-wildworks-extend-block-video-subtitle\">(.*?)<\/div>/", $content, $match);
+	$subtitle = $match[0];
 }
 
 ?>
@@ -123,13 +126,14 @@ if ($matches) {
 				</div>
 				<div class="media-slider">
 					<div id="media-prev">
-						<?php if (isset($prev_id)) { ?>
-							<a href="<?php echo get_permalink($prev_id) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" class="hidden-text">이전 미디어</a>
+						<?php if (isset($next_1)) { ?>
+							<a href="<?php echo get_permalink($next_1) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" class="hidden-text">이전 미디어</a>
 						<?php } ?>
 					</div>
 					<?php if (isset($video_src)) : ?>
 						<div class="video-thumb">
 							<?php echo $video_content ?>
+							<?php echo $subtitle; ?>
 						</div>
 					<?php else : ?>
 						<div class="media-thumb">
@@ -137,26 +141,26 @@ if ($matches) {
 						</div>
 					<?php endif; ?>
 					<div id="media-next">
-						<?php if (isset($next_id)) { ?>
-							<a href="<?php echo get_permalink($next_id); ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" class="hidden-text">다음 미디어</a>
+						<?php if (isset($prev_1)) { ?>
+							<a href="<?php echo get_permalink($prev_1); ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" class="hidden-text">다음 미디어</a>
 						<?php } ?>
 					</div>
 				</div>
 				<div class="media-thumbs">
 					<div>
-						<?php if (isset($prev2_id)) : ?>
-							<a href="<?php echo get_the_permalink($prev2_id) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($prev2_id) ?>">
+						<?php if (isset($next_2)) : ?>
+							<a href="<?php echo get_the_permalink($next_2) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($next_2) ?>">
 								<div class="img">
-									<?php echo get_the_post_thumbnail($prev2_id, 'post-list'); ?>
+									<?php echo get_the_post_thumbnail($next_2, 'category-list'); ?>
 								</div>
 							</a>
 						<?php endif; ?>
 					</div>
 					<div>
-						<?php if (isset($prev_id)) : ?>
-							<a href="<?php echo get_the_permalink($prev_id) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($prev_id) ?>">
+						<?php if (isset($next_1)) : ?>
+							<a href="<?php echo get_the_permalink($next_1) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($next_1) ?>">
 								<div class="img">
-									<?php echo get_the_post_thumbnail($prev_id, 'post-list'); ?>
+									<?php echo get_the_post_thumbnail($next_1, 'category-list'); ?>
 								</div>
 							</a>
 						<?php endif; ?>
@@ -164,24 +168,24 @@ if ($matches) {
 					<div>
 						<span class="media-current">
 							<div class="img">
-								<?php echo the_post_thumbnail('post-list'); ?>
+								<?php echo the_post_thumbnail('category-list'); ?>
 							</div>
 						</span>
 					</div>
 					<div>
-						<?php if (isset($next_id)) : ?>
-							<a href="<?php echo get_the_permalink($next_id) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($next_id) ?>">
+						<?php if (isset($prev_1)) : ?>
+							<a href="<?php echo get_the_permalink($prev_1) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($prev_1) ?>">
 								<div class="img">
-									<?php echo get_the_post_thumbnail($next_id, 'post-list'); ?>
+									<?php echo get_the_post_thumbnail($prev_1, 'category-list'); ?>
 								</div>
 							</a>
 						<?php endif; ?>
 					</div>
 					<div>
-						<?php if (isset($next2_id)) : ?>
-							<a href="<?php echo get_the_permalink($next2_id) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($next2_id) ?>">
+						<?php if (isset($prev_2)) : ?>
+							<a href="<?php echo get_the_permalink($prev_2) ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $s ?>" title="<?php echo get_the_title($prev_2) ?>">
 								<div class="img">
-									<?php echo get_the_post_thumbnail($next2_id, 'post-list'); ?>
+									<?php echo get_the_post_thumbnail($prev_2, 'category-list'); ?>
 								</div>
 							</a>
 						<?php endif; ?>

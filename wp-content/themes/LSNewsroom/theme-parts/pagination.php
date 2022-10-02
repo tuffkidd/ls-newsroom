@@ -8,7 +8,7 @@ if (is_search() && 0 === $wp_query->found_posts) {
 } else if (is_page_template('page-templates/page-latest.php')) {
 	$tmp_wp_query = $wp_query;
 	$wp_query = $allposts;
-} else if ($wp_query->query_vars['medialib'] == 'photostream') {
+} else if (isset($wp_query->query_vars['medialib']) && $wp_query->query_vars['medialib'] == 'photostream') {
 	$tmp_wp_query = $wp_query;
 	$wp_query = $photostream_medias;
 }
