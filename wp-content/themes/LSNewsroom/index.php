@@ -124,8 +124,8 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 					LS전선 뉴스룸에서 <span>다양한 이미지와<br>영상 데이터</span>를 확인하실 수 있습니다.
 				</div>
 				<div class="links">
-					<a href="#">이미지</a>
-					<a href="#">영상</a>
+					<a href="<?php echo site_url('/medialibrary/albums') ?>">앨범</a>
+					<a href="<?php echo site_url('/medialibrary/photostream') ?>">포토스트림</a>
 				</div>
 			</div>
 		</div>

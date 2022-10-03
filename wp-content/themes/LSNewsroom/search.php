@@ -200,11 +200,47 @@ $media_pagination = paginate_links([
 				<span>총 <?php echo $search_media->found_posts ?>건의 미디어가 있습니다</span>
 			</div>
 			<div class="media-wrap">
-				<div class="media-justified">
+				<div class="media-list">
 					<?php
 					if ($search_media->have_posts()) :
 						while ($search_media->have_posts()) : $search_media->the_post();
-							get_template_part('theme-parts/media', 'list');
+					?>
+							<div class="media-item-wrap pc">
+								<div class="media-item">
+									<div class="media-thumb-wrap">
+										<div class="media-thumb-overay">
+											<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>" class="media-detail">
+												크게 보기
+											</a>
+											<?php if (isset($video_id)) { ?>
+												<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . $video_id . '&size=full'); ?>" class="media-download">다운로드</a>
+											<?php } else { ?>
+												<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . get_post_thumbnail_id(get_the_ID()) . '&size=full'); ?>" class="media-download">다운로드</a>
+											<?php } ?>
+										</div>
+										<div class="media-thumb">
+											<?php the_post_thumbnail('category-list'); ?>
+										</div>
+									</div>
+									<div class="media-title">
+										<?php echo the_title() ?>
+									</div>
+								</div>
+							</div>
+
+							<div class="media-item-wrap mobile">
+								<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>" class="media-item">
+									<div class="media-thumb-wrap">
+										<div class="media-thumb">
+											<?php the_post_thumbnail('category-list'); ?>
+										</div>
+									</div>
+									<div class="media-title">
+										<?php echo the_title() ?>
+									</div>
+								</a>
+							</div>
+					<?php
 						endwhile;
 					endif;
 					?>

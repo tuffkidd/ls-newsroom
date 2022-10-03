@@ -401,7 +401,7 @@ class Frontend extends Theme
 		// 검색어
 		$search_args['s'] = $s;
 		// 페이지당 글수
-		$search_args['posts_per_page'] = 15;
+		$search_args['posts_per_page'] = 8;
 		// 검색 필드
 		// $search_args['fields'] = 'post_title';
 		// 포스트 타입
@@ -647,5 +647,17 @@ class Frontend extends Theme
 
 		$result = new \WP_Query($args);
 		return $result->posts;
+	}
+
+	public function is_video_media($content)
+	{
+		$pattern = '/(?:<video[^>]+src=\")(?<src>[^"]+)/';
+		preg_match($pattern, $content, $matches);
+
+		if (isset($matches[0])) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -53,8 +53,8 @@
 	</div>
 	<?php wp_footer(); ?>
 
-	<?php if (is_single()) { ?>
-		<div class="utils">
+	<div class="utils">
+		<?php if (is_single()) { ?>
 			<div class="mob-util">
 				<div class="entry-share">
 					<a href="#" class="mob-copy copy-url hidden-text" title="URL 복사">URL 복사</a>
@@ -64,9 +64,9 @@
 				</div>
 				<a href="#" class="mob-share-toggle hidden-text">포스트 공유</a>
 			</div>
-			<a href="#" class="go-to-top">맨 위로</a>
-		</div>
-	<?php } ?>
+		<?php } ?>
+		<a href="#" class="go-to-top">맨 위로</a>
+	</div>
 </footer>
 
 <!-- <div class="dim-screen"></div> -->

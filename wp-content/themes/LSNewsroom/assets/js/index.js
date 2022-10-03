@@ -6,7 +6,8 @@ import 'swiper/css/bundle'
 			speed: 500,
 			loop: true,
 			autoplay: {
-				delay: 3000
+				delay: 3000,
+				disableOnInteraction: false
 			},
 			pagination: {
 				el: '.swiper-pagination',

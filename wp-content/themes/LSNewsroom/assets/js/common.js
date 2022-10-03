@@ -345,7 +345,7 @@
 		// 키워드 삭제
 		$(document).on('click', '#header-search-box #del-keyword', function () {
 			$(this)
-				.siblings('label')
+				.closest('form')
 				.find('input[name="s"]')
 				.val('')
 				.focus()

@@ -35,6 +35,13 @@ if ($custom_taxo_page == 'multimedia') {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php wp_head(); ?>
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_IMAGE_URI ?>/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo THEME_IMAGE_URI ?>/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo THEME_IMAGE_URI ?>/favicon/favicon-16x16.png">
+	<link rel="manifest" href="<?php echo THEME_IMAGE_URI ?>/favicon/site.webmanifest">
+	<link rel="mask-icon" href="<?php echo THEME_IMAGE_URI ?>/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 </head>
 
 <body <?php body_class(); ?> data-page="<?php echo $onPage; ?>">
@@ -99,7 +106,8 @@ if ($custom_taxo_page == 'multimedia') {
 						</div>
 						<div class="search-keyword">
 							<div class="search-keyword-wrap">
-								<label for="s"><input type="text" name="s" id="s" value="<?php echo get_search_query(); ?>" placeholder="검색어를 입력하세요."></label>
+								<label for="s" class="hidden-text">검색어를 입력하세요.</label>
+								<input type="text" name="s" value="<?php echo get_search_query(); ?>" placeholder="검색어를 입력하세요.">
 								<a href="#" id="del-keyword" class="hidden-text" title="검색어 삭제">검색어 삭제</a>
 								<button type="submit" id="search-submit" class="hidden-text" title="검색하기">검색하기</button>
 							</div>

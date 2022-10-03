@@ -42,11 +42,11 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 				if ($photostream_medias->have_posts()) :
 					while ($photostream_medias->have_posts()) : $photostream_medias->the_post();
 				?>
-						<div class="media-item-wrap">
+						<div class="media-item-wrap pc">
 							<div class="media-item">
 								<div class="media-thumb-wrap">
 									<div class="media-thumb-overay">
-										<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged'); ?>&s=<?php echo $keyword; ?>" class="media-detail">
+										<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>" class="media-detail">
 											크게 보기
 										</a>
 										<?php if (isset($video_id)) { ?>
@@ -55,7 +55,7 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 											<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . get_post_thumbnail_id(get_the_ID()) . '&size=full'); ?>" class="media-download">다운로드</a>
 										<?php } ?>
 									</div>
-									<div class="media-thumb">
+									<div class="media-thumb <?php if ($Frontend->is_video_media(get_the_content())) { ?>video<?php } ?>">
 										<?php the_post_thumbnail('category-list'); ?>
 									</div>
 								</div>
@@ -63,6 +63,19 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 									<?php echo the_title() ?>
 								</div>
 							</div>
+						</div>
+
+						<div class="media-item-wrap mobile">
+							<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>" class="media-item">
+								<div class="media-thumb-wrap">
+									<div class="media-thumb <?php if ($Frontend->is_video_media(get_the_content())) { ?>video<?php } ?>">
+										<?php the_post_thumbnail('category-list'); ?>
+									</div>
+								</div>
+								<div class="media-title">
+									<?php echo the_title() ?>
+								</div>
+							</a>
 						</div>
 				<?php
 					endwhile;
