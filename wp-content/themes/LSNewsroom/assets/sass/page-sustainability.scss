@@ -1,0 +1,134 @@
+.page-sustainability {
+	margin: 100px 0;
+	.header {
+		h1 {
+			font-size: 36px;
+			font-weight: 700;
+			padding: 20px 0;
+			text-align: center;
+			margin: 0 auto;
+		}
+		p {
+			padding: 40px 0;
+			margin: 0;
+			font-size: 24px;
+			line-height: 40px;
+			font-weight: 500;
+		}
+	}
+
+	.body {
+		h2 {
+			padding: 10px 0;
+			border-bottom: 1px solid $color__border;
+		}
+
+		.report-top {
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			max-width: 840px;
+			margin: 0 auto;
+			gap: 40px;
+
+			img {
+				font-size: 0;
+			}
+
+			.desc {
+				font-size: 22px;
+				line-height: 36px;
+			}
+			.actions {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 10px;
+
+				a {
+					display: inline-block;
+					font-size: 17px;
+					color: #000;
+					position: relative;
+					padding: 10px 24px 10px 54px;
+					border: 1px solid $color__border;
+					border-radius: 20px;
+
+					&:before {
+						position: absolute;
+						content: '';
+						width: 15px;
+						height: 16px;
+						margin-left: -25px;
+						top: 50%;
+						transform: translateY(-50%);
+						display: inline-block;
+						background: url(#{$imgPath}/icon-media-download-black.png) no-repeat
+							center center;
+					}
+
+					&.invert {
+						background-color: $color__background-sig;
+						color: #fff;
+						border: 1px solid $color__background-sig;
+						&:before {
+							background: url(#{$imgPath}/icon-media-download.png) no-repeat
+								center center;
+						}
+					}
+				}
+			}
+		}
+
+		.report-past {
+			max-width: 1024px;
+			margin: 100px auto;
+			display: grid;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			justify-content: space-around;
+			gap: 70px 35px;
+			.report-item {
+				.year {
+					font-size: 20px;
+					margin-bottom: 10px;
+					font-weight: 700;
+				}
+				.img {
+					font-size: 0;
+				}
+				.actions {
+					margin-top: 10px;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 10px 0;
+
+					a {
+						display: inline-block;
+						font-size: 17px;
+						color: #000;
+						position: relative;
+						padding: 8px 24px 8px 54px;
+						border: 1px solid $color__border;
+						border-radius: 20px;
+
+						&:before {
+							position: absolute;
+							content: '';
+							width: 15px;
+							height: 16px;
+							margin-left: -25px;
+							top: 50%;
+							transform: translateY(-50%);
+							display: inline-block;
+							background: url(#{$imgPath}/icon-media-download-black.png)
+								no-repeat center center;
+						}
+					}
+				}
+			}
+		}
+	}
+}
