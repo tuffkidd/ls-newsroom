@@ -38,21 +38,25 @@ $albums = $Frontend->get_albums($paged, $taxo);
 						// $total_posts = count($medias);
 						$img = wp_get_attachment_image_src(attachment_url_to_postid(get_term_meta($album->term_id, "album_img", TRUE)), 'category-list');
 				?>
-						<div class="album-item-wrap">
-							<!-- <a href="<?php echo get_category_link($album->term_id); ?>"> -->
-							<a href="<?php echo get_the_permalink($album->post->ID); ?>">
-								<?php /*
+						<?php if (isset($album->post)) : ?>
+							<div class="album-item-wrap">
+
+								<a href="<?php echo get_the_permalink($album->post->ID); ?>">
+
+
+									<?php /*
 								<span class="album-photo-count">
 									<img src="<?php echo THEME_IMAGE_URI . '/icon-photo-count.png'; ?>" alt="미디어 수 아이콘"> <?php echo number_format($total_posts); ?>
 								</span>
 								*/ ?>
-								<div class="album-thumb-wrap">
-									<div class="album-thumb-overlay"></div>
-									<img src="<?php echo $img[0]; ?>" alt="<?php echo $album->name; ?> 앨범 대표 이미지">
-								</div>
-								<span class="album-title"><?php echo $album->name; ?></span>
-							</a>
-						</div>
+									<div class="album-thumb-wrap">
+										<div class="album-thumb-overlay"></div>
+										<img src="<?php echo $img[0]; ?>" alt="<?php echo $album->name; ?> 앨범 대표 이미지">
+									</div>
+									<span class="album-title"><?php echo $album->name; ?></span>
+								</a>
+							</div>
+						<?php endif; ?>
 				<?php
 					endforeach;
 				endif;

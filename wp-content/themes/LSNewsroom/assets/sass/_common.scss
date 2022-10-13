@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css");
+@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
 
 html,
 body {
@@ -6,9 +6,8 @@ body {
 	box-sizing: border-box;
 	font-family: $font__default;
 
-	>* {
+	> * {
 		word-break: keep-all;
-
 	}
 }
 
@@ -70,7 +69,7 @@ button {
 
 .clearfix {
 	&:after {
-		content: "";
+		content: '';
 		display: block;
 		clear: both;
 	}
@@ -94,9 +93,13 @@ button {
 	margin: 0 auto;
 }
 
+.page-container {
+	display: block;
+	max-width: 1090px;
+	margin: 0 auto;
+}
 
-@include media("<=container") {
-
+@include media('<=container') {
 	.container {
 		margin: 0 50px;
 	}
@@ -106,20 +109,18 @@ button {
 	}
 }
 
-@include media("<=desktop") {
-
+@include media('<=desktop') {
 	.container,
+	.page-container,
 	.container-small {
 		margin: 0 30px;
 	}
-
 }
 
-@include media("<=tablet") {
-
+@include media('<=tablet') {
 	.container,
+	.page-container,
 	.container-small {
 		margin: 0 16px;
 	}
-
 }

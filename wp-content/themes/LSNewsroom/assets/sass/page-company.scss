@@ -1,0 +1,282 @@
+.page-company {
+	margin: 100px 0;
+
+	div[class^='section-'] + div[class^='section-'] {
+		margin-top: 180px;
+	}
+
+	.header {
+		h1 {
+			font-size: 36px;
+			font-weight: 700;
+			padding: 20px 0;
+			text-align: center;
+			margin: 0 auto;
+		}
+		p {
+			padding: 40px 0;
+			margin: 0;
+			font-size: 24px;
+			line-height: 40px;
+			font-weight: 500;
+			letter-spacing: -1px;
+		}
+	}
+
+	h2 {
+		font-size: 28px;
+		font-weight: 700;
+		position: relative;
+		padding-left: 16px;
+		margin-bottom: 50px;
+
+		&:before {
+			position: absolute;
+			content: '';
+			display: block;
+			width: 6px;
+			left: 0;
+			height: 100%;
+			background: #0081c4;
+			margin-right: 10px;
+		}
+
+		&:after {
+			position: absolute;
+			display: block;
+			content: '';
+			width: 100%;
+			left: 0;
+			bottom: -7px;
+			border-bottom: 1px solid $color__border;
+		}
+	}
+
+	/*******************************************************************************
+	* 인트로
+	********************************************************************************/
+	.section-intro {
+		.company-intro-item + .company-intro-item {
+			margin-top: 150px;
+		}
+
+		.company-intro-item {
+			h3 {
+				font-size: 27px;
+				color: $color__background-sig;
+			}
+
+			p {
+				margin: 10px 0;
+				font-size: 24px;
+				line-height: 40px;
+				letter-spacing: -1px;
+			}
+
+			img {
+				display: block;
+				margin: 50px auto 0;
+			}
+		}
+	}
+
+	/*******************************************************************************
+	* 연혁
+	********************************************************************************/
+	.section-timeline {
+		.timeline-container {
+			position: relative;
+			&:after {
+				position: absolute;
+				content: '';
+				width: 2px;
+				height: 100%;
+				top: 0;
+				left: 50%;
+				background-color: $color__background-sig;
+				z-index: -1;
+			}
+		}
+		.timeline-item {
+			position: relative;
+			width: 50%;
+			// padding: 30px 0;
+			min-height: 130px;
+
+			&:nth-child(even) {
+				list-style-position: inside;
+				.year {
+					position: absolute;
+					right: 0;
+					transform: translateX(calc(100% + 35px));
+
+					&:before {
+						position: absolute;
+						content: '';
+						width: 7px;
+						height: 7px;
+						border: 8px solid #003378;
+						border-radius: 17px;
+						background-color: #fff;
+						left: -35px;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						z-index: 1;
+					}
+
+					&:after {
+						position: absolute;
+						content: '';
+						display: block;
+						width: 25px;
+						height: 2px;
+						left: 0;
+						top: 50%;
+						background: #003378;
+						transform: translateX(-100%);
+					}
+				}
+				.content {
+					justify-content: flex-end;
+				}
+			}
+
+			&:nth-child(odd) {
+				left: 50%;
+				.year {
+					position: absolute;
+					transform: translateX(calc(-100% - 35px));
+
+					&:after {
+						position: absolute;
+						content: '';
+						width: 7px;
+						height: 7px;
+						border: 8px solid #003378;
+						border-radius: 17px;
+						background-color: #fff;
+						right: -35px;
+						top: 50%;
+						transform: translate(50%, -50%);
+						z-index: 1;
+					}
+
+					&:before {
+						position: absolute;
+						content: '';
+						display: block;
+						width: 25px;
+						height: 2px;
+						right: 0;
+						top: 50%;
+						background: #003378;
+						transform: translateX(100%);
+					}
+				}
+			}
+
+			.year {
+				display: inline-block;
+				padding: 13px 79px;
+				font-size: 24px;
+				font-weight: 800;
+				color: #fff;
+				background-color: #003378;
+				border-radius: 30px;
+			}
+
+			&:nth-child(2) .year {
+				background-color: #084588;
+			}
+			&:nth-child(3) .year {
+				background-color: #10589a;
+			}
+			&:nth-child(4) .year {
+				background-color: #1a6faf;
+			}
+			&:nth-child(5) .year {
+				background-color: #2383c2;
+			}
+			&:nth-child(6) .year {
+				background-color: #2c97d3;
+			}
+			&:nth-child(7) .year {
+				background-color: #33a7e2;
+			}
+
+			.content {
+				display: flex;
+				padding: 0 35px;
+				position: relative;
+
+				ul {
+					list-style-type: none;
+					margin: 9px 0 0 0;
+					padding: 0;
+
+					li {
+						font-size: 24px;
+						font-weight: 500;
+						line-height: 40px;
+						&:before {
+							content: '\00B7';
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/*******************************************************************************
+	* 재무실적
+	********************************************************************************/
+	.section-finance {
+		padding-top: 100px;
+
+		.finance-container {
+			max-width: 930px;
+			margin: 0 auto;
+		}
+
+		.finance-charts {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+
+			.chart-item {
+				h4 {
+					text-align: center;
+					font-size: 21px;
+
+					span {
+						position: relative;
+						display: inline-block;
+
+						&:after {
+							position: absolute;
+							display: block;
+							content: '';
+							width: calc(100% + 20px);
+							height: 10px;
+							margin: 0 auto;
+							transform: translateX(-10px);
+							background-color: rgba(153, 153, 153, 0.15);
+						}
+					}
+				}
+
+				.img {
+					position: relative;
+					min-height: 173px;
+					display: inline-flex;
+					flex-direction: column;
+					justify-content: flex-end;
+
+					img {
+					}
+				}
+			}
+		}
+	}
+}

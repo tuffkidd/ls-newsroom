@@ -6,7 +6,7 @@ global $Frontend;
 get_header();
 ?>
 <section id="content">
-	<div class="container">
+	<div class="page-container">
 		<div id="page-<?php the_ID(); ?>" <?php post_class('page-sustainability'); ?>>
 			<div class="header">
 				<h1>LS전선 지속가능경영 보고서</h1>

@@ -1,19 +1,20 @@
 @charset "UTF-8";
-@import "~include-media/dist/include-media";
-@import "_mixin.scss";
-@import "_variables.scss";
-@import "_common.scss";
-@import "header.scss";
-@import "index.scss";
-@import "category.scss";
-@import "single.scss";
-@import "footer.scss";
-@import "search.scss";
-@import "404.scss";
-@import "medialibrary.scss";
+@import '~include-media/dist/include-media';
+@import '_mixin.scss';
+@import '_variables.scss';
+@import '_common.scss';
+@import 'header.scss';
+@import 'index.scss';
+@import 'category.scss';
+@import 'single.scss';
+@import 'footer.scss';
+@import 'search.scss';
+@import '404.scss';
+@import 'medialibrary.scss';
 
-@import "page-sustainability.scss";
+@import 'page-sustainability.scss';
+@import 'page-company.scss';
 
 // @import "tag.scss";
 // @import "content.scss";
-@import "pagination.scss";
+@import 'pagination.scss';

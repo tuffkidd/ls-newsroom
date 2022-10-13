@@ -34,6 +34,18 @@ if ($custom_taxo_page == 'multimedia') {
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" /> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-XC67PP4EXT"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+		gtag('config', 'G-XC67PP4EXT');
+	</script>
+
 	<?php wp_head(); ?>
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo THEME_IMAGE_URI ?>/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo THEME_IMAGE_URI ?>/favicon/favicon-32x32.png">
@@ -42,6 +54,7 @@ if ($custom_taxo_page == 'multimedia') {
 	<link rel="mask-icon" href="<?php echo THEME_IMAGE_URI ?>/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body <?php body_class(); ?> data-page="<?php echo $onPage; ?>">
