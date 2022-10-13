@@ -260,10 +260,17 @@
 							width: calc(100% + 20px);
 							height: 10px;
 							margin: 0 auto;
-							transform: translateX(-10px);
+							transform: translate(-10px, -5px);
 							background-color: rgba(153, 153, 153, 0.15);
 						}
 					}
+				}
+
+				p {
+					font-size: 13px;
+					color: #7c7c7c;
+					text-align: right;
+					margin-bottom: 0;
 				}
 
 				.img {
@@ -275,6 +282,13 @@
 
 					img {
 					}
+				}
+			}
+
+			table {
+				caption {
+					text-indent: -10000px;
+					font-size: 0;
 				}
 			}
 		}
