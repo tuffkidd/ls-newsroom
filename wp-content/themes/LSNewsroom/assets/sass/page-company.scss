@@ -542,8 +542,13 @@
 							letter-spacing: -2px;
 						}
 						ul {
+							list-style-type: none;
 							li {
 								text-align: left;
+								&:before {
+									content: '\00B7';
+									margin-right: 5px;
+								}
 							}
 						}
 					}

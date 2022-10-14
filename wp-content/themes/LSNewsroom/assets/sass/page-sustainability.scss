@@ -69,7 +69,8 @@
 							center center;
 					}
 
-					&.invert {
+					&:hover,
+					&:focus {
 						background-color: $color__background-sig;
 						color: #fff;
 						border: 1px solid $color__background-sig;
