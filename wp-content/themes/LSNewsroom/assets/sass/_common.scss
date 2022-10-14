@@ -67,6 +67,23 @@ button {
 	overflow: hidden;
 }
 
+.hidden-pc {
+	display: none;
+}
+
+.hidden-mobile {
+	display: block;
+}
+
+@include media('<=tablet') {
+	.hidden-pc {
+		display: block;
+	}
+	.hidden-mobile {
+		display: none;
+	}
+}
+
 .clearfix {
 	&:after {
 		content: '';
@@ -100,6 +117,7 @@ button {
 }
 
 @include media('<=container') {
+	.page-container,
 	.container {
 		margin: 0 50px;
 	}

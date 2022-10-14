@@ -18,7 +18,7 @@
 			margin: 0;
 			font-size: 24px;
 			line-height: 40px;
-			font-weight: 500;
+			font-weight: 400;
 			letter-spacing: -1px;
 		}
 	}
@@ -102,6 +102,10 @@
 			width: 50%;
 			// padding: 30px 0;
 			min-height: 130px;
+
+			&:last-child {
+				min-height: auto;
+			}
 
 			&:nth-child(even) {
 				list-style-position: inside;
@@ -209,6 +213,13 @@
 				padding: 0 35px;
 				position: relative;
 
+				p {
+					font-size: 24px;
+					font-weight: 500;
+					line-height: 40px;
+					margin: 9px 0 0 0;
+				}
+
 				ul {
 					list-style-type: none;
 					margin: 9px 0 0 0;
@@ -232,15 +243,14 @@
 	* 재무실적
 	********************************************************************************/
 	.section-finance {
-		padding-top: 100px;
-
 		.finance-container {
 			max-width: 930px;
-			margin: 0 auto;
+			margin: 100px auto 0;
 		}
 
 		.finance-charts {
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			justify-content: space-between;
 			align-items: flex-start;
 
@@ -269,7 +279,6 @@
 				p {
 					font-size: 13px;
 					color: #7c7c7c;
-					text-align: right;
 					margin-bottom: 0;
 				}
 
@@ -279,16 +288,1086 @@
 					display: inline-flex;
 					flex-direction: column;
 					justify-content: flex-end;
-
 					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		.finance-table {
+			margin-top: 70px;
+			overflow: hidden;
+
+			p {
+				font-size: 13px;
+				color: #7c7c7c;
+				margin-bottom: 10px;
+				text-align: right;
+			}
+
+			table {
+				border-top: 4px solid $color__background-sig;
+				width: calc(100% + 20px);
+				table-layout: fixed;
+				border-spacing: 10px 0px;
+				margin: 0px -10px;
+
+				caption {
+					text-indent: -10000px;
+					font-size: 0;
+				}
+
+				thead {
+					th {
+						font-weight: 700;
+						color: $color__text-sig;
+						text-align: right;
+						&:first-child {
+							text-align: left;
+							color: #000;
+						}
+					}
+				}
+
+				tbody {
+					td {
+						text-align: right;
+						&:first-child {
+							text-align: left;
+						}
+					}
+				}
+
+				td,
+				th {
+					font-size: 21px;
+					padding: 10px;
+					border-bottom: 1px solid $color__border;
+					width: 25%;
+				}
+			}
+		}
+	}
+
+	/*******************************************************************************
+	* 사업영역
+	********************************************************************************/
+	.section-business {
+		.business-item-wrap {
+			display: grid;
+			grid-template-columns: repeat(4, minmax(0, 230px));
+			justify-content: space-between;
+
+			.business-item {
+				width: 100%;
+				height: 230px;
+				background-color: #004381;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				p {
+					margin: 28px 0 0;
+					font-size: 22px;
+					font-weight: 600;
+					line-height: 30px;
+					color: #fff;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	/*******************************************************************************
+	* 신성장 동력
+	********************************************************************************/
+	.section-power {
+		.power-item {
+			display: flex;
+
+			.header {
+				max-width: 175px;
+				width: 100%;
+				background-color: #004381;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+				p {
+					font-size: 20px;
+					color: #fff;
+					font-weight: 600;
+					padding: 0;
+					margin: 15px 0;
+				}
+			}
+
+			.content {
+				padding: 40px;
+				flex-grow: 1;
+				background-color: #f4f4f4;
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 30px 20px;
+
+				.content-item {
+					h5 {
+						font-size: 20px;
+						color: #004381;
+						font-weight: 600;
+						margin: 10px 0;
+					}
+					ul {
+						list-style-type: none;
+						margin: 0;
+						padding: 0;
+						li {
+							font-size: 18px;
+							line-height: 32px;
+							margin-left: 15px;
+							&:before {
+								content: '\00B7';
+								margin-right: 5px;
+								margin-left: -15px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.power-item + .power-item {
+			margin-top: 30px;
+		}
+	}
+
+	/*******************************************************************************
+	* 지속가능경영
+	********************************************************************************/
+	.section-sustainability {
+		.moto {
+			font-size: 36px;
+			font-weight: 700;
+			padding: 0;
+		}
+
+		.esg-vision {
+			padding: 304px 0 160px;
+			max-width: 810px;
+			margin: 0 auto;
+			background: url(#{$imgPath}/img-company-esg-bg.png) no-repeat top center;
+
+			.title {
+				text-align: center;
+				span {
+					display: inline-block;
+					font-size: 26px;
+					font-weight: 700;
+					color: #fff;
+					padding: 30px 50px;
+					background: #35b597;
+					border: 3px solid #26a688;
+					margin: 0 auto;
+					border-radius: 50px;
+				}
+			}
+
+			.vision-item-wrap {
+				margin-top: 60px;
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+
+				.vision-item {
+					width: 240px;
+					height: 240px;
+					border-radius: 120px;
+					background: #65aadd;
+					border: 3px solid #4b90c4;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					div {
+						font-size: 22px;
+						line-height: 33px;
+						text-align: center;
+						color: #fff;
+						strong {
+							font-size: 28px;
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+
+		.body {
+			.body-item {
+				h3 {
+					font-size: 30px;
+					font-weight: 700;
+					margin-bottom: 50px;
+
+					&:before {
+						display: inline-block;
+						content: '';
+						width: 18px;
+						height: 18px;
+						background-color: #33a7e2;
+						border-radius: 10px;
+						margin-right: 13px;
+					}
+				}
+
+				.body-item-child {
+					display: grid;
+					// width: 1000px;
+					margin: 0 auto;
+					justify-content: space-around;
+					grid-template-columns: repeat(3, minmax(0, 300px));
+
+					div {
+						width: 100%;
+						text-align: center;
+						p,
+						ul li {
+							text-align: center;
+							font-size: 24px;
+							font-weight: 700;
+							color: #003378;
+							line-height: 32px;
+							letter-spacing: -2px;
+						}
+						ul {
+							li {
+								text-align: left;
+							}
+						}
+					}
+				}
+				&:first-child {
+					.body-item-child {
+						grid-template-columns: repeat(4, minmax(0, 300px));
 					}
 				}
 			}
 
-			table {
-				caption {
-					text-indent: -10000px;
-					font-size: 0;
+			.body-item + .body-item {
+				margin-top: 140px;
+			}
+		}
+	}
+}
+
+/***************************************************************************
+****************************************************************************
+****************************************************************************
+* 데스크탑
+****************************************************************************
+****************************************************************************
+***************************************************************************/
+
+@include media('<=desktop') {
+	.page-company {
+		margin: 60px 0;
+
+		div[class^='section-'] + div[class^='section-'] {
+			margin-top: 100px;
+		}
+
+		.header {
+			h1 {
+				font-size: 33px;
+				padding: 15px 0;
+			}
+
+			p {
+				padding: 30px 0;
+				font-size: 21px;
+				line-height: 35px;
+			}
+		}
+
+		h2 {
+			font-size: 25px;
+			margin-bottom: 40px;
+		}
+
+		/*******************************************************************************
+		* 인트로
+		********************************************************************************/
+		.section-intro {
+			.company-intro-item + .company-intro-item {
+				margin-top: 80px;
+			}
+
+			.company-intro-item {
+				h3 {
+					font-size: 24px;
+				}
+
+				p {
+					font-size: 21px;
+					line-height: 35px;
+				}
+
+				img {
+					width: 100%;
+					margin: 40px auto 0;
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 연혁
+		********************************************************************************/
+		.section-timeline {
+			.timeline-item {
+				min-height: 110px;
+
+				.year {
+					padding: 10px 60px;
+					font-size: 21px;
+				}
+
+				.content {
+					display: flex;
+					padding: 0 35px;
+					position: relative;
+
+					p {
+						font-size: 21px;
+						line-height: 35px;
+					}
+
+					ul {
+						li {
+							font-size: 21px;
+							line-height: 30px;
+						}
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 재무실적
+		********************************************************************************/
+		.section-finance {
+			.finance-container {
+				max-width: auto;
+				margin: 80px auto 0;
+			}
+
+			.finance-charts {
+				.chart-item {
+					h4 {
+						text-align: center;
+						font-size: 18px;
+
+						span {
+							&:after {
+								width: calc(100% + 10px);
+								transform: translate(-5px, -5px);
+							}
+						}
+					}
+
+					p {
+						font-size: 11px;
+					}
+				}
+			}
+
+			.finance-table {
+				margin-top: 50px;
+
+				p {
+					font-size: 11px;
+				}
+
+				table {
+					td,
+					th {
+						font-size: 17px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 사업영역
+		********************************************************************************/
+		.section-business {
+			.business-item-wrap {
+				grid-template-columns: repeat(4, minmax(0, 200px));
+
+				.business-item {
+					height: 200px;
+					img {
+						height: 60px;
+					}
+					p {
+						margin: 15px 0 0;
+						font-size: 17px;
+						line-height: 25px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 신성장 동력
+		********************************************************************************/
+		.section-power {
+			.power-item {
+				.header {
+					max-width: 150px;
+
+					img {
+						height: 60px;
+					}
+
+					p {
+						font-size: 17px;
+						margin: 10px 0;
+					}
+				}
+
+				.content {
+					padding: 30px;
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+					gap: 30px 20px;
+
+					.content-item {
+						h5 {
+							font-size: 17px;
+						}
+						ul {
+							li {
+								font-size: 15px;
+								line-height: 25px;
+								margin-left: 10px;
+								&:before {
+									margin-left: -10px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.power-item + .power-item {
+				margin-top: 30px;
+			}
+		}
+
+		/*******************************************************************************
+		* 지속가능경영
+		********************************************************************************/
+		.section-sustainability {
+			.moto {
+				font-size: 29px;
+			}
+
+			.esg-vision {
+				.title {
+					text-align: center;
+					span {
+						font-size: 23px;
+					}
+				}
+
+				.vision-item-wrap {
+					.vision-item {
+						width: 220px;
+						height: 220px;
+
+						div {
+							font-size: 18px;
+							line-height: 28px;
+							strong {
+								font-size: 25px;
+							}
+						}
+					}
+				}
+			}
+
+			.body {
+				.body-item {
+					h3 {
+						font-size: 24px;
+						margin-bottom: 40px;
+
+						&:before {
+							width: 14px;
+							height: 14px;
+							margin-right: 10px;
+						}
+					}
+
+					.body-item-child {
+						justify-content: space-around;
+						div {
+							p,
+							ul li {
+								font-size: 21px;
+								line-height: 32px;
+							}
+						}
+					}
+				}
+
+				.body-item + .body-item {
+					margin-top: 140px;
+				}
+			}
+		}
+	}
+}
+
+/***************************************************************************
+****************************************************************************
+****************************************************************************
+* 태블릿
+****************************************************************************
+****************************************************************************
+***************************************************************************/
+
+@include media('<=tablet') {
+	.page-company {
+		margin: 40px 0;
+
+		.header {
+			h1 {
+				font-size: 26px;
+			}
+
+			p {
+				font-size: 17px;
+				line-height: 30px;
+			}
+		}
+
+		h2 {
+			font-size: 21px;
+			margin-bottom: 40px;
+		}
+
+		/*******************************************************************************
+		* 인트로
+		********************************************************************************/
+		.section-intro {
+			.company-intro-item + .company-intro-item {
+				margin-top: 60px;
+			}
+
+			.company-intro-item {
+				h3 {
+					font-size: 21px;
+				}
+
+				p {
+					font-size: 17px;
+					line-height: 30px;
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 연혁
+		********************************************************************************/
+		.section-timeline {
+			.timeline-item {
+				min-height: 90px;
+
+				.year {
+					padding: 10px 50px;
+					font-size: 17px;
+				}
+
+				.content {
+					p {
+						font-size: 17px;
+						line-height: 27px;
+					}
+
+					ul {
+						li {
+							font-size: 17px;
+							line-height: 27px;
+							margin-left: 13px;
+							&:before {
+								margin-left: -13px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 재무실적
+		********************************************************************************/
+		.section-finance {
+			.finance-container {
+				margin: 60px auto 0;
+			}
+
+			.finance-charts {
+				gap: 30px;
+				.chart-item {
+					h4 {
+						font-size: 17px;
+					}
+				}
+			}
+
+			.finance-table {
+				margin-top: 40px;
+
+				table {
+					td,
+					th {
+						font-size: 16px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 사업영역
+		********************************************************************************/
+		.section-business {
+			.business-item-wrap {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: 20px;
+
+				.business-item {
+					p {
+						margin: 15px 0 0;
+						font-size: 15px;
+						line-height: 21px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 신성장 동력
+		********************************************************************************/
+		.section-power {
+			.power-item {
+				flex-direction: column;
+				.header {
+					max-width: 100%;
+					padding: 20px 0;
+
+					img {
+						height: 50px;
+					}
+
+					p {
+						font-size: 16px;
+						margin: 10px 0 0 0;
+					}
+				}
+
+				.content {
+					padding: 30px;
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+					gap: 30px 20px;
+
+					.content-item {
+						h5 {
+							font-size: 16px;
+						}
+						ul {
+							li {
+								font-size: 14px;
+								line-height: 21px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 지속가능경영
+		********************************************************************************/
+		.section-sustainability {
+			.moto {
+				font-size: 26px;
+			}
+
+			.esg-vision {
+				.title {
+					text-align: center;
+					span {
+						font-size: 21px;
+					}
+				}
+
+				.vision-item-wrap {
+					justify-content: space-around;
+
+					.vision-item {
+						width: 180px;
+						height: 180px;
+
+						div {
+							font-size: 16px;
+							line-height: 24px;
+							strong {
+								font-size: 19px;
+							}
+						}
+					}
+				}
+			}
+
+			.body {
+				.body-item {
+					h3 {
+						font-size: 21px;
+						margin-bottom: 40px;
+
+						&:before {
+							width: 10px;
+							height: 10px;
+							margin-right: 7px;
+						}
+					}
+
+					.body-item-child {
+						justify-content: space-around;
+						gap: 20px;
+						grid-template-columns: repeat(2, minmax(0, 180px));
+						div {
+							img {
+								width: 100%;
+							}
+							p,
+							ul li {
+								font-size: 17px;
+								line-height: 25px;
+							}
+						}
+					}
+				}
+
+				.body-item:first-child {
+					.body-item-child {
+						grid-template-columns: repeat(2, minmax(0, 180px));
+					}
+				}
+
+				.body-item + .body-item {
+					margin-top: 140px;
+				}
+			}
+		}
+	}
+}
+
+/***************************************************************************
+****************************************************************************
+****************************************************************************
+* 모바일
+****************************************************************************
+****************************************************************************
+***************************************************************************/
+
+@include media('<=mobile') {
+	.page-company {
+		margin: 30px 0;
+
+		.header {
+			h1 {
+				font-size: 23px;
+				padding: 10px 0;
+			}
+
+			p {
+				font-size: 15px;
+				line-height: 24px;
+			}
+		}
+
+		h2 {
+			font-size: 17px;
+			margin-bottom: 30px;
+		}
+
+		/*******************************************************************************
+		* 인트로
+		********************************************************************************/
+		.section-intro {
+			.company-intro-item + .company-intro-item {
+				margin-top: 40px;
+			}
+
+			.company-intro-item {
+				h3 {
+					font-size: 17px;
+				}
+
+				p {
+					font-size: 15px;
+					line-height: 24px;
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 연혁
+		********************************************************************************/
+		.section-timeline {
+			.timeline-item + .timeline-item {
+				margin-top: 30px;
+			}
+			.timeline-item {
+				min-height: auto;
+
+				&:nth-child(even) {
+					.year {
+						transform: translateX(calc(100% + 20px));
+						&:before {
+							left: -20px;
+						}
+						&:after {
+							width: 20px;
+						}
+					}
+					.content {
+						padding-right: 20px;
+						padding-left: 0;
+					}
+				}
+
+				&:nth-child(odd) {
+					.year {
+						transform: translateX(calc(-100% - 20px));
+						&:before {
+							width: 20px;
+						}
+						&:after {
+							right: -20px;
+						}
+					}
+				}
+
+				.year {
+					padding: 10px 40px;
+					font-size: 15px;
+				}
+
+				.content {
+					padding-left: 20px;
+					padding-right: 0;
+					p {
+						font-size: 14px;
+						line-height: 19px;
+					}
+
+					ul {
+						li {
+							font-size: 14px;
+							line-height: 19px;
+							margin-left: 10px;
+							&:before {
+								margin-left: -10px;
+							}
+						}
+						li + li {
+							margin-top: 10px;
+						}
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 재무실적
+		********************************************************************************/
+		.section-finance {
+			.finance-container {
+				margin: 40px auto 0;
+			}
+
+			.finance-charts {
+				grid-template-columns: repeat(1, minmax(0, 1fr));
+				gap: 20px;
+				.chart-item {
+					h4 {
+						font-size: 17px;
+					}
+					p {
+						text-align: center;
+					}
+					.img {
+						display: block;
+						text-align: center;
+						img {
+							width: auto;
+						}
+					}
+				}
+			}
+
+			.finance-table {
+				margin-top: 20px;
+
+				table {
+					td,
+					th {
+						font-size: 14px;
+						letter-spacing: -1px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 사업영역
+		********************************************************************************/
+		.section-business {
+			.business-item-wrap {
+				.business-item {
+					height: 150px;
+					img {
+						height: 40px;
+					}
+					p {
+						margin: 15px 0 0;
+						font-size: 14px;
+						line-height: 21px;
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 신성장 동력
+		********************************************************************************/
+		.section-power {
+			.power-item {
+				.header {
+					padding: 15px 0;
+
+					img {
+						height: 40px;
+					}
+
+					p {
+						font-size: 14px;
+					}
+				}
+
+				.content {
+					padding: 20px;
+					gap: 20px;
+					grid-template-columns: repeat(1, minmax(0, 1fr));
+
+					.content-item {
+						h5 {
+							font-size: 15px;
+						}
+						ul {
+							li {
+								font-size: 14px;
+								line-height: 21px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/*******************************************************************************
+		* 지속가능경영
+		********************************************************************************/
+		.section-sustainability {
+			.moto {
+				font-size: 21px;
+			}
+
+			.esg-vision {
+				padding: 260px 0 160px;
+				background: url(#{$imgPath}/img-company-esg-bg.png) no-repeat top center /
+					auto 450px;
+
+				.title {
+					text-align: center;
+					span {
+						font-size: 17px;
+						padding: 20px 40px;
+					}
+				}
+
+				.vision-item-wrap {
+					margin-top: 40px;
+					justify-content: space-between;
+
+					.vision-item {
+						width: 110px;
+						height: 110px;
+						padding: 5px;
+
+						div {
+							font-size: 13px;
+							line-height: 21px;
+							letter-spacing: -1px;
+							strong {
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+
+			.body {
+				.body-item {
+					h3 {
+						font-size: 17px;
+						margin-bottom: 30px;
+
+						&:before {
+							width: 6px;
+							height: 6px;
+							margin-right: 7px;
+							position: relative;
+							top: -3px;
+						}
+					}
+
+					.body-item-child {
+						div {
+							img {
+								width: 100%;
+							}
+							p,
+							ul li {
+								font-size: 15px;
+								line-height: 21px;
+							}
+						}
+					}
+				}
+
+				.body-item:first-child {
+					.body-item-child {
+						grid-template-columns: repeat(2, minmax(0, 180px));
+					}
+				}
+
+				.body-item + .body-item {
+					margin-top: 80px;
 				}
 			}
 		}
