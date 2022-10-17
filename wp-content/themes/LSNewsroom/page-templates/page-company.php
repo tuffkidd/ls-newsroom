@@ -6,6 +6,7 @@ global $Frontend;
 get_header();
 ?>
 <section id="content">
+	<?php get_template_part('theme-parts/post', 'share'); ?>
 	<div class="page-container">
 		<div id="page-<?php the_ID(); ?>" <?php post_class('page-company'); ?>>
 			<div class="header">

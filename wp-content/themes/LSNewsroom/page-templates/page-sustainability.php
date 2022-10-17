@@ -6,10 +6,11 @@ global $Frontend;
 get_header();
 ?>
 <section id="content">
+	<?php get_template_part('theme-parts/post', 'share'); ?>
 	<div class="page-container">
 		<div id="page-<?php the_ID(); ?>" <?php post_class('page-sustainability'); ?>>
 			<div class="header">
-				<h1>LS전선 지속가능경영 보고서</h1>
+				<h1>지속가능경영 보고서</h1>
 				<p>LS전선은 경제, 사회, 환경 부문에 걸쳐 사회적 가치 창출 활동의 성과와 계획을 이해관계자에게 투명하게 공개하기 위해 2010년부터 매년 지속가능경영보고서를 발간하고 있습니다.</p>
 			</div>
 			<div class="body">
