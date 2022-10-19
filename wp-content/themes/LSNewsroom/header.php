@@ -129,7 +129,7 @@ if ($custom_taxo_page == 'multimedia') {
 					<?php if ($r_tags) : ?>
 						<div class="tags">
 							<?php foreach ($r_tags as $t) : $ta = get_term_by('id', $t->term_id, 'post_tag'); ?>
-								<a href="<?php echo site_url('/tag/' . $ta->slug) ?>"><?php echo $ta->name; ?></a>
+								<a href="<?php echo get_tag_link($t->term_id) ?>"><?php echo $ta->name; ?></a>
 							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>

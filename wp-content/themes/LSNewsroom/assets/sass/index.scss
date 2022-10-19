@@ -14,7 +14,7 @@
 		.swiper-slide {
 			position: relative;
 
-			>a {
+			> a {
 				display: block;
 				width: 100%;
 				height: 100%;
@@ -49,7 +49,7 @@
 				.title {
 					font-size: 32px;
 					line-height: 44px;
-					@include ellipsis(5, 44px)
+					@include ellipsis(5, 44px);
 				}
 
 				.date {
@@ -70,7 +70,7 @@
 		.current {
 			display: inline-block;
 			min-width: 20px;
-			color: $color__text-sig
+			color: $color__text-sig;
 		}
 
 		.total {
@@ -78,7 +78,6 @@
 			display: inline-block;
 			min-width: 20px;
 		}
-
 
 		.button-prev {
 			position: relative;
@@ -89,7 +88,7 @@
 
 			&:after {
 				position: absolute;
-				content: "";
+				content: '';
 				display: block;
 				top: 8px;
 				left: 7px;
@@ -107,7 +106,6 @@
 			}
 		}
 
-
 		.button-next {
 			position: relative;
 			display: inline-block;
@@ -117,7 +115,7 @@
 
 			&:after {
 				position: absolute;
-				content: "";
+				content: '';
 				display: block;
 				top: 8px;
 				left: 7px;
@@ -155,7 +153,7 @@
 }
 
 // 슬라이더 - 데스크탑
-@include media("<=desktop") {
+@include media('<=desktop') {
 	.main-slider-section {
 		margin: 50px auto 70px;
 
@@ -179,7 +177,7 @@
 					.title {
 						font-size: 21px;
 						line-height: 33px;
-						@include ellipsis(5, 33px)
+						@include ellipsis(5, 33px);
 					}
 
 					.date {
@@ -215,7 +213,6 @@
 				}
 			}
 
-
 			.button-next {
 				width: 16px;
 				height: 16px;
@@ -238,7 +235,7 @@
 }
 
 // 슬라이더 - 태블릿
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.main-slider-section {
 		#main-slider {
 			height: 297px;
@@ -248,7 +245,7 @@
 			.swiper-slide {
 				position: relative;
 
-				>a {
+				> a {
 					display: block;
 					width: 100%;
 					height: 100%;
@@ -285,7 +282,7 @@
 					.title {
 						font-size: 18px;
 						line-height: 24px;
-						@include ellipsis(2, 24px)
+						@include ellipsis(2, 24px);
 					}
 
 					.date {
@@ -319,7 +316,6 @@
 	}
 }
 
-
 /**************************************************************************************************************************
 *
 * 최신글
@@ -328,7 +324,7 @@
 
 .main-latest {
 	.latest-tabs {
-		span {
+		a.on {
 			color: #000;
 			display: inline-block;
 			padding-bottom: 5px;
@@ -342,8 +338,7 @@
 			color: #000;
 		}
 
-		a+a,
-		span+a {
+		a + a {
 			margin-left: 40px;
 		}
 	}
@@ -351,26 +346,25 @@
 	.latest-content {
 		margin: 50px 0 0;
 
-		#latest-content-1 {
-			display: grid;
+		.latest-item-wrap {
+			&.on {
+				display: grid;
+			}
+			display: none;
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 			gap: 40px 24px;
 
-			.latest-content-1-item {
-
-
-				>a {
+			.latest-item {
+				> a {
 					font-size: 0;
 					display: block;
 					border-radius: 20px;
 					overflow: hidden;
 
 					&:hover {
-
-						>img {
+						> img {
 							transform: scale(1.1);
 						}
-
 					}
 
 					img {
@@ -415,12 +409,11 @@
 	}
 }
 
-
 // 최신글 - 데스크탑
-@include media("<=desktop") {
+@include media('<=desktop') {
 	.main-latest {
 		.latest-tabs {
-			span {
+			a.on {
 				font-size: 18px;
 			}
 
@@ -428,8 +421,7 @@
 				font-size: 17px;
 			}
 
-			a+a,
-			span+a {
+			a + a {
 				margin-left: 30px;
 			}
 		}
@@ -437,10 +429,10 @@
 		.latest-content {
 			margin: 40px 0 0;
 
-			#latest-content-1 {
+			.latest-item-wrap {
 				gap: 30px 20px;
 
-				.latest-content-1-item {
+				.latest-item {
 					.post-meta {
 						margin-top: 15px;
 
@@ -469,10 +461,10 @@
 }
 
 // 최신글 - 태블릿
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.main-latest {
 		.latest-tabs {
-			span {
+			a.on {
 				font-size: 18px;
 				padding-bottom: 1px;
 				margin-right: 27px;
@@ -483,8 +475,7 @@
 				line-height: 33px;
 			}
 
-			a+a,
-			span+a {
+			a + a {
 				margin-left: 0;
 				margin-right: 27px;
 			}
@@ -493,15 +484,15 @@
 		.latest-content {
 			margin: 40px 0 0;
 
-			#latest-content-1 {
+			.latest-item-wrap {
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 30px 20px;
 
-				.latest-content-1-item:last-child {
+				.latest-item:last-child {
 					display: none;
 				}
 
-				.latest-content-1-item {
+				.latest-item {
 					.post-meta {
 						margin-top: 15px;
 
@@ -530,18 +521,16 @@
 }
 
 // 최신글 - 모바일
-@include media("<=mobile") {
+@include media('<=mobile') {
 	.main-latest {
 		.latest-content {
-
-			#latest-content-1 {
+			.latest-item-wrap {
 				grid-template-columns: 1fr;
 				gap: 30px 20px;
 			}
 		}
 	}
 }
-
 
 /**************************************************************************************************************************
 *
@@ -606,7 +595,7 @@
 					color: #fff;
 
 					&:before {
-						content: "";
+						content: '';
 						vertical-align: top;
 						margin: 2px 10px 0 0;
 						display: inline-block;
@@ -618,7 +607,7 @@
 
 					&:after {
 						position: absolute;
-						content: "";
+						content: '';
 						display: block;
 						top: 13px;
 						left: 10px;
@@ -636,7 +625,7 @@
 					}
 				}
 
-				a+a {
+				a + a {
 					margin: 30px 0 0;
 				}
 			}
@@ -645,8 +634,7 @@
 }
 
 // 미디어라이브러리 - 컨테이너
-@include media("<=container") {
-
+@include media('<=container') {
 	.main-medialibrary {
 		margin: 80px 0 0;
 
@@ -672,7 +660,7 @@
 						font-size: 21px;
 
 						&:before {
-							content: "";
+							content: '';
 							vertical-align: top;
 							margin: 2px 10px 0 0;
 							display: inline-block;
@@ -690,7 +678,7 @@
 						}
 					}
 
-					a+a {
+					a + a {
 						margin: 20px 0 0;
 					}
 				}
@@ -700,7 +688,7 @@
 }
 
 // 미디어라이브러리 - 태블릿
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.main-medialibrary {
 		.medialibrary-box {
 			grid-template-columns: 1fr;
@@ -748,7 +736,7 @@
 						}
 					}
 
-					a+a {
+					a + a {
 						margin: 20px 0 0;
 					}
 				}
@@ -756,7 +744,6 @@
 		}
 	}
 }
-
 
 /**************************************************************************************************************************
 *
@@ -767,11 +754,12 @@
 	margin: 135px 0 60px 0;
 	height: 410px;
 
-	>div {
+	> div {
 		padding: 70px 0;
 		width: 100%;
 		height: 100%;
-		background: url(#{$imgPath}/img-main-about-lscns.png) no-repeat center center;
+		background: url(#{$imgPath}/img-main-about-lscns.png) no-repeat center
+			center;
 		background-size: cover;
 	}
 
@@ -804,7 +792,7 @@
 		height: 35px;
 
 		&:after {
-			content: "";
+			content: '';
 			display: block;
 			position: absolute;
 			width: 57px;
@@ -816,7 +804,7 @@
 		}
 
 		&:before {
-			content: "";
+			content: '';
 			display: block;
 			position: absolute;
 			width: 20px;
@@ -839,12 +827,12 @@
 }
 
 // 회사소개 - 데스크탑
-@include media("<=desktop") {
+@include media('<=desktop') {
 	.main-about-lscns {
 		margin: 100px 0 60px 0;
 		height: 340px;
 
-		>div {
+		> div {
 			background-position: 63%;
 		}
 
@@ -866,14 +854,15 @@
 }
 
 // 회사소개 - 태블릿
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.main-about-lscns {
 		margin: 40px 0 75px 0;
 		height: 315px;
 
-		>div {
+		> div {
 			padding: 30px 0;
-			background: url(#{$imgPath}/img-main-about-lscns-mob.png) no-repeat 57% top / auto 455px;
+			background: url(#{$imgPath}/img-main-about-lscns-mob.png) no-repeat 57%
+				top / auto 455px;
 		}
 
 		.title {

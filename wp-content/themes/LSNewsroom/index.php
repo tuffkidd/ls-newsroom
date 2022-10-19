@@ -1,14 +1,20 @@
 <?php
-global $sliderFrontend;
+global $sliderFrontend, $mainTagsFrontend;
 get_header();
 // 최신글
 $latest_posts_1 = $Frontend->get_latest_posts([]);
 
 // 슬라이더 가져오기
 $sliders = $sliderFrontend->get_sliders();
+
+// 태그 가져오기
+$mainTags = $mainTagsFrontend->getMainTags();
+
+
 /***********************************************
  * 탭스타일
  */
+
 // 신재생에너지
 // $latest_posts_2 = $Frontend->get_latest_posts(['tags' => '지속가능경영']);
 // ESG
@@ -73,25 +79,18 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 <section class="main-latest">
 	<div class="container">
 		<div class="latest-tabs">
-			<?php /*
-			<a href="#" class="latest-tab-link">최신글</a>
-			<a href="#" class="latest-tab-link">신재생에너지</a>
-			<a href="#" class="latest-tab-link">ESG</a>
-			<a href="#" class="latest-tab-link">세대공감</a>
-			<a href="#" class="latest-tab-link">보도자료</a>
-			*/ ?>
-			<span>최신글</span>
-			<a href="<?php echo site_url("/tag/신재생에너지/") ?>">신재생에너지</a>
-			<a href="<?php echo site_url("/tag/ESG/") ?>">ESG</a>
-			<a href="<?php echo site_url("/tag/세대공감/") ?>">세대공감</a>
-			<a href="<?php echo site_url("/tag/보도자료/") ?>">보도자료</a>
+			<a href="#" class="open-latest-tab on" data-tab-id="latest">최신글</a>
+			<?php if ($mainTags) : foreach ($mainTags as $t) : $ta = get_term_by('id', $t->term_id, 'post_tag'); ?>
+					<a href="#" class="open-latest-tab" data-tab-id="tag-<?php echo $t->term_id ?>"><?php echo $ta->name; ?></a>
+			<?php endforeach;
+			endif; ?>
 		</div>
 
 		<div class="latest-content">
-			<div id="latest-content-1">
+			<div class="latest-item-wrap animate__animated animate__fadeInUp on" id="latest">
 				<?php if ($latest_posts_1) : foreach ($latest_posts_1 as $post) : setup_postdata($post->ID);
 						$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
-						<div class="latest-content-1-item">
+						<div class="latest-item">
 							<a href="<?php echo get_the_permalink() ?>">
 								<?php the_post_thumbnail('post-list') ?>
 							</a>
@@ -108,6 +107,33 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 				<?php endforeach;
 				endif; ?>
 			</div>
+			<?php if ($mainTags) : foreach ($mainTags as $t) : ?>
+					<div class="latest-item-wrap animate__animated animate__fadeInUp" id="tag-<?php echo $t->term_id ?>">
+						<?php
+						// 태그 포스트 가져오기
+						$tag_posts = $mainTagsFrontend->getMainTagPosts($t->term_id);
+						if ($tag_posts) :
+							foreach ($tag_posts as $post) : setup_postdata($post->ID);
+								$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
+								<div class="latest-item">
+									<a href="<?php echo get_the_permalink() ?>">
+										<?php the_post_thumbnail('post-list') ?>
+									</a>
+									<div class="post-meta">
+										<div class="post-title">
+											<a href=" <?php echo get_category_link($term[0]->term_id); ?>" class="cat"><?php echo $term[0]->name; ?></a>
+											<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
+										</div>
+										<div class="post-date">
+											<?php echo get_the_date('Y. m. d') ?>
+										</div>
+									</div>
+								</div>
+						<?php endforeach;
+						endif; ?>
+					</div>
+			<?php endforeach;
+			endif; ?>
 		</div>
 	</div>
 </section>

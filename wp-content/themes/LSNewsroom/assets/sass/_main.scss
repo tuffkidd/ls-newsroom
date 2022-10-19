@@ -3,6 +3,8 @@
 @import '_mixin.scss';
 @import '_variables.scss';
 @import '_common.scss';
+@import 'animate.scss';
+
 @import 'header.scss';
 @import 'index.scss';
 @import 'category.scss';
@@ -12,6 +14,7 @@
 @import '404.scss';
 @import 'medialibrary.scss';
 
+@import 'page.scss';
 @import 'page-sustainability.scss';
 @import 'page-company.scss';
 

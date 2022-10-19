@@ -1,5 +1,5 @@
 import 'normalize.css'
-
+import 'animate.css'
 import '../sass/_main.scss' // main
 
 import '../../node_modules/flatpickr/dist/themes/light.css'

@@ -16,10 +16,18 @@ footer {
 				display: inline-block;
 				width: 87px;
 				height: 27px;
-				background: url(#{$imgPath}/logo-lscns-white.svg) no-repeat center center;
+				background: url(#{$imgPath}/logo-lscns-white.svg) no-repeat center
+					center;
 			}
 
 			.footer-menu {
+				ul {
+					margin: 0;
+				}
+				li {
+					display: inline-block;
+				}
+
 				a {
 					font-size: 16px;
 					font-weight: 300;
@@ -31,7 +39,7 @@ footer {
 					}
 				}
 
-				a+a {
+				li + li {
 					margin-left: 30px;
 				}
 			}
@@ -72,16 +80,18 @@ footer {
 					border-radius: calc(55px / 2);
 				}
 
-				a+a {
+				a + a {
 					margin-left: 20px;
 				}
 
 				.home {
-					background: url(#{$imgPath}/icon-footer-home.png) no-repeat center center;
+					background: url(#{$imgPath}/icon-footer-home.png) no-repeat center
+						center;
 				}
 
 				.youtube {
-					background: url(#{$imgPath}/icon-footer-youtube.png) no-repeat center center;
+					background: url(#{$imgPath}/icon-footer-youtube.png) no-repeat center
+						center;
 				}
 			}
 		}
@@ -89,7 +99,7 @@ footer {
 }
 
 // 푸터 - 데스크탑
-@include media("<=desktop") {
+@include media('<=desktop') {
 	footer {
 		padding: 20px 0 50px 0;
 
@@ -105,7 +115,7 @@ footer {
 						font-size: 14px;
 					}
 
-					a+a {
+					li + li {
 						margin-left: 20px;
 					}
 				}
@@ -130,7 +140,7 @@ footer {
 						border-radius: calc(44px / 2);
 					}
 
-					a+a {
+					a + a {
 						margin-left: 20px;
 					}
 
@@ -148,7 +158,7 @@ footer {
 }
 
 // 푸터 - 태블릿 : 구조가 엉망진창
-@include media("<=tablet") {
+@include media('<=tablet') {
 	footer {
 		// padding: 0;
 
@@ -170,7 +180,8 @@ footer {
 					display: inline-block;
 					width: 54px;
 					height: 16px;
-					background: url(#{$imgPath}/logo-lscns-white.svg) no-repeat center center;
+					background: url(#{$imgPath}/logo-lscns-white.svg) no-repeat center
+						center;
 				}
 
 				.social-links {
@@ -185,15 +196,17 @@ footer {
 						border-radius: calc(28px / 2);
 
 						&.home {
-							background: url(#{$imgPath}/icon-footer-home.png) no-repeat center center / auto 28px;
+							background: url(#{$imgPath}/icon-footer-home.png) no-repeat center
+								center / auto 28px;
 						}
 
 						&.youtube {
-							background: url(#{$imgPath}/icon-footer-youtube.png) no-repeat center center / auto 28px;
+							background: url(#{$imgPath}/icon-footer-youtube.png) no-repeat
+								center center / auto 28px;
 						}
 					}
 
-					a+a {
+					a + a {
 						margin-left: 10px;
 					}
 				}
@@ -204,6 +217,12 @@ footer {
 
 				.footer-menu {
 					padding: 20px 0;
+					ul {
+						margin: 0;
+						li {
+							display: inline-block;
+						}
+					}
 
 					a {
 						position: relative;
@@ -214,17 +233,18 @@ footer {
 						padding: 0 13px;
 					}
 
-					a+a {
+					li + li {
 						position: relative;
 
 						&:before {
 							position: absolute;
 							display: block;
+							content: '';
 							left: 0;
-							top: 2px;
-							content: "";
+							top: 60%;
+							transform: translateY(-50%);
 							width: 1px;
-							height: 11px;
+							height: 10px;
 							background: #a4a1a1;
 						}
 					}
@@ -252,12 +272,6 @@ footer {
 	}
 }
 
-
-
-
-
-
-
 /***********************************************************
 * 맨 위로
 ***********************************************************/
@@ -277,7 +291,7 @@ footer {
 
 	&:after {
 		position: absolute;
-		content: "";
+		content: '';
 		display: block;
 		// left: calc(50% - 1px);
 		// top: calc(50% - 8px);
@@ -292,7 +306,7 @@ footer {
 
 	&:before {
 		position: absolute;
-		content: "";
+		content: '';
 		display: block;
 		top: 50%;
 		left: 50%;
@@ -306,14 +320,14 @@ footer {
 	}
 }
 
-@include media("<=1500px") {
+@include media('<=1500px') {
 	.go-to-top {
 		left: auto;
 		right: 50px;
 	}
 }
 
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.utils {
 		transition: all 0.3s;
 
@@ -351,18 +365,6 @@ footer {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 /***
 모바일 쉐어
 ***/
@@ -370,7 +372,7 @@ footer {
 	display: none;
 }
 
-@include media("<=desktop") {
+@include media('<=desktop') {
 	.mob-share-dim {
 		display: block;
 		position: fixed;
@@ -400,7 +402,8 @@ footer {
 			}
 
 			.mob-share-toggle {
-				background: $color__background-sig url("../images/icon-mob-share-close.png") no-repeat center center;
+				background: $color__background-sig
+					url('../images/icon-mob-share-close.png') no-repeat center center;
 			}
 		}
 
@@ -421,30 +424,35 @@ footer {
 				border-radius: 24px;
 
 				&.mob-share-facebook {
-					background: #fff url("../images/icon-mob-share-facebook.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-share-facebook.png')
+						no-repeat center center;
 				}
 
 				&.mob-share-twitter {
-					background: #fff url("../images/icon-mob-share-twitter.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-share-twitter.png') no-repeat
+						center center;
 				}
 
 				&.mob-share-email {
-					background: #fff url("../images/icon-mob-share-email.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-share-email.png') no-repeat
+						center center;
 				}
 
 				&.mob-copy {
-					background: #fff url("../images/icon-mob-copy.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-copy.png') no-repeat center
+						center;
 				}
 
 				&.mob-share-kakaotalk {
-					background: #fff url("../images/icon-mob-share-kakaotalk.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-share-kakaotalk.png')
+						no-repeat center center;
 				}
 
 				&.mob-share-linkedin {
-					background: #fff url("../images/icon-mob-share-linkedin.png") no-repeat center center;
+					background: #fff url('../images/icon-mob-share-linkedin.png')
+						no-repeat center center;
 				}
 			}
-
 		}
 
 		.mob-share-toggle {
@@ -455,7 +463,8 @@ footer {
 			border-radius: 28px;
 			right: -1px;
 			margin-top: -45px;
-			background: $color__background-sig url("../images/icon-mob-share.png") no-repeat center center;
+			background: $color__background-sig url('../images/icon-mob-share.png')
+				no-repeat center center;
 		}
 
 		.mob-go-to-top {
@@ -469,7 +478,7 @@ footer {
 	}
 }
 
-@include media("<=tablet") {
+@include media('<=tablet') {
 	.mob-util {
 		display: block;
 		position: fixed;
@@ -488,7 +497,6 @@ footer {
 				height: 42px;
 				border-radius: 21px;
 			}
-
 		}
 
 		.mob-share-toggle {

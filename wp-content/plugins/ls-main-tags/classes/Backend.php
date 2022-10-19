@@ -1,6 +1,6 @@
 <?php
 
-namespace LSCNS\RecommendTags;
+namespace LSCNS\MainTags;
 
 class Backend
 {
@@ -18,43 +18,43 @@ class Backend
 		$this->action 		= $_REQUEST['action'] ?? '';
 		$this->view 		= $_REQUEST['view'] ?? '';
 
-		if (!isset($this->db->ls_recommend_tags)) {
-			$this->db->ls_recommend_tags = $this->db->prefix . 'ls_recommend_tags';
+		if (!isset($this->db->ls_main_tags)) {
+			$this->db->ls_main_tags = $this->db->prefix . 'ls_main_tags';
 		}
 
 		add_action('admin_head', [&$this, 'enqueueAssets']);
 		add_action('admin_menu', [&$this, 'set_menu']);
 
-		add_action('wp_ajax_recommendTagsAdd_x', [&$this, 'recommendTagsAdd_x']);
-		add_action('wp_ajax_recommendTagsSort_x', [&$this, 'recommendTagsSort_x']);
-		add_action('wp_ajax_recommendTagsDel_x', [&$this, 'recommendTagsDel_x']);
+		add_action('wp_ajax_mainTagsAdd_x', [&$this, 'mainTagsAdd_x']);
+		add_action('wp_ajax_mainTagsSort_x', [&$this, 'mainTagsSort_x']);
+		add_action('wp_ajax_mainTagsDel_x', [&$this, 'mainTagsDel_x']);
 
-		register_activation_hook(LSRT_FILE, [&$this, 'init']);
+		register_activation_hook(LSMT_FILE, [&$this, 'init']);
 	}
 
 	public function enqueueAssets()
 	{
-		wp_enqueue_script('recommend-tags-vendor-js', 		LSRT_ASSETS_URL . "/dist/ls-recommendtags-vendors.js", 				array('jquery'), '', false);
-		wp_enqueue_script('recommend-tags-admin-js', 		LSRT_ASSETS_URL . "/dist/ls-recommendtags-backend.js", 				array('jquery'), '', false);
+		wp_enqueue_script('main-tags-vendor-js', 		LSMT_ASSETS_URL . "/dist/ls-maintags-vendors.js", 				array('jquery'), '', false);
+		wp_enqueue_script('main-tags-admin-js', 		LSMT_ASSETS_URL . "/dist/ls-maintags-backend.js", 				array('jquery'), '', false);
 		wp_localize_script(
-			'recommend-tags-admin-js',
-			'recommend_tags_admin_js',
+			'main-tags-admin-js',
+			'main_tags_admin_js',
 			[
 				'ajaxurl' => admin_url('admin-ajax.php'),
 				'admin_url' => admin_url(),
-				'recommend_tags_add_nonce' => wp_create_nonce('recommendTagsAddX'),
-				'recommend_tags_sort_nonce' => wp_create_nonce('recommendTagsSortX'),
-				'recommend_tags_del_nonce' => wp_create_nonce('recommendTagsDelX'),
+				'main_tags_add_nonce' => wp_create_nonce('mainTagsAddX'),
+				'main_tags_sort_nonce' => wp_create_nonce('mainTagsSortX'),
+				'main_tags_del_nonce' => wp_create_nonce('mainTagsDelX'),
 			]
 		);
-		// wp_enqueue_style('recommend-tags-admin', 			LSRT_ASSETS_URL . '/css/backend.css', false);
+		// wp_enqueue_style('main-tags-admin', 			LSMT_ASSETS_URL . '/css/backend.css', false);
 	}
 
 	public function init()
 	{
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 		$tableprefix = $this->db->prefix . "ls_";
-		$table_name = $tableprefix . 'recommend_tags';
+		$table_name = $tableprefix . 'main_tags';
 		$sql = "CREATE TABLE " . $table_name . " (
 			tid INT UNSIGNED NOT NULL AUTO_INCREMENT,
 			term_id INT NOT NULL,
@@ -65,17 +65,17 @@ class Backend
 			UNIQUE KEY post_id (term_id)
 		);";
 		dbDelta($sql);
-		update_option('ls_recommend_tags_db_version', LSMS_DB_VERSION);
+		update_option('ls_main_tags_db_version', LSMS_DB_VERSION);
 	}
 
 	public function set_menu()
 	{
-		add_menu_page(__('검색 추천 태그 설정', 'recommendTags'), __('검색 추천 태그 설정', 'recommendTags'), 'manage_options', 'recommendTags', [&$this, 'recommendTagsActions'], "dashicons-tag");
+		add_menu_page(__('메인 태그 큐레이션', 'mainTags'), __('메인 태그 큐레이션', 'mainTags'), 'manage_options', 'mainTags', [&$this, 'mainTagsActions'], "dashicons-tag");
 	}
 
-	public function recommendTagsActions()
+	public function mainTagsActions()
 	{
-		$this->actionTitle = __('검색 추천 태그 목록');
+		$this->actionTitle = __('메인 태그 큐레이션');
 		if (!$this->action || $this->action == "") {
 			$this->action = $this->page . "List";
 		}
@@ -83,29 +83,29 @@ class Backend
 		$this->{$this->action}($this->action);
 	}
 
-	public function recommendTagsList()
+	public function mainTagsList()
 	{
 		// $tags = get_tags(array(
 		// 	'hide_empty' => false
 		// ));
 
-		$sql = "SELECT * FROM " . $this->db->ls_recommend_tags . " ORDER BY seq ASC";
-		$rtags = $this->db->get_results($sql);
+		$sql = "SELECT * FROM " . $this->db->ls_main_tags . " ORDER BY seq ASC";
+		$mtags = $this->db->get_results($sql);
 
-		require_once LSRT_VIEW_DIR . "/recommendTagsList.php";
+		require_once LSMT_VIEW_DIR . "/mainTagsList.php";
 	}
 
-	public function recommendTagsAdd_x()
+	public function mainTagsAdd_x()
 	{
 		$nonce = $_POST['nonce'];
-		if (!wp_verify_nonce($nonce, 'recommendTagsAddX')) {
+		if (!wp_verify_nonce($nonce, 'mainTagsAddX')) {
 			$return = [
 				'error' => '201',
 				'msg' => '정상적으로 접근해주세요.'
 			];
 		} else {
 			// 해당 태그가 존재하는가?
-			$tag_name = $_POST['tag_name'];
+			$tag_name = esc_attr($_POST['tag_name']);
 			$tag = get_term_by('name', $tag_name, 'post_tag');
 
 			if (!$tag) {
@@ -118,11 +118,14 @@ class Backend
 				$clean['created_at'] = current_time('Y-m-d H:i:s');
 				$clean['created_by'] = get_current_user_id();
 
-				$sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_recommend_tags . " WHERE term_id = '" . $clean['term_id'] . "'";
+				$sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_main_tags . " WHERE term_id = '" . $clean['term_id'] . "'";
 				$cnt = $this->db->get_var($sql);
 
-				$sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_recommend_tags;
-				$tcnt = $this->db->get_var($sql);
+				$term_info = get_term($tag->term_id);
+
+
+				// $sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_main_tags;
+				// $tcnt = $this->db->get_var($sql);
 
 
 				// 이미 등록되어있는가?
@@ -131,13 +134,18 @@ class Backend
 						'error' => '201',
 						'msg' => '이미 등록된 태그 입니다.'
 					];
-				} else if ($tcnt >= 3) {
+				} else if ($term_info->count < 9) {
 					$return = [
-						'error' => '301',
-						'msg' => '최대 3개까지 등록이 가능합니다.'
+						'error' => '201',
+						'msg' => $term_info->name . ' 태그가 포함된 포스트가 9개보다 적습니다.(' . $term_info->count . '개)'
 					];
+					// } else if ($tcnt >= 3) {
+					// 	$return = [
+					// 		'error' => '301',
+					// 		'msg' => '최대 3개까지 등록이 가능합니다.'
+					// 	];
 				} else {
-					if ($this->db->insert($this->db->ls_recommend_tags, $clean) !== false) {
+					if ($this->db->insert($this->db->ls_main_tags, $clean) !== false) {
 						$return = [
 							'error' => '100',
 							'msg' => '등록했습니다.'
@@ -157,10 +165,10 @@ class Backend
 		wp_die();
 	}
 
-	public function recommendTagsSort_x()
+	public function mainTagsSort_x()
 	{
 		$nonce = $_POST['nonce'];
-		if (!wp_verify_nonce($nonce, 'recommendTagsSortX')) {
+		if (!wp_verify_nonce($nonce, 'mainTagsSortX')) {
 			$return = [
 				'error' => '201',
 				'msg' => '정상적으로 접근해주세요.'
@@ -198,22 +206,22 @@ class Backend
 		wp_die();
 	}
 
-	public function recommendTagsDel_x()
+	public function mainTagsDel_x()
 	{
 		$nonce = $_POST['nonce'];
 
-		if (!wp_verify_nonce($nonce, 'recommendTagsDelX')) {
+		if (!wp_verify_nonce($nonce, 'mainTagsDelX')) {
 			$return = [
 				'error' => '201',
 				'msg' => '정상적으로 접근해주세요.'
 			];
 		} else {
 			$tid = $_POST['tid'];
-			$sql = "SELECT term_id FROM " . $this->db->ls_recommend_tags . " WHERE tid = '$tid'";
+			$sql = "SELECT term_id FROM " . $this->db->ls_main_tags . " WHERE tid = '$tid'";
 			$term_id = $this->db->get_var($sql);
 			$title = get_term($term_id)->name;
 
-			$sql = "DELETE FROM " . $this->db->ls_recommend_tags . " WHERE tid = '$tid'";
+			$sql = "DELETE FROM " . $this->db->ls_main_tags . " WHERE tid = '$tid'";
 			if ($this->db->query($sql) !== false) {
 				$return = [
 					'error' => '100',

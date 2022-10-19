@@ -27,5 +27,17 @@ import 'swiper/css/bundle'
 				}
 			}
 		})
+
+		// 태그 탭
+		$(document).on('click', '.latest-tabs a', function (e) {
+			e.preventDefault()
+			const tab_id = $(this).data('tab-id')
+			$('.latest-tabs a').removeClass('on')
+			$(this).addClass('on')
+
+			$('.latest-item-wrap').removeClass('on')
+			$('#' + tab_id).addClass('on')
+			return false
+		})
 	})
 })(jQuery)

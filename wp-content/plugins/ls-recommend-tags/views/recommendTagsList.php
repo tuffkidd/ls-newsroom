@@ -3,7 +3,7 @@
 
 	<div class="descriptions">
 		<ul>
-			<li>검색 창 우측의 추천 태그를 설정하실 수 있습니다.</li>
+			<li>검색 창 하단의 추천 태그를 설정하실 수 있습니다.</li>
 			<li>추천 태그가 없는 경우 해당 영역은 노출되지 않습니다.</li>
 			<li><span class="dashicons dashicons-move"></span>을 이용하여 순서를 조정할 수 있습니다.</li>
 		</ul>

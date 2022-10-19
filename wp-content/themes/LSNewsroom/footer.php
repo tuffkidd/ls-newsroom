@@ -2,12 +2,21 @@
 	<div class="pc container">
 		<div class="footer-top">
 			<a href="https://www.lscns.co.kr/" class="logo hidden-text">LS전선 바로가기</a>
+			<?php
+			wp_nav_menu([
+				// 'container' => 'div',
+				'container_class' => 'footer-menu',
+				'theme_location' => 'footer'
+			])
+			?>
+			<!--
 			<div class="footer-menu">
 				<a href="<?php echo site_url("/뉴스룸소개") ?>">뉴스룸소개</a>
 				<a href="<?php echo site_url("/운영정책") ?>">운영정책</a>
 				<a href="<?php echo site_url("/개인정보처리방침") ?>">개인정보처리방침</a>
 				<a href="mailto:help@lscns.co.kr">이메일문의</a>
 			</div>
+			-->
 		</div>
 		<div class="footer-bottom">
 			<div class="info">
@@ -34,12 +43,19 @@
 			</div>
 		</div>
 		<div class="footer-bottom">
-			<div class="footer-menu">
+			<?php
+			wp_nav_menu([
+				// 'container' => 'div',
+				'container_class' => 'footer-menu',
+				'theme_location' => 'footer'
+			])
+			?>
+			<!-- <div class="footer-menu">
 				<a href="<?php echo site_url("/뉴스룸소개") ?>">뉴스룸소개</a>
 				<a href="<?php echo site_url("/운영정책") ?>">운영정책</a>
 				<a href="<?php echo site_url("/개인정보처리방침") ?>">개인정보처리방침</a>
 				<a href="mailto:help@lscns.co.kr">이메일문의</a>
-			</div>
+			</div> -->
 
 			<div class="info">
 				<div class="address">
