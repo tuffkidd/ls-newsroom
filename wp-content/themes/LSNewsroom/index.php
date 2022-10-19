@@ -86,6 +86,7 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 			<a href="<?php echo site_url("/tag/세대공감/") ?>">세대공감</a>
 			<a href="<?php echo site_url("/tag/보도자료/") ?>">보도자료</a>
 		</div>
+
 		<div class="latest-content">
 			<div id="latest-content-1">
 				<?php if ($latest_posts_1) : foreach ($latest_posts_1 as $post) : setup_postdata($post->ID);
@@ -100,7 +101,7 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 									<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
 								</div>
 								<div class="post-date">
-									<?php the_date('Y. m. d') ?>
+									<?php echo get_the_date('Y. m. d') ?>
 								</div>
 							</div>
 						</div>

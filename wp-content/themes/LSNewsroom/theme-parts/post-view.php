@@ -22,7 +22,7 @@ if ($cats) {
 						<?php if (is_array($breadcrumbs)) { ?><?php echo join(', ', $breadcrumbs); ?><?php } ?>
 					</div>
 				<?php endif; ?>
-				<div class="entry-top-date"><?php the_date('Y.m.d'); ?></div>
+				<div class="entry-top-date"><?php echo get_the_date('Y.m.d'); ?></div>
 			</div>
 		</div>
 

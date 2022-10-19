@@ -29,7 +29,7 @@ $total_posts = $wp_query->found_posts;
 								</a>
 
 								<div class="post-etc">
-									<span class="post-date"><?php the_date('Y.m.d'); ?></span>
+									<span class="post-date"><?php echo get_the_date('Y.m.d'); ?></span>
 								</div>
 
 								<div class="post-excerpt">

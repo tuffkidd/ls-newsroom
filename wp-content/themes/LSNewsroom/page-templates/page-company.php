@@ -10,7 +10,7 @@ get_header();
 	<div class="page-container">
 		<div id="page-<?php the_ID(); ?>" <?php post_class('page-company'); ?>>
 			<div class="header">
-				<h1>LS전선 회사 소개</h1>
+				<h1>회사 소개</h1>
 			</div>
 			<div class="section-intro">
 				<div class="company-intro-item">
@@ -25,7 +25,7 @@ get_header();
 				</div>
 				<div class="company-intro-item">
 					<h2>글로벌 네트워크</h2>
-					<p>LS전선은 설립 이후, 글로벌 기업으로 성장하기 위해 쉼 없이 달려왔습니다. 각 지역 특성을 고려한 현지화 전략을 기반으로 선진 시장과 신흥 시장에서 균형 잡힌 성장을 이뤄가기 위하여 권역별 지역본부체제를 운영하고 있으며, 전 세계 20여개국에 60여 거점을 보유하고 있습니다.</p>
+					<p>LS전선은 설립 이후, 글로벌 기업으로 성장하기 위해 쉼 없이 달려왔습니다. 각 지역 특성을 고려한 현지화 전략을 기반으로 선진 시장과 신흥 시장에서 균형 잡힌 성장을 이뤄가기 위하여 권역별 지역본부체제를 운영하고 있으며, 전 세계 20여 개국에 60여 거점을 보유하고 있습니다.</p>
 					<img src="<?php echo THEME_IMAGE_URI ?>/img-company-map.png" alt="글로벌 네트워크 현황">
 				</div>
 			</div>
@@ -36,7 +36,7 @@ get_header();
 					<div class="timeline-item">
 						<div class="year">2022</div>
 						<div class="content">
-							<p>국내 유일의 해저 전력 케이블<br class="hidden-mobile"> 포설선 ‘GL2030’의 취항</p>
+							<p>국내 유일의 해저 전력 케이블<br class="hidden-mobile"> 포설선 ‘GL2030’ 취항</p>
 						</div>
 					</div>
 					<div class="timeline-item">
@@ -166,12 +166,12 @@ get_header();
 						<p>통신 케이블<br>솔루션</p>
 					</div>
 					<div class="business-item">
-						<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-business-3.png" alt="산업용 하네스&amp;케이블">
-						<p>산업용<br>하네스&amp;케이블</p>
+						<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-business-3.png" alt="산업용 케이블&amp;하네스">
+						<p>산업용<br>케이블&amp;하네스</p>
 					</div>
 					<div class="business-item">
-						<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-business-4.png" alt="소재">
-						<p>소재<br>&nbsp;</p>
+						<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-business-4.png" alt="케이블 소재">
+						<p>케이블 소재<br>&nbsp;</p>
 					</div>
 				</div>
 			</div>
@@ -215,20 +215,6 @@ get_header();
 						<p>전기차 부품</p>
 					</div>
 					<div class="content">
-						<div class="content-item">
-							<h5>e-Flatek</h5>
-							<ul>
-								<li>공장자동화 장비에 전원 공급 및 신호 전송</li>
-								<li>정전기 방지 기술로 정밀기기 내 먼지 유입 최소화</li>
-							</ul>
-						</div>
-						<div class="content-item">
-							<h5>알루미늄 고전압 케이블</h5>
-							<ul>
-								<li>친환경차용 고전압 경량화 케이블</li>
-								<li>국내 유일 전용생산라인 보유, 양산</li>
-							</ul>
-						</div>
 						<div class="content-item">
 							<h5>전기차 모터용 케이블</h5>
 							<ul>
@@ -297,8 +283,8 @@ get_header();
 								<p>동해사업장<br>RE50 달성</p>
 							</div>
 							<div>
-								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-1-2.png" alt="환경경영시스템(ISO 14001) 국내 시공현장 확대">
-								<p>환경경영시스템<br class="hidden-pc">(ISO 14001)<br>국내 시공현장 확대</p>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-1-2.png" alt="환경경영시스템(ISO 14001) 국내 시공 현장 확대">
+								<p>환경경영시스템<br class="hidden-pc">(ISO 14001)<br>국내 시공 현장 확대</p>
 							</div>
 							<div>
 								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-1-3.png" alt="주요 제품 EPD 인증 확보">
@@ -322,8 +308,8 @@ get_header();
 								<p>Safety Moment<br>주요 전사회의체 시행</p>
 							</div>
 							<div>
-								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-2-3.png" alt="고위험테마 개선 투자 66억 원(`22년) 149억 원(3개년 누적)">
-								<p>고위험테마 개선 투자<br>66억 원(`22년)<br>149억 원(3개년 누적)</p>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-2-3.png" alt="고위험 테마 개선 투자 66억 원(`22년) 149억 원(3개년 누적)">
+								<p>고위험 테마 개선 투자<br>66억 원(`22년)<br>149억 원(3개년 누적)</p>
 							</div>
 						</div>
 					</div>
@@ -347,8 +333,8 @@ get_header();
 							<h3>품질 &amp; 제품 책임</h3>
 							<div class="body-item-child">
 								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-1.png" alt="품질관리 역량평가제 국내관계사 5개 사">
-									<p>품질관리 역량평가제<br>국내관계사 5개 사</p>
+									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-1.png" alt="품질관리 역량평가제 국내 관계사 5개사 적용">
+									<p>품질관리 역량평가제<br>국내 관계사 5개사 적용</p>
 								</div>
 								<div>
 									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-2.png" alt="현장혁신활동 68건 / 17건 (테마활동 / 아이디어 제안)">
