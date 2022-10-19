@@ -494,5 +494,17 @@
 				.toggle()
 			return false
 		})
+
+		// 컨텐츠 프로그레스 바
+		const scrollProgress = document.getElementById('content-progress')
+		const height =
+			document.documentElement.scrollHeight -
+			document.documentElement.clientHeight
+
+		window.addEventListener('scroll', () => {
+			const scrollTop =
+				document.body.scrollTop || document.documentElement.scrollTop
+			scrollProgress.style.width = `${(scrollTop / height) * 100}%`
+		})
 	})
 })(jQuery)

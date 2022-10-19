@@ -20,8 +20,8 @@
 header.menu-opened {
 	#header-wrap {
 		#header-gnb {
-			>ul {
-				>li {
+			> ul {
+				> li {
 					.sub-menu {
 						display: block;
 					}
@@ -41,7 +41,8 @@ header.search-opened {
 			.open-search {
 				a {
 					&:before {
-						background: url(#{$imgPath}/icon-search-header-close.png) no-repeat center center;
+						background: url(#{$imgPath}/icon-search-header-close.png) no-repeat
+							center center;
 					}
 				}
 			}
@@ -49,7 +50,7 @@ header.search-opened {
 	}
 }
 
-@include media("<=desktop") {
+@include media('<=desktop') {
 	header.search-opened {
 		#header-wrap {
 			#header-right {
@@ -65,12 +66,23 @@ header.search-opened {
 	}
 }
 
+/** Progress **/
+header {
+	#content-progress {
+		background-color: $color__background-sig;
+		height: 3px;
+		width: 0;
+		position: fixed;
+		inset: 0;
+		z-index: 1000;
+	}
+}
+
 #header-wrap {
 	position: relative;
 	height: 100px;
 
 	background-color: #fff;
-
 
 	/****************************************************************
 	* 좌측
@@ -90,7 +102,8 @@ header.search-opened {
 				display: block;
 				width: 222px;
 				height: 46px;
-				background: url(#{$imgPath}/logo.svg) no-repeat center center / auto 46px;
+				background: url(#{$imgPath}/logo.svg) no-repeat center center / auto
+					46px;
 			}
 		}
 	}
@@ -127,11 +140,12 @@ header.search-opened {
 				// margin-right: 25px;
 
 				&:before {
-					content: "";
+					content: '';
 					display: block;
 					width: 24px;
 					height: 24px;
-					background: url(#{$imgPath}/icon-search-header.png) no-repeat center center;
+					background: url(#{$imgPath}/icon-search-header.png) no-repeat center
+						center;
 				}
 			}
 		}
@@ -148,11 +162,12 @@ header.search-opened {
 				display: inherit;
 
 				&:before {
-					content: "";
+					content: '';
 					display: block;
 					width: 86px;
 					height: 26px;
-					background: url(#{$imgPath}/logo-lscns-block.svg) no-repeat center center;
+					background: url(#{$imgPath}/logo-lscns-block.svg) no-repeat center
+						center;
 				}
 			}
 		}
@@ -182,20 +197,19 @@ header.search-opened {
 		// 	}
 		// }
 
-		>ul {
+		> ul {
 			width: 100%;
 			margin: auto;
 			position: relative;
 			font-size: 0;
 
-			>li {
+			> li {
 				display: inline-block;
 				position: relative;
 				vertical-align: top;
 
-
 				&:hover {
-					>a:not(.gnb-fold) {
+					> a:not(.gnb-fold) {
 						color: $color__text-sig;
 
 						// font-weight: 800;
@@ -207,7 +221,7 @@ header.search-opened {
 					}
 				}
 
-				>a:not(.gnb-fold) {
+				> a:not(.gnb-fold) {
 					display: block;
 					position: relative;
 					padding: 0 40px;
@@ -227,14 +241,14 @@ header.search-opened {
 						top: 0;
 						width: 100%;
 						height: 100%;
-						content: "";
+						content: '';
 						border-bottom: solid 3px $color__background-sig;
 						transform: scaleX(0);
 						transition: transform 200ms ease-in-out;
 					}
 				}
 
-				>a.gnb-fold {
+				> a.gnb-fold {
 					display: none;
 				}
 
@@ -245,8 +259,8 @@ header.search-opened {
 					margin: 25px 0 35px 0;
 					padding: 0 0 40px;
 
-					>li {
-						>a {
+					> li {
+						> a {
 							display: block;
 							height: 40px;
 							line-height: 40px;
@@ -264,13 +278,13 @@ header.search-opened {
 								height: 15px;
 								line-height: 15px;
 								letter-spacing: 0px;
-								font-family: "Open Sans";
+								font-family: 'Open Sans';
 								vertical-align: middle;
 								margin: 0px 0px 5px 5px;
 							}
 						}
 
-						>a:hover {
+						> a:hover {
 							font-weight: 800;
 						}
 					}
@@ -281,7 +295,7 @@ header.search-opened {
 }
 
 // 헤더 - 컨테이너
-@include media("<=container") {
+@include media('<=container') {
 	#header-wrap {
 		#header-right {
 			margin: auto;
@@ -291,7 +305,7 @@ header.search-opened {
 }
 
 // 헤더 - 데스크탑
-@include media("<=desktop") {
+@include media('<=desktop') {
 	#header-wrap {
 		#header-left {
 			#header-logo {
@@ -305,7 +319,6 @@ header.search-opened {
 
 		#header-right {
 			margin-right: 30px;
-
 
 			.lscns-link {
 				a {
@@ -330,14 +343,14 @@ header.search-opened {
 		}
 
 		#header-gnb {
-			>ul {
-				>li {
-					>a:not(.gnb-fold) {
+			> ul {
+				> li {
+					> a:not(.gnb-fold) {
 						padding: 0 30px;
 						font-size: 19px;
 					}
 
-					>a.gnb-fold {
+					> a.gnb-fold {
 						display: none;
 					}
 
@@ -348,8 +361,8 @@ header.search-opened {
 						margin: 25px 0 35px 0;
 						padding: 0 0 40px;
 
-						>li {
-							>a {
+						> li {
+							> a {
 								display: block;
 								height: 40px;
 								line-height: 40px;
@@ -367,13 +380,13 @@ header.search-opened {
 									height: 15px;
 									line-height: 15px;
 									letter-spacing: 0px;
-									font-family: "Open Sans";
+									font-family: 'Open Sans';
 									vertical-align: middle;
 									margin: 0px 0px 5px 5px;
 								}
 							}
 
-							>a:hover {
+							> a:hover {
 								font-weight: 800;
 							}
 						}
@@ -385,7 +398,7 @@ header.search-opened {
 }
 
 // 헤더 - 태블릿
-@include media("<=tablet") {
+@include media('<=tablet') {
 	#header-wrap {
 		height: 55px;
 		border-bottom: 1px solid $color__border;
@@ -396,22 +409,22 @@ header.search-opened {
 			padding: 15px 15px 40px 15px;
 			top: 54px;
 
-			>ul {
+			> ul {
 				padding: 0;
 
-				>li:first-child {
-					>a:not(.gnb-fold) {
+				> li:first-child {
+					> a:not(.gnb-fold) {
 						// padding: 0 61px;
 						padding: 0;
 					}
 				}
 
-				>li {
+				> li {
 					display: block;
 					margin-top: 15px;
 
 					&:hover {
-						>a:not(.gnb-fold) {
+						> a:not(.gnb-fold) {
 							color: #fff;
 
 							&:after {
@@ -420,7 +433,7 @@ header.search-opened {
 						}
 					}
 
-					>a:not(.gnb-fold) {
+					> a:not(.gnb-fold) {
 						color: #fff;
 						padding: 0;
 						text-align: left;
@@ -444,7 +457,7 @@ header.search-opened {
 
 						&:before {
 							position: absolute;
-							content: "";
+							content: '';
 							top: calc(50% - 4px);
 							left: calc(50% - 4px);
 							display: block;
@@ -462,7 +475,7 @@ header.search-opened {
 					a.gnb-fold.on {
 						&:before {
 							position: absolute;
-							content: "";
+							content: '';
 							top: calc(50% - 1px);
 							left: calc(50% - 6px);
 							width: 8px;
@@ -481,8 +494,8 @@ header.search-opened {
 						padding: 0;
 						// margin-bottom: 35px;
 
-						>li {
-							>a {
+						> li {
+							> a {
 								color: #ccc;
 								display: block;
 								height: 40px;
@@ -493,7 +506,7 @@ header.search-opened {
 								letter-spacing: -1px;
 
 								span.post-sub-new {
-									background: #F50000;
+									background: #f50000;
 									border-radius: 2px;
 									font-size: 11px;
 									color: #000;
@@ -502,13 +515,13 @@ header.search-opened {
 									height: 15px;
 									line-height: 15px;
 									letter-spacing: 0px;
-									font-family: "Open Sans";
+									font-family: 'Open Sans';
 									vertical-align: middle;
 									margin: 0px 0px 5px 5px;
 								}
 							}
 
-							>a:hover {
+							> a:hover {
 								font-weight: 800;
 							}
 						}
@@ -544,7 +557,7 @@ header.search-opened {
 				width: 18px;
 				height: 18px;
 				transform: rotate(0deg);
-				transition: .5s ease-in-out;
+				transition: 0.5s ease-in-out;
 				cursor: pointer;
 
 				span {
@@ -556,9 +569,8 @@ header.search-opened {
 					opacity: 1;
 					left: 0;
 					transform: rotate(0deg);
-					transition: .25s ease-in-out;
+					transition: 0.25s ease-in-out;
 				}
-
 
 				span:nth-child(1) {
 					top: 0px;
@@ -615,7 +627,6 @@ header.search-opened {
 	position: absolute;
 	width: 100%;
 
-
 	&.active {
 		display: block;
 	}
@@ -627,7 +638,6 @@ header.search-opened {
 
 	// 검색박스
 	.search-box-wrap {
-
 		display: flex;
 		justify-content: space-between;
 		gap: 20px;
@@ -639,7 +649,6 @@ header.search-opened {
 			align-items: flex-start;
 			font-size: 0;
 			gap: 20px;
-
 
 			.search-option {
 				display: block;
@@ -663,7 +672,7 @@ header.search-opened {
 
 					&:after {
 						position: absolute;
-						content: "";
+						content: '';
 						display: block;
 						width: 0;
 						height: 0;
@@ -675,23 +684,25 @@ header.search-opened {
 					}
 
 					&.daterange:before {
-						content: "";
+						content: '';
 						margin-right: 10px;
 						display: inline-block;
 						vertical-align: top;
 						width: 16px;
 						height: 18px;
-						background: url(#{$imgPath}/icon-searchform-daterange.png) no-repeat center center;
+						background: url(#{$imgPath}/icon-searchform-daterange.png) no-repeat
+							center center;
 					}
 
 					&.sort:before {
-						content: "";
+						content: '';
 						margin-right: 10px;
 						display: inline-block;
 						vertical-align: top;
 						width: 21px;
 						height: 19px;
-						background: url(#{$imgPath}/icon-searchform-sort.png) no-repeat center center;
+						background: url(#{$imgPath}/icon-searchform-sort.png) no-repeat
+							center center;
 					}
 
 					&.active {
@@ -700,7 +711,7 @@ header.search-opened {
 					}
 				}
 
-				.search-option-label.sort+.option-list {
+				.search-option-label.sort + .option-list {
 					.option-value {
 						padding: 0 51px;
 					}
@@ -717,7 +728,7 @@ header.search-opened {
 					background: #fff;
 
 					&:before {
-						content: "";
+						content: '';
 						position: absolute;
 						top: 0px;
 						width: 90%;
@@ -782,7 +793,7 @@ header.search-opened {
 
 					&:after {
 						position: absolute;
-						content: "";
+						content: '';
 						display: block;
 						width: 1px;
 						height: 15px;
@@ -794,7 +805,7 @@ header.search-opened {
 
 					&:before {
 						position: absolute;
-						content: "";
+						content: '';
 						display: block;
 						width: 1px;
 						height: 15px;
@@ -814,11 +825,11 @@ header.search-opened {
 					border: none;
 					top: calc(50% - calc(30px / 2));
 					cursor: pointer;
-					background: url(#{$imgPath}/icon-search-header.png) no-repeat center center;
+					background: url(#{$imgPath}/icon-search-header.png) no-repeat center
+						center;
 				}
 			}
 		}
-
 
 		// 검색어 입력 끝.
 	}
@@ -843,7 +854,7 @@ header.search-opened {
 			color: #000;
 
 			&:before {
-				content: "#";
+				content: '#';
 			}
 
 			&:hover {
@@ -853,7 +864,7 @@ header.search-opened {
 			}
 		}
 
-		a+a {
+		a + a {
 			margin-left: 25px;
 		}
 	}
@@ -923,21 +934,18 @@ header.search-opened {
 				border: none;
 			}
 
-			button+button {
+			button + button {
 				margin-left: 20px;
 			}
 		}
 	}
 }
 
-
 // 검색 - 데스크탑
-@include media("<=desktop") {
-
+@include media('<=desktop') {
 	#header-search-box {
 		min-height: 225px;
 		padding: 40px 0 50px 0;
-
 
 		// 검색박스
 		.search-box-wrap {
@@ -945,7 +953,6 @@ header.search-opened {
 				gap: 15px;
 
 				.search-option {
-
 					.search-option-label {
 						height: 36px;
 						font-size: 16px;
@@ -960,7 +967,6 @@ header.search-opened {
 						}
 					}
 				}
-
 			}
 
 			// 검색어 입력
@@ -986,7 +992,7 @@ header.search-opened {
 				font-size: 14px;
 			}
 
-			a+a {
+			a + a {
 				margin-left: 15px;
 			}
 		}
@@ -998,15 +1004,12 @@ header.search-opened {
 	}
 }
 
-
 // 검색 - 태블릿
-@include media("<=tablet") {
-
+@include media('<=tablet') {
 	#header-search-box {
 		box-shadow: 0px 30px 20px 0px rgba(56, 56, 56, 0.2);
 		min-height: 240px;
 		padding: 40px 0 20px 0;
-
 
 		// 검색박스
 		.search-box-wrap {
@@ -1019,7 +1022,6 @@ header.search-opened {
 				gap: 15px;
 
 				.search-option {
-
 					.search-option-label {
 						height: 28px;
 						font-size: 14px;
@@ -1039,7 +1041,7 @@ header.search-opened {
 						}
 
 						&.sort:before {
-							content: "";
+							content: '';
 							margin-right: 10px;
 							display: inline-block;
 							vertical-align: top;
@@ -1054,7 +1056,7 @@ header.search-opened {
 						}
 					}
 
-					.search-option-label.sort+.option-list {
+					.search-option-label.sort + .option-list {
 						.option-value {
 							padding: 0 51px;
 						}
@@ -1122,7 +1124,7 @@ header.search-opened {
 				padding: 8px 13px;
 			}
 
-			a+a {
+			a + a {
 				margin-left: 10px;
 			}
 		}

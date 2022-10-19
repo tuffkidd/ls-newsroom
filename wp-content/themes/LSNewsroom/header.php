@@ -61,6 +61,7 @@ if ($custom_taxo_page == 'multimedia') {
 	<a id="skip-link" href="#content"><?php _e('본문 바로가기', 'spc'); ?></a>
 	<?php wp_body_open(); ?>
 	<header>
+		<div id="content-progress"></div>
 		<div id="header-wrap">
 			<div class="container" id="header-left">
 				<div id="header-logo">

@@ -6,10 +6,10 @@ $latest_posts_1 = $Frontend->get_latest_posts([]);
 
 // 슬라이더 가져오기
 $sliders = $sliderFrontend->get_sliders();
-
-// 태그 가져오기
-$mainTags = $mainTagsFrontend->getMainTags();
-
+if ($mainTagsFrontend) {
+	// 태그 가져오기
+	$mainTags = $mainTagsFrontend->getMainTags();
+}
 
 /***********************************************
  * 탭스타일
@@ -80,7 +80,7 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 	<div class="container">
 		<div class="latest-tabs">
 			<a href="#" class="open-latest-tab on" data-tab-id="latest">최신글</a>
-			<?php if ($mainTags) : foreach ($mainTags as $t) : $ta = get_term_by('id', $t->term_id, 'post_tag'); ?>
+			<?php if (isset($mainTags)) : foreach ($mainTags as $t) : $ta = get_term_by('id', $t->term_id, 'post_tag'); ?>
 					<a href="#" class="open-latest-tab" data-tab-id="tag-<?php echo $t->term_id ?>"><?php echo $ta->name; ?></a>
 			<?php endforeach;
 			endif; ?>
@@ -107,7 +107,7 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 				<?php endforeach;
 				endif; ?>
 			</div>
-			<?php if ($mainTags) : foreach ($mainTags as $t) : ?>
+			<?php if (isset($mainTags)) : foreach ($mainTags as $t) : ?>
 					<div class="latest-item-wrap animate__animated animate__fadeInUp" id="tag-<?php echo $t->term_id ?>">
 						<?php
 						// 태그 포스트 가져오기
