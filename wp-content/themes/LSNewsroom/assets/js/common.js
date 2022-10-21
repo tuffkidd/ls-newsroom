@@ -12,17 +12,17 @@
 						$('header').removeClass('search-opened')
 					})
 
-					$(document).on(
-						'focusin',
-						'.open-search .btn-search-toggle, #header-logo a',
-						function (e) {
-							e.preventDefault()
-							if (!window.opensearch_cursor) {
-								$('header').removeClass('menu-opened')
-								$('header').removeClass('search-opened')
-							}
-						}
-					)
+					// $(document).on(
+					// 	'focusin',
+					// 	'.open-search .btn-search-toggle, #header-logo a',
+					// 	function (e) {
+					// 		e.preventDefault()
+					// 		if (!window.opensearch_cursor) {
+					// 			$('header').removeClass('menu-opened')
+					// 			$('header').removeClass('search-opened')
+					// 		}
+					// 	}
+					// )
 
 					$(document).on(
 						'mouseenter',
@@ -38,6 +38,29 @@
 							window.opensearch_cursor = false
 						}
 					)
+
+					// 검색창의 맨 마지막 요소에서 탭 키 누를 경우 검색 토글 버튼으로 이동
+					$(document).on(
+						'keydown',
+						'#header-search-box .tags > a:last-child',
+						function (e) {
+							if (e.key == 'Tab') {
+								setTimeout(function () {
+									$('.btn-search-toggle').trigger('focus')
+								}, 10)
+							}
+							return false
+						}
+					)
+
+					// 액티브 된 상태에서 탭 키 누를 경우 다시 검색박스 안으로
+					$(document).on('keydown', '.btn-search-toggle', function (e) {
+						if (e.key == 'Tab') {
+							setTimeout(function () {
+								$('#search-box .daterange').trigger('focus')
+							}, 10)
+						}
+					})
 				}
 			},
 
@@ -153,64 +176,92 @@
 			},
 
 			search: function () {
-				$(document).off('click.tabletsearch')
 				$(document).off('click.mobsearch')
 				$(document).off('click.pcsearch')
-
-				if ($(window).innerWidth() <= 768) {
-					// 모바일
-					$(document).on('click.mobsearch', '.btn-search-toggle', function () {
-						if ($('#header-gnb').is(':visible')) {
-							$('#header-wrap').removeClass('active')
-							$('#header-gnb').hide()
-							$('#header-gnb > ul > li > a').removeClass('on')
-							$('#btn-mob-menu').removeClass('open')
-						}
-
-						if ($('#header-search-box').is(':visible')) {
+				if ($(window).innerWidth() <= 1024) {
+					$(document).on('click.mobsearch', '.btn-search-toggle', function (e) {
+						e.preventDefault()
+						if ($('header').hasClass('search-opened')) {
 							$('header').removeClass('search-opened')
+							$('#header-search-box [name="s"]').focus()
+							$(this).text('검색창 열기')
 						} else {
 							$('header').addClass('search-opened')
+							$(this).text('검색창 닫기')
 						}
-
-						return false
 					})
-				} else if (
-					$(window).innerWidth() <= 1024 &&
-					$(window).innerWidth() > 768
-				) {
-					// 태블릿
-					$(document).off('click.mobsearch')
-					$(document).on(
-						'click.tabletsearch',
-						'.btn-search-toggle',
-						function () {
-							if ($('#header-search-box').is(':visible')) {
-								$('header').removeClass('search-opened')
-								$('#header-gnb > ul > li > a').removeClass('on')
-							} else {
-								$('header').addClass('search-opened')
-							}
-
-							return false
-						}
-					)
 				} else {
-					// PC
 					$(document).on('click.pcsearch', '.btn-search-toggle', function (e) {
-						e.preventDefault()
-						$('header').removeClass('menu-opened')
-						$('header').toggleClass('search-opened')
+						// e.preventDefault()
+						if ($('header').hasClass('search-opened')) {
+							$('header').removeClass('search-opened')
+							$(this).text('검색창 열기')
+						} else {
+							$('header').addClass('search-opened')
+							$('.btn-search-toggle').attr('aria-expanded', true)
+							$('#header-search-box .daterange').focus()
+							$(this).text('검색창 닫기')
+						}
 					})
 				}
+				// $(document).off('click.tabletsearch')
+				// $(document).off('click.mobsearch')
+				// $(document).off('click.pcsearch')
 
-				$(document).on('submit', '#gnbSearchFrm', function () {
-					if ($("#gnbSearchFrm input[name='s']").val() == '') {
-						alert('검색어를 입력하세요.')
-						$("#gnbSearchFrm input[name='s']").focus()
-						return false
-					}
-				})
+				// if ($(window).innerWidth() <= 768) {
+				// 	// 모바일
+				// 	$(document).on('click.mobsearch', '.btn-search-toggle', function () {
+				// 		if ($('#header-gnb').is(':visible')) {
+				// 			$('#header-wrap').removeClass('active')
+				// 			$('#header-gnb').hide()
+				// 			$('#header-gnb > ul > li > a').removeClass('on')
+				// 			$('#btn-mob-menu').removeClass('open')
+				// 		}
+
+				// 		if ($('#header-search-box').is(':visible')) {
+				// 			$('header').removeClass('search-opened')
+				// 		} else {
+				// 			$('header').addClass('search-opened')
+				// 		}
+
+				// 		return false
+				// 	})
+				// } else if (
+				// 	$(window).innerWidth() <= 1024 &&
+				// 	$(window).innerWidth() > 768
+				// ) {
+				// 	// 태블릿
+				// 	$(document).off('click.mobsearch')
+				// 	$(document).on(
+				// 		'click.tabletsearch',
+				// 		'.btn-search-toggle',
+				// 		function () {
+				// 			if ($('#header-search-box').is(':visible')) {
+				// 				$('header').removeClass('search-opened')
+				// 				$('#header-gnb > ul > li > a').removeClass('on')
+				// 			} else {
+				// 				$('header').addClass('search-opened')
+				// 			}
+
+				// 			return false
+				// 		}
+				// 	)
+				// } else {
+				// 	// PC
+				// 	$(document).on('click.pcsearch', '.btn-search-toggle', function (e) {
+				// 		e.preventDefault()
+				// 		$('header').removeClass('menu-opened')
+				// 		$('header').toggleClass('search-opened')
+				// 	})
+				// }
+
+				// $(document).on('submit', '#gnbSearchFrm', function () {
+				// 	if ($("#gnbSearchFrm input[name='s']").val() == '') {
+				// 		alert('검색어를 입력하세요.')
+				// 		$("#gnbSearchFrm input[name='s']").focus()
+				// 		return false
+				// 	}
+				// })
 			},
 
 			resized: function () {

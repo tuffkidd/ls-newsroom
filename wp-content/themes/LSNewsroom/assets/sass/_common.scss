@@ -58,6 +58,10 @@ button {
 	display: none;
 }
 
+:focus {
+	outline: auto;
+}
+
 .hidden-text {
 	white-space: nowrap;
 	font-size: 0;

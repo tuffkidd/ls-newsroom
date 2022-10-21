@@ -65,7 +65,7 @@ if ($custom_taxo_page == 'multimedia') {
 		<div id="header-wrap">
 			<div class="container" id="header-left">
 				<div id="header-logo">
-					<a href="<?php echo site_url() ?>" class="hidden-text">홈으로 가기</a>
+					<a href="<?php echo site_url() ?>" class="hidden-text">LS전선 뉴스룸 NewsPresso</a>
 				</div>
 			</div>
 
@@ -82,7 +82,7 @@ if ($custom_taxo_page == 'multimedia') {
 
 			<div class="container" id="header-right">
 				<div class="open-search">
-					<a href="#" class="btn-search-toggle hidden-text">검색창 토글</a>
+					<a href="#" class="btn-search-toggle hidden-text" aria-expanded="true" aria-controls="header-search-box">검색창 열기</a>
 				</div>
 
 				<a href="#" id="btn-mob-menu">
@@ -102,8 +102,8 @@ if ($custom_taxo_page == 'multimedia') {
 					<div class="search-box-wrap">
 						<div id="search-box">
 							<div class="search-option">
-								<button type="button" class="search-option-label daterange" data-option="d">전체</button>
-								<ul class="option-list">
+								<button type="button" class="search-option-label daterange" data-option="d" aria-expanded="true" aria-controls="date-option">전체</button>
+								<ul class="option-list" id="date-option">
 									<li><button type="button" class="option-value" data-value="all">전체</button></li>
 									<li><button type="button" class="option-value" data-value="month">최근 1개월</button></li>
 									<li><button type="button" class="option-value" data-value="year">최근 1년</button></li>
@@ -111,8 +111,8 @@ if ($custom_taxo_page == 'multimedia') {
 								</ul>
 							</div>
 							<div class="search-option">
-								<button type="button" class="search-option-label sort" data-option="o">최신순</button>
-								<ul class="option-list">
+								<button type="button" class="search-option-label sort" data-option="o" aria-expanded="true" aria-controls="sort-option">최신순</button>
+								<ul class="option-list" id="sort-option">
 									<li><button type="button" class="option-value" data-value="latest">최신순</button></li>
 									<li><button type="button" class="option-value" data-value="relevance">관련순</button></li>
 								</ul>

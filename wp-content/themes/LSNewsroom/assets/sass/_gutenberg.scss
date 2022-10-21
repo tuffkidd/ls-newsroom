@@ -1,6 +1,7 @@
-@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css");
+@import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css');
 @import './variables.scss';
-$font_family: "SUIT", --apple-system, "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", sans-serif;
+$font_family: 'SUIT', --apple-system, 'Noto Sans KR', 'Apple SD Gothic Neo',
+	'맑은 고딕', sans-serif;
 
 /* Main column width */
 .wp-block {
@@ -8,12 +9,12 @@ $font_family: "SUIT", --apple-system, "Noto Sans KR", "Apple SD Gothic Neo", "�
 }
 
 /* Width of "wide" blocks */
-.wp-block[data-align="wide"] {
+.wp-block[data-align='wide'] {
 	max-width: 1080px;
 }
 
 /* Width of "full-wide" blocks */
-.wp-block[data-align="full"] {
+.wp-block[data-align='full'] {
 	max-width: none;
 }
 
@@ -25,7 +26,7 @@ body {
 	color: #000;
 	font-weight: 300;
 
-	>* {
+	> * {
 		letter-spacing: -0.05em;
 	}
 }
@@ -40,9 +41,15 @@ body {
 	margin-top: 37px;
 }
 
-.block-editor-default-block-appender textarea.block-editor-default-block-appender__content {
+.block-editor-default-block-appender
+	textarea.block-editor-default-block-appender__content {
 	font-family: $font-family;
 	font-size: 20px;
+}
+
+// 이미지 비디오 플레이스 홀더 둥근 모서리
+.block-editor-media-placeholder {
+	border-radius: 25px;
 }
 
 h1 {
@@ -132,14 +139,13 @@ strong {
 	background: #f7f7f7;
 	border-radius: 10px;
 
-
 	p {
 		padding: 0 20px;
 		margin: 0;
 	}
 
 	&:before {
-		content: "";
+		content: '';
 		display: block;
 		width: 27px;
 		height: 20px;
@@ -150,7 +156,7 @@ strong {
 	}
 
 	&:after {
-		content: "";
+		content: '';
 		display: block;
 		width: 27px;
 		height: 20px;
@@ -208,19 +214,19 @@ ol,
 ul {
 	padding-left: 30px;
 
-	>li {
+	> li {
 		line-height: 36px;
 		font-size: 21px;
 
-		>ol,
-		>ul {
-			>li {
+		> ol,
+		> ul {
+			> li {
 				line-height: 31px;
 				font-size: 19px;
 
-				>ol,
-				>ul {
-					>li {
+				> ol,
+				> ul {
+					> li {
 						line-height: 28px;
 						font-size: 17px;
 					}
@@ -228,18 +234,17 @@ ul {
 			}
 		}
 
-		>ol {
+		> ol {
 			list-style-type: upper-roman;
 
-			>li {
-				>ol {
+			> li {
+				> ol {
 					list-style-type: lower-alpha;
 				}
 			}
 		}
 	}
 }
-
 
 a {
 	text-decoration: none;
@@ -306,7 +311,7 @@ a {
 
 .wp-block-wildworks-extend-block-video-subtitle {
 	&:after {
-		content: "";
+		content: '';
 		display: block;
 		clear: both;
 	}
@@ -334,7 +339,7 @@ a {
 		background-color: #f7f7f7;
 
 		&:before {
-			content: "영상 자막";
+			content: '영상 자막';
 			position: absolute;
 			text-indent: -9999px;
 			left: 0;
