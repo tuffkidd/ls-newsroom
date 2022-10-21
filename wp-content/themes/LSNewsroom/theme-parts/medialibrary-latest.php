@@ -7,16 +7,37 @@ $post_type = 'multimedia';
 $lib = 'medialibrary';
 $lb = 'medialib';
 
-$keyword = get_query_var('s');
+$keyword = esc_attr(get_query_var('s'));
 $page = get_query_var('paged');
 
 $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $keyword);
+
 ?>
 <section id="content">
 	<div class="container">
 		<div class="medialibrary-wrap">
-			<?php get_template_part('theme-parts/medialibrary', 'header'); ?>
+			<div class="medialibrary-header">
+				<h1>미디어 라이브러리</h1>
+				<span>LS전선의 다양한 이미지와 영상을 검색해보세요.</span>
+			</div>
+			<div class="medialibrary-control">
+				<!-- <div class="switch-album">
+					<a href="<?php echo site_url($lib . '/albums'); ?>" class="<?php if (get_query_var($lb) == 'albums') { ?>selected<?php } ?>">앨범</a>
+					<a href="<?php echo site_url($lib . '/photostream'); ?>" class="<?php if (get_query_var($lb) == 'photostream') { ?>selected<?php } ?>">포토스트림</a>
+				</div> -->
+				<?php get_template_part('theme-parts/medialibrary', 'latest'); ?>
 
+				<div class="medialibrary-search">
+					<div class="medialibrary-search-box">
+						<form action="<?php echo site_url($lib . '/photostream'); ?>" method="GET">
+							<label for="s" class="hidden-text">검색어를 입력하세요.</label>
+							<input type="text" name="s" id="s" value="<?php echo $keyword; ?>" placeholder="검색어를 입력하세요.">
+							<a href="#" id="del-mkeyword" class="hidden-text" title="검색어 삭제">검색어 삭제</a>
+							<button type="submit" id="album-search-submit" class="hidden-text">검색</button>
+						</form>
+					</div>
+				</div>
+			</div>
 			<div class="media-list">
 				<?php
 

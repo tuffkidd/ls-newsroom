@@ -1,73 +1,51 @@
 <?php
+global $wp_query;
 get_header();
+$paged = get_query_var('paged');
 
-// $paged = get_query_var( 'paged' );
-$page = get_query_var('page');
-$album_id = get_queried_object()->term_id;
-$medias = $Frontend->get_medias($album_id, $page, 20);
-$albums = $Frontend->get_albums($paged);
-// print_r2($medias);
+
+$albums = $Frontend->get_albums(get_queried_object_id(), $paged);
 ?>
 
-<div id="content">
+<section id="content">
 	<div class="container">
 		<div class="medialibrary-wrap">
-			<div class="medialibrary-header">
-				<h1>미디어 라이브러리</h1>
-				<span>LS전선의 다양한 이미지와 영상을 검색해보세요.</span>
-			</div>
+			<?php get_template_part('theme-parts/medialibrary', 'header'); ?>
 
-			<div class="album-wrap">
-				<div class="album-header">
-					<div class="album-wrap">
-						<a href="<?php echo site_url('/medialibrary/albums'); ?>" class="go-to-albums">앨범</a>
-						<div class="">
-							<button><?php single_cat_title(); ?></button>
-							<ul>
-								<?php if ($albums) : ?>
-									<?php foreach ($albums as $key => $album) : ?>
-										<li><a href="<?php echo get_category_link($album->term_id); ?>" <?php if ($album->term_id == get_queried_object()->term_id) { ?>class="active" <?php } ?>><?php echo $album->name; ?></a></li>
-									<?php endforeach; ?>
-								<?php endif; ?>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<?php /* 주의 지우지 말것 ::::::::: 선택 다운로드
-		<div class="album-header clearfix">
-			<div class="album-name float-left">
-				<?php single_cat_title(); ?>
-			</div>
-			<div class="album-func float-right">
-				<a href="<?php echo site_url();?>" class="go-back">상위메뉴로 가기</a>
-				<!-- <a href="<?php echo site_url();?>" class="cj-button go-back">
-					<span class="button-icon icon-go-back"></span>
-					상위메뉴로 가기
-				</a>
-				-->
-
-				<a href="#" class="cj-button downloadSelected">
-					<span class="button-icon icon-download"></span>
-					다운로드
-				</a>
-			</div>
-		</div>
-		*/
+			<div class="album-list">
+				<?php
+				if ($albums) :
+					foreach ($albums as $album) :
+						// $medias = $Frontend->get_medias($album->term_id, 1, -1, 'album', 'multimedia')->posts;
+						// print_r2($medias);
+						// print_r2($album);
+						// $count = $category->category_count;
+						// $total_posts = count($medias);
+						$img = wp_get_attachment_image_src(attachment_url_to_postid(get_term_meta($album->term_id, "album_img", TRUE)), 'category-list');
 				?>
-				<div class="media-wrap">
-
-					<?php
-					if ($medias->have_posts()) :
-						while ($medias->have_posts()) : $medias->the_post();
-							get_template_part('theme-parts/media', 'list');
-						endwhile;
-					endif;
-					?>
-
-				</div>
-				<?php get_template_part('theme-parts/medialibrary-pagination', ''); ?>
+						<?php if (isset($album->post)) : ?>
+							<div class="album-item-wrap">
+								<a href="<?php echo get_the_permalink($album->post->ID); ?>?type=<?php echo get_query_var('album'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>">
+									<?php /*
+									<span class="album-photo-count">
+										<img src="<?php echo THEME_IMAGE_URI . '/icon-photo-count.png'; ?>" alt="미디어 수 아이콘"> <?php echo number_format($album->count); ?>
+									</span>
+									*/ ?>
+									<div class="album-thumb-wrap">
+										<div class="album-thumb-overlay"></div>
+										<img src="<?php echo $img[0]; ?>" alt="<?php echo $album->name; ?> 앨범 대표 이미지">
+									</div>
+									<span class="album-title"><?php echo $album->name; ?></span>
+								</a>
+							</div>
+						<?php endif; ?>
+				<?php
+					endforeach;
+				endif;
+				?>
 			</div>
 		</div>
 	</div>
-	<?php
-	get_footer();
+</section>
+<?php
+get_footer();

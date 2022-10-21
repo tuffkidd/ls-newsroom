@@ -34,6 +34,7 @@ if ($custom_taxo_page == 'multimedia') {
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" /> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="naver-site-verification" content="a49f3cff0824586f3d547c0f084bc70a3822d8ed" />
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-XC67PP4EXT"></script>
 	<script>
@@ -61,7 +62,9 @@ if ($custom_taxo_page == 'multimedia') {
 	<a id="skip-link" href="#content"><?php _e('본문 바로가기', 'spc'); ?></a>
 	<?php wp_body_open(); ?>
 	<header>
-		<div id="content-progress"></div>
+		<?php if (is_single() || is_page()) : ?>
+			<div id="content-progress"></div>
+		<?php endif; ?>
 		<div id="header-wrap">
 			<div class="container" id="header-left">
 				<div id="header-logo">

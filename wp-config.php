@@ -1,9 +1,4 @@
 <?php
-// Begin AIOWPSEC Firewall
-if (file_exists('/home/news.lscns.test/dev/aios-bootstrap.php')) {
-	include_once('/home/news.lscns.test/dev/aios-bootstrap.php');
-}
-// End AIOWPSEC Firewall
 
 /**
  * The base configuration for WordPress

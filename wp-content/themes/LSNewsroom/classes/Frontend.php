@@ -478,7 +478,7 @@ class Frontend extends Theme
 	 */
 
 	/** 커스텀 택소노미용 */
-	public function get_albums($paged, $taxo = 'album')
+	public function get_albums($parent, $paged, $taxo = 'album')
 	{
 		// $args = array(
 		// 	'taxonomy' => 'album',
@@ -508,6 +508,7 @@ class Frontend extends Theme
 		// );
 		$args = array(
 			'taxonomy' => $taxo,
+			'parent' => $parent,
 			'hide_empty' => false,
 		);
 
@@ -548,12 +549,14 @@ class Frontend extends Theme
 	{
 		$args = [
 			'posts_per_page'			=> $post_per_page,
-			'paged'						=> $paged,
+			'paged'						=> $paged <= 0 ? 1 : $paged,
 			'post_type'					=> $post_type,
+			// 'taxonomy' => 'album',
 			'order_by'					=> 'date',
 			'order'						=> 'DESC',
 			'post_status'				=> 'publish',
-			'has_password'   			=> false
+			'has_password'   			=> false,
+			'suppress_filters' => false
 		];
 
 		if ($keyword != "") {
@@ -573,7 +576,6 @@ class Frontend extends Theme
 				]
 			];
 		}
-
 
 		$result = new \WP_Query($args);
 		return $result;
