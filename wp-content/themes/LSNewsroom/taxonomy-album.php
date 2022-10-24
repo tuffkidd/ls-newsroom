@@ -26,7 +26,7 @@ $albums = $Frontend->get_albums(get_queried_object_id(), $paged);
 						<?php if (isset($album->post)) : ?>
 							<div class="album-item-wrap">
 								<a href="<?php echo get_the_permalink($album->post->ID); ?>?type=<?php echo get_query_var('album'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>">
-									<?php /*
+									<?php /* 앨범 내 컨텐츠 카운트 시 주석 제거
 									<span class="album-photo-count">
 										<img src="<?php echo THEME_IMAGE_URI . '/icon-photo-count.png'; ?>" alt="미디어 수 아이콘"> <?php echo number_format($album->count); ?>
 									</span>

@@ -156,7 +156,8 @@ if ($matches) {
 				</div>
 				<div class="media-download">
 					<?php if (isset($video_src)) { ?>
-						<a href="<?php echo $video_src; ?>" download class="download-media">다운로드</a>
+						<p>영상에 마우스 우-클릭 후 '동영상을 다른 이름으로 저장'을 클릭해서 다운로드하실 수 있습니다.</p>
+						<!-- <a href="<?php echo $video_src; ?>" class="download-media" target="_blank">다운로드</a> -->
 					<?php } else { ?>
 						<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . get_post_thumbnail_id(get_the_ID()) . '&size=full'); ?>" class="download-media">다운로드</a>
 					<?php } ?>

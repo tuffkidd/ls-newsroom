@@ -30,8 +30,8 @@ $photostream_medias = $Frontend->get_medias(0, $page, 12, $taxo, $post_type, $ke
 										<a href="<?php echo the_permalink() ?>?type=<?php echo get_query_var('medialib'); ?>&paged=<?php echo get_query_var('paged') ? get_query_var('paged') : 1; ?>" class="media-detail">
 											크게 보기
 										</a>
-										<?php if (isset($video_id)) { ?>
-											<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . $video_id . '&size=full'); ?>" class="media-download">다운로드</a>
+										<?php if ($Frontend->is_video_media(get_the_content())) { ?>
+											<?php /*<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . $video_id . '&size=full'); ?>" class="media-download">다운로드</a>*/ ?>
 										<?php } else { ?>
 											<a href="<?php echo site_url('/medialibrary/download/?attach_id=' . get_post_thumbnail_id(get_the_ID()) . '&size=full'); ?>" class="media-download">다운로드</a>
 										<?php } ?>
