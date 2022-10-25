@@ -10,12 +10,14 @@ $lib = 'medialibrary';
 $term = get_term_by('slug', $tax_name, $taxo);
 $album_id = $term->term_id;
 
-$type = isset($_GET['type']) ? esc_attr($_GET['type']) : 'albums';
+$type = isset($_GET['type']) ? esc_attr($_GET['type']) : 'photo';
 
 if ($type == 'photostream') {
 	$back_url = site_url('/medialibrary/photostream?paged=' .  get_query_var('paged'));
-} else {
-	$back_url = site_url('/medialibrary/albums');
+} else if ($type == 'photo') {
+	$back_url = site_url('/medialibrary/photo/');
+} else if ($type == 'video') {
+	$back_url = site_url('/medialibrary/video/');
 }
 
 /**************************************************
@@ -129,7 +131,7 @@ if ($matches) {
 		<div class="medialibrary-wrap">
 			<div class="medialibrary-header">
 				<h1>미디어 라이브러리</h1>
-				<span>LS전선의 다양한 이미지와 영상을 검색해보세요.</span>
+				<span>LS전선의 다양한 사진과 영상을 검색해보세요.</span>
 			</div>
 			<div class="medialibrary-control">
 				<a href="<?php echo $back_url ?>" class="go-back">

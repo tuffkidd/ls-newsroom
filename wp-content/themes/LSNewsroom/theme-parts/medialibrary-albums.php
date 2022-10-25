@@ -20,7 +20,7 @@ $albums = $Frontend->get_albums($paged, $taxo);
 		<div class="medialibrary-wrap">
 			<div class="medialibrary-header">
 				<h1>미디어 라이브러리</h1>
-				<span>LS전선의 다양한 이미지와 영상을 검색해보세요.</span>
+				<span>LS전선의 다양한 사진과 영상을 검색해보세요.</span>
 			</div>
 			<div class="medialibrary-control">
 				<div class="switch-album">

@@ -1,7 +1,7 @@
 <footer>
 	<div class="pc container">
 		<div class="footer-top">
-			<a href="https://www.lscns.co.kr/" class="logo hidden-text">LS전선 바로가기</a>
+			<a href="https://www.lscns.co.kr/" target="_blank" class="logo hidden-text">LS전선 바로가기</a>
 			<?php
 			wp_nav_menu([
 				// 'container' => 'div',
@@ -28,8 +28,8 @@
 				</div>
 			</div>
 			<div class="social-links">
-				<a href="#" class="home hidden-text">홈으로</a>
-				<a href="#" class="youtube hidden-text">유튜브 바로가기</a>
+				<a href="https://www.lscns.co.kr/" target="_blank" class="home hidden-text">홈으로</a>
+				<a href="https://www.youtube.com/c/LSCableSystem/" target="_blank" class="youtube hidden-text">유튜브 바로가기</a>
 			</div>
 		</div>
 	</div>

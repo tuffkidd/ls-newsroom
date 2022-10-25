@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
 		},
 		cache: false,
 		context: path.resolve(__dirname, 'assets'),
-		devtool: 'source-map',
+		devtool: argv.mode === 'production' ? false : 'source-map',
 		mode: argv.mode === 'production' ? 'production' : 'development',
 		entry: {
 			lscnsbackend: ['./js/admin/app.js'],
