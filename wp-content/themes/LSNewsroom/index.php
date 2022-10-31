@@ -88,49 +88,56 @@ if (is_plugin_active("ls-main-slider/index.php")) {
 
 		<div class="latest-content">
 			<div class="latest-item-wrap animate__animated animate__fadeInUp on" id="latest">
-				<?php if ($latest_posts_1) : foreach ($latest_posts_1 as $post) : setup_postdata($post->ID);
-						$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
-						<div class="latest-item">
-							<a href="<?php echo get_the_permalink() ?>">
-								<?php the_post_thumbnail('post-list') ?>
-							</a>
-							<div class="post-meta">
-								<div class="post-title">
-									<a href=" <?php echo get_category_link($term[0]->term_id); ?>" class="cat"><?php echo $term[0]->name; ?></a>
-									<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
-								</div>
-								<div class="post-date">
-									<?php echo get_the_date('Y. m. d') ?>
+				<div class="latest-item-group">
+					<?php if ($latest_posts_1) : foreach ($latest_posts_1 as $post) : setup_postdata($post->ID);
+							$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
+							<div class="latest-item">
+								<a href="<?php echo get_the_permalink() ?>">
+									<?php the_post_thumbnail('post-list') ?>
+								</a>
+								<div class="post-meta">
+									<div class="post-title">
+										<a href=" <?php echo get_category_link($term[0]->term_id); ?>" class="cat"><?php echo $term[0]->name; ?></a>
+										<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
+									</div>
+									<div class="post-date">
+										<?php echo get_the_date('Y. m. d') ?>
+									</div>
 								</div>
 							</div>
-						</div>
-				<?php endforeach;
-				endif; ?>
+					<?php endforeach;
+					endif; ?>
+				</div>
 			</div>
 			<?php if (isset($mainTags)) : foreach ($mainTags as $t) : ?>
 					<div class="latest-item-wrap animate__animated animate__fadeInUp" id="tag-<?php echo $t->term_id ?>">
-						<?php
-						// 태그 포스트 가져오기
-						$tag_posts = $mainTagsFrontend->getMainTagPosts($t->term_id);
-						if ($tag_posts) :
-							foreach ($tag_posts as $post) : setup_postdata($post->ID);
-								$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
-								<div class="latest-item">
-									<a href="<?php echo get_the_permalink() ?>">
-										<?php the_post_thumbnail('post-list') ?>
-									</a>
-									<div class="post-meta">
-										<div class="post-title">
-											<a href=" <?php echo get_category_link($term[0]->term_id); ?>" class="cat"><?php echo $term[0]->name; ?></a>
-											<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
-										</div>
-										<div class="post-date">
-											<?php echo get_the_date('Y. m. d') ?>
+						<div class="latest-item-group">
+							<?php
+							// 태그 포스트 가져오기
+							$tag_posts = $mainTagsFrontend->getMainTagPosts($t->term_id);
+							if ($tag_posts) :
+								foreach ($tag_posts as $post) : setup_postdata($post->ID);
+									$term = $Frontend->get_post_cat($post->ID, 2, 1); ?>
+									<div class="latest-item">
+										<a href="<?php echo get_the_permalink() ?>">
+											<?php the_post_thumbnail('post-list') ?>
+										</a>
+										<div class="post-meta">
+											<div class="post-title">
+												<a href=" <?php echo get_category_link($term[0]->term_id); ?>" class="cat"><?php echo $term[0]->name; ?></a>
+												<a href="<?php echo get_the_permalink() ?>" class="title"><?php echo the_title(); ?></a>
+											</div>
+											<div class="post-date">
+												<?php echo get_the_date('Y. m. d') ?>
+											</div>
 										</div>
 									</div>
-								</div>
-						<?php endforeach;
-						endif; ?>
+							<?php endforeach;
+							endif; ?>
+						</div>
+						<div class="tag-more">
+							<a href="<?php echo get_tag_link($t->term_id) ?>">더 보기</a>
+						</div>
 					</div>
 			<?php endforeach;
 			endif; ?>

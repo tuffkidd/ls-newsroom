@@ -90,6 +90,11 @@ get_header();
 						</div>
 					</div>
 				</div>
+				<div class="history-youtube">
+					<div class=" youtube-container">
+						<iframe src="https://www.youtube.com/embed/whJ9MaiD4wM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
 			</div>
 
 			<div class="section-finance">
@@ -133,21 +138,21 @@ get_header();
 							<tbody>
 								<tr>
 									<td>매출액</td>
-									<td>6,111,367</td>
-									<td>4,831,489</td>
 									<td>4,602,796</td>
+									<td>4,831,489</td>
+									<td>6,111,367</td>
 								</tr>
 								<tr>
 									<td>영업이익</td>
-									<td>230,355</td>
-									<td>164,905</td>
 									<td>162,590</td>
+									<td>164,905</td>
+									<td>230,355</td>
 								</tr>
 								<tr>
 									<td>당기순이익</td>
-									<td>162,590</td>
-									<td>114,083</td>
 									<td>86,706</td>
+									<td>114,083</td>
+									<td>162,590</td>
 								</tr>
 							</tbody>
 						</table>
@@ -329,63 +334,64 @@ get_header();
 								<p>신제품 매출액 9,846억 원</p>
 							</div>
 						</div>
-						<div class="body-item">
-							<h3>품질 &amp; 제품 책임</h3>
-							<div class="body-item-child">
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-1.png" alt="품질관리 역량평가제 국내 관계사 5개사 적용">
-									<p>품질관리 역량평가제<br>국내 관계사 5개사 적용</p>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-2.png" alt="현장혁신활동 68건 / 17건 (테마활동 / 아이디어 제안)">
-									<p>현장혁신활동<br>68건 / 17건<br>(테마활동 / 아이디어 제안)</p>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-3.png" alt="협력사 품질교류회 11회 Level-up 지원 10건">
-									<p>협력사 품질교류회 11회<br>Level-up 지원 10건</p>
-								</div>
+					</div>
+					<div class="body-item">
+						<h3>품질 &amp; 제품 책임</h3>
+						<div class="body-item-child">
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-1.png" alt="품질관리 역량평가제 국내 관계사 5개사 적용">
+								<p>품질관리 역량평가제<br>국내 관계사 5개사 적용</p>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-2.png" alt="현장혁신활동 68건 / 17건 (테마활동 / 아이디어 제안)">
+								<p>현장혁신활동<br>68건 / 17건<br>(테마활동 / 아이디어 제안)</p>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-4-3.png" alt="협력사 품질교류회 11회 Level-up 지원 10건">
+								<p>협력사 품질교류회 11회<br>Level-up 지원 10건</p>
 							</div>
 						</div>
-						<div class="body-item">
-							<h3>협력사 동반성장</h3>
-							<div class="body-item-child">
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-1.png" alt="공동 기술개발">
-									<ul>
-										<li>LAN 케이블 테스트기기</li>
-										<li>자동차센서용 특수 케이블</li>
-									</ul>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-2.png" alt="2·3차 협력사 동방성장론">
-									<p>2·3차 협력사<br>동방성장론</p>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-3.png" alt="협력사 품질교류회 11회 Level-up 지원 10건">
-									<p>중국, 베트남, 인도 현지 공급망 구축<br>3,508억 원</p>
-								</div>
+					</div>
+					<div class="body-item">
+						<h3>협력사 동반성장</h3>
+						<div class="body-item-child">
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-1.png" alt="공동 기술개발">
+								<ul>
+									<li>LAN 케이블 테스트기기</li>
+									<li>자동차센서용 특수 케이블</li>
+								</ul>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-2.png" alt="2·3차 협력사 동방성장론">
+								<p>2·3차 협력사<br>동방성장론</p>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-5-3.png" alt="협력사 품질교류회 11회 Level-up 지원 10건">
+								<p>중국, 베트남, 인도 현지 공급망 구축<br>3,508억 원</p>
 							</div>
 						</div>
-						<div class="body-item">
-							<h3>지역사회 기여</h3>
-							<div class="body-item-child">
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-1.png" alt="임직원 참여형 해양정화">
-									<p>임직원 참여형<br>해양정화</p>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-2.png" alt="전역장병 동해사업장 취업 연계">
-									<p>전역장병 동해사업장<br>취업 연계</p>
-								</div>
-								<div>
-									<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-3.png" alt="사회공헌 기부">
-								</div>
+					</div>
+					<div class="body-item">
+						<h3>지역사회 기여</h3>
+						<div class="body-item-child">
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-1.png" alt="임직원 참여형 해양정화">
+								<p>임직원 참여형<br>해양정화</p>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-2.png" alt="전역장병 동해사업장 취업 연계">
+								<p>전역장병 동해사업장<br>취업 연계</p>
+							</div>
+							<div>
+								<img src="<?php echo THEME_IMAGE_URI ?>/icon-company-sustainability-6-3.png" alt="사회공헌 기부">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </section>
 <?php
 get_footer();

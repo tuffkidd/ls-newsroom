@@ -2,6 +2,9 @@
 global $Frontend, $wp_query;
 get_header();
 $total_posts = $wp_query->found_posts;
+
+$current_cat = rawurldecode(get_queried_object()->slug);
+
 ?>
 <section id="content">
 	<div class="container">
@@ -10,6 +13,22 @@ $total_posts = $wp_query->found_posts;
 				<h1><?php echo get_queried_object()->name; ?></h1>
 				<span>총 <?php echo $wp_query->found_posts; ?>건의 글이 있습니다</span>
 			</div>
+			<?php if ($current_cat == 'hi테크놀러지') : ?>
+				<div class="category-tags">
+					<?php if (get_term_by('name', 'hvdc', 'post_tag')) : ?>
+						<a href="<?php echo get_tag_link(get_term_by('name', 'HVDC', 'post_tag')); ?>">HVDC</a>
+					<?php endif; ?>
+					<?php if (get_term_by('name', '해저', 'post_tag')) : ?>
+						<a href="<?php echo get_tag_link(get_term_by('name', '해저', 'post_tag')); ?>">해저</a>
+					<?php endif; ?>
+					<?php if (get_term_by('name', '초전도', 'post_tag')) : ?>
+						<a href="<?php echo get_tag_link(get_term_by('name', '초전도', 'post_tag')); ?>">초전도</a>
+					<?php endif; ?>
+					<?php if (get_term_by('name', '전기차', 'post_tag')) : ?>
+						<a href="<?php echo get_tag_link(get_term_by('name', '전기차', 'post_tag')); ?>">전기차</a>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
 			<?php
 			if (have_posts()) :
 			?>
