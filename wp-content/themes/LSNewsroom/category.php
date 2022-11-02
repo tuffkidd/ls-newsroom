@@ -14,9 +14,9 @@ $current_cat = rawurldecode(get_queried_object()->slug);
 			</div>
 			<?php if ($current_cat == 'hi테크놀러지') : ?>
 				<div class="category-tags">
-					<?php if (get_term_by('name', 'hvdc', 'post_tag')) : ?>
+					<?php /* if (get_term_by('name', 'hvdc', 'post_tag')) : ?>
 						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=hvdc" ?>">HVDC</a>
-					<?php endif; ?>
+					<?php endif; */ ?>
 					<?php if (get_term_by('name', '해저', 'post_tag')) : ?>
 						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=해저" ?>">해저</a>
 					<?php endif; ?>
