@@ -17,8 +17,8 @@ $current_cat = rawurldecode(get_queried_object()->slug);
 					<?php /* if (get_term_by('name', 'hvdc', 'post_tag')) : ?>
 						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=hvdc" ?>">HVDC</a>
 					<?php endif; */ ?>
-					<?php if (get_term_by('name', '해저', 'post_tag')) : ?>
-						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=해저" ?>">해저</a>
+					<?php if (get_term_by('name', '해저케이블', 'post_tag')) : ?>
+						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=해저케이블" ?>">해저케이블</a>
 					<?php endif; ?>
 					<?php if (get_term_by('name', '초전도', 'post_tag')) : ?>
 						<a href="<?php echo get_term_link(get_queried_object_id()) . "?tag=초전도" ?>">초전도</a>
