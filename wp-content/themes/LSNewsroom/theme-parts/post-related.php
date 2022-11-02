@@ -7,7 +7,7 @@ $relevents = $Frontend->get_relevent_posts(get_the_ID(), 3);
 
 <?php if ($relevents->posts) : ?>
 	<div class="related-posts">
-		<h3>연관콘텐츠</h3>
+		<h3>연관 콘텐츠</h3>
 		<div class="related-posts-wrap">
 			<?php foreach ($relevents->posts as $relevent) :  ?>
 				<div class="related-post-item">

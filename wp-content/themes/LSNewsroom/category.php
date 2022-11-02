@@ -62,9 +62,11 @@ $current_cat = rawurldecode(get_queried_object()->slug);
 									<?php the_title(); ?>
 								</a>
 
-								<div class="post-etc">
-									<span class="post-date"><?php echo get_the_date('Y.m.d'); ?></span>
-								</div>
+								<?php if ($current_cat !== '성공사례') : ?>
+									<div class="post-etc">
+										<span class="post-date"><?php echo get_the_date('Y.m.d'); ?></span>
+									</div>
+								<?php endif; ?>
 
 								<div class="post-excerpt">
 									<?php echo get_the_excerpt() ?>

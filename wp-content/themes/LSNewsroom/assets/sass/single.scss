@@ -21,30 +21,32 @@
 
 			.entry-categories {
 				position: relative;
-				margin-right: 15px;
-				padding-right: 15px;
 
 				a {
 					display: block;
 					color: #2c2c2c;
 					font-size: 16px;
 				}
+			}
 
-				&:after {
+			.entry-top-date {
+				position: relative;
+				color: #2c2c2c;
+				font-size: 16px;
+
+				margin-left: 15px;
+				padding-left: 15px;
+
+				&:before {
 					content: '';
 					position: absolute;
 					width: 1px;
 					height: 19px;
 					background-color: #212121;
-					right: 0;
-					top: 50%;
-					transform: translate(-50%, -50%);
+					left: 0;
+					top: -50%;
+					transform: translate(50%, 50%);
 				}
-			}
-
-			.entry-top-date {
-				color: #2c2c2c;
-				font-size: 16px;
 			}
 		}
 	}
@@ -285,10 +287,12 @@
 			}
 
 			.wp-block-image .alignleft {
+				float: left;
 				margin: 0 30px 7px 0;
 			}
 
 			.wp-block-image .alignright {
+				float: right;
 				margin: 0 0 7px 30px;
 			}
 
@@ -319,6 +323,36 @@
 			.wp-block-image {
 				// border-radius: 25px;
 				overflow: hidden;
+			}
+
+			/****************************************
+			* 이미지 with 텍스트
+			*******/
+			.wp-block-media-text {
+				figure {
+					margin: 0;
+				}
+
+				.wp-block-media-text__content {
+					h3 {
+						margin: 30px 0 10px;
+					}
+
+					h3:first-child {
+						margin: 5px 0;
+					}
+
+					p {
+						font-size: 18px;
+					}
+
+					ul {
+						li {
+							line-height: 28px;
+							font-size: 15px;
+						}
+					}
+				}
 			}
 
 			.wp-block-cover .wp-block-cover-image-text,
@@ -612,6 +646,34 @@
 				.wp-block-image.alignfull,
 				.wp-block-image.alignwide {
 					margin: auto;
+				}
+
+				/****************************************
+				* 이미지 with 텍스트
+				*******/
+				.wp-block-media-text {
+					.wp-block-media-text__content {
+						padding: 0;
+						margin-top: 30px;
+						h3 {
+							margin: 20px 0 10px;
+						}
+
+						h3:first-child {
+							margin: 5px 0;
+						}
+
+						p {
+							font-size: 17px;
+						}
+
+						ul {
+							li {
+								font-size: 14px;
+								list-style: 24px;
+							}
+						}
+					}
 				}
 			}
 		}

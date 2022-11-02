@@ -1,6 +1,8 @@
 <?php
 global $Frontend, $post;
 $cats = $Frontend->get_post_cat(get_the_ID(), 2, 2);
+$current_cats = array_column($cats, 'name');
+$hide_date = in_array('성공사례', $current_cats);
 
 // 하위 카테고리만 노출
 $breadcrumbs = [];
@@ -22,7 +24,9 @@ if ($cats) {
 						<?php if (is_array($breadcrumbs)) { ?><?php echo join(', ', $breadcrumbs); ?><?php } ?>
 					</div>
 				<?php endif; ?>
-				<div class="entry-top-date"><?php echo get_the_date('Y.m.d'); ?></div>
+				<?php if ($hide_date !== true) : ?>
+					<div class="entry-top-date"><?php echo get_the_date('Y.m.d'); ?></div>
+				<?php endif; ?>
 			</div>
 		</div>
 
