@@ -10,6 +10,7 @@ jQuery(function ($) {
 			var data = {
 				action: 'recommendTagsAdd_x',
 				tag_name: $('#tag_name').val(),
+				location: $('#location').val(),
 				nonce: recommend_tags_admin_js.recommend_tags_add_nonce
 			}
 

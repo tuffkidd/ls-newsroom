@@ -59,6 +59,7 @@ class Backend
 			tid INT UNSIGNED NOT NULL AUTO_INCREMENT,
 			term_id INT NOT NULL,
 			seq INT NOT NULL,
+			location ENUM('S', 'H') DEFAULT 'S',
 			created_at DATETIME NOT NULL,
 			created_by INT NOT NULL,
 			PRIMARY  KEY (tid),
@@ -70,12 +71,12 @@ class Backend
 
 	public function set_menu()
 	{
-		add_menu_page(__('검색 추천 태그 설정', 'recommendTags'), __('검색 추천 태그 설정', 'recommendTags'), 'manage_options', 'recommendTags', [&$this, 'recommendTagsActions'], "dashicons-tag");
+		add_menu_page(__('추천 태그 설정', 'recommendTags'), __('추천 태그 설정', 'recommendTags'), 'manage_options', 'recommendTags', [&$this, 'recommendTagsActions'], "dashicons-tag");
 	}
 
 	public function recommendTagsActions()
 	{
-		$this->actionTitle = __('검색 추천 태그 목록');
+		$this->actionTitle = __('추천 태그 목록');
 		if (!$this->action || $this->action == "") {
 			$this->action = $this->page . "List";
 		}
@@ -114,15 +115,17 @@ class Backend
 					'msg' => '해당 태그가 존재하지 않습니다.'
 				];
 			} else {
+				$clean['location'] = $_POST['location'];
 				$clean['term_id'] = $tag->term_id;
 				$clean['created_at'] = current_time('Y-m-d H:i:s');
 				$clean['created_by'] = get_current_user_id();
 
+
 				$sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_recommend_tags . " WHERE term_id = '" . $clean['term_id'] . "'";
 				$cnt = $this->db->get_var($sql);
 
-				$sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_recommend_tags;
-				$tcnt = $this->db->get_var($sql);
+				// $sql = "SELECT count(tid) AS cnt FROM " . $this->db->ls_recommend_tags;
+				// $tcnt = $this->db->get_var($sql);
 
 
 				// 이미 등록되어있는가?
@@ -131,11 +134,11 @@ class Backend
 						'error' => '201',
 						'msg' => '이미 등록된 태그 입니다.'
 					];
-				} else if ($tcnt >= 3) {
-					$return = [
-						'error' => '301',
-						'msg' => '최대 3개까지 등록이 가능합니다.'
-					];
+					// } else if ($tcnt >= 3) {
+					// 	$return = [
+					// 		'error' => '301',
+					// 		'msg' => '최대 3개까지 등록이 가능합니다.'
+					// 	];
 				} else {
 					if ($this->db->insert($this->db->ls_recommend_tags, $clean) !== false) {
 						$return = [

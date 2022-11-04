@@ -37,7 +37,9 @@
 				content: '#';
 			}
 
-			&:hover {
+			&:hover,
+			&:focus,
+			&.on {
 				color: #fff;
 				background: $color__background-sig;
 				border: 1px solid $color__background-sig;

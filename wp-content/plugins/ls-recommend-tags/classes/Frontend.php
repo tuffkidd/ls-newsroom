@@ -24,7 +24,14 @@ class Frontend
 
 	public function getRecommendTags()
 	{
-		$sql = "SELECT * FROM " . $this->db->ls_recommend_tags . " ORDER BY seq ASC";
+		$sql = "SELECT * FROM " . $this->db->ls_recommend_tags . " WHERE location = 'S' ORDER BY seq ASC";
+		$tags = $this->db->get_results($sql);
+		return $tags;
+	}
+
+	public function getHiTechTags()
+	{
+		$sql = "SELECT * FROM " . $this->db->ls_recommend_tags . " WHERE location = 'H' ORDER BY seq ASC";
 		$tags = $this->db->get_results($sql);
 		return $tags;
 	}

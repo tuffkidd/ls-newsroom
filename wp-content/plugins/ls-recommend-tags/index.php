@@ -3,7 +3,7 @@
 Plugin Name: [LS뉴스룸] 추천 태그 설정
 Plugin URI: http://www.i4u.kr
 Version: 1.0
-Description: 헤더 검색창의 추천태그 목록입니다.
+Description: 헤더 검색창과 Hi테크놀러지 카테고리의 추천태그 목록입니다.
 Author: Dohoon Lee@i4uworks
 Author URI: http://www.i4u.kr
 */
@@ -26,7 +26,7 @@ if (!defined('LSRT_ASSETS_DIR'))		define('LSRT_ASSETS_DIR', LSRT_DIR . '/assets'
 if (!defined('LSRT_ASSETS_URL'))		define('LSRT_ASSETS_URL', LSRT_URL . '/assets');
 
 if (!defined('LSRT_FILE'))				define('LSRT_FILE', __FILE__);
-if (!defined('LSRT_DB_VERSION'))		define('LSRT_DB_VERSION', '1.0');
+if (!defined('LSRT_DB_VERSION'))		define('LSRT_DB_VERSION', '1.1');
 
 require __DIR__ . '/vendor/autoload.php';
 
