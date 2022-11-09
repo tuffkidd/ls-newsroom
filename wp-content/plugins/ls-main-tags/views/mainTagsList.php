@@ -5,8 +5,7 @@
 		<ul>
 			<li>메인페이지 최신글 우측 태그를 설정할 수 있습니다.</li>
 			<li>등록개수 제한은 없으나, 모바일 화면을 고려하여 설정해주세요.</li>
-			<li>해당 태그에 포함된 포스트가 9개 이상인 경우에만 추가 가능하고 최신 9개만 노출됩니다.</li>
-			<li><span class="dashicons dashicons-move"></span>을 이용하여 순서를 조정할 수 있습니다.</li>
+			<li><span class="dashicons dashicons-move"></span>을 드래그하여 순서를 조정할 수 있습니다.</li>
 		</ul>
 	</div>
 

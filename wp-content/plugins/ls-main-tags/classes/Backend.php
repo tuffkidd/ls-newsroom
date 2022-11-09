@@ -134,15 +134,10 @@ class Backend
 						'error' => '201',
 						'msg' => '이미 등록된 태그 입니다.'
 					];
-				} else if ($term_info->count < 9) {
-					$return = [
-						'error' => '201',
-						'msg' => $term_info->name . ' 태그가 포함된 포스트가 9개보다 적습니다.(' . $term_info->count . '개)'
-					];
-					// } else if ($tcnt >= 3) {
+					// } else if ($term_info->count < 9) {
 					// 	$return = [
-					// 		'error' => '301',
-					// 		'msg' => '최대 3개까지 등록이 가능합니다.'
+					// 		'error' => '201',
+					// 		'msg' => $term_info->name . ' 태그가 포함된 포스트가 9개보다 적습니다.(' . $term_info->count . '개)'
 					// 	];
 				} else {
 					if ($this->db->insert($this->db->ls_main_tags, $clean) !== false) {
