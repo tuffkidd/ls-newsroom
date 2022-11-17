@@ -65,8 +65,8 @@
 			},
 
 			resetGnb: function () {
-				$('header').removeClass('menu-opened')
-				$('header').removeClass('search-opened')
+				// $('header').removeClass('menu-opened')
+				// $('header').removeClass('search-opened')
 				$('#header-gnb > ul > li > a').removeClass('on')
 				$(document).off('click.gnb')
 				$(document).off('click.mob-gnb')

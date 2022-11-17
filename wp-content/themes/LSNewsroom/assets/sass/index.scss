@@ -599,6 +599,14 @@
 			.latest-item-wrap {
 				grid-template-columns: 1fr;
 				gap: 30px 20px;
+
+				.latest-item-group {
+					.latest-item {
+						> a {
+							border-radius: 10px;
+						}
+					}
+				}
 			}
 		}
 	}
