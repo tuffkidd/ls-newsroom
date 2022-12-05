@@ -3,7 +3,7 @@
 /**
  * Template Name: 다운로드 페이지
  *
- * @package ChannelCJ
+ * @package ChannelLS
  * @subpackage Newsroom
  */
 function singleDownload($thumb_id, $thumb_size)
@@ -24,6 +24,10 @@ function singleDownload($thumb_id, $thumb_size)
 	$filename = basename($filepath);
 	$path_parts = pathinfo($filepath);
 	$extension = $path_parts['extension'];
+
+	if (!\Normalizer::isNormalized($filename)) {
+		$filename = \Normalizer::normalize($filename);
+	}
 
 	switch ($extension) {
 		case "png":
@@ -83,7 +87,7 @@ function selectedDownload($medias)
 		$base_dir = $upload_dir['basedir'];
 		$base_url = $upload_dir['baseurl'];
 
-		$zipname = 'CJ_mediaLibrary_download_' . current_time('YmdHi') . '.zip';
+		$zipname = 'LS_mediaLibrary_download_' . current_time('YmdHi') . '.zip';
 		$zippath = $upload_dir['basedir'] . '/' . $zipname;
 
 		$zip->open($zippath, ZipArchive::CREATE);
