@@ -59,7 +59,7 @@ function singleDownload($thumb_id, $thumb_size)
 	// header('Content-Length: '.filesize($filepath));
 	header('Cache-Control: private, no-transform, no-store, must-revalidate');
 
-	readfile($url);
+	readfile($filepath);
 	exit;
 }
 
