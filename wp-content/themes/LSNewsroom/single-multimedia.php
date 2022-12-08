@@ -22,7 +22,9 @@ if ($type == 'photostream') {
 
 /**************************************************
  * 슬라이더 처리
+ * 중단: 나열형태로 변경 20221207
  */
+/*
 if ($type == 'photostream') {
 	$current_post = $post;
 	for ($i = 1; $i <= 2; $i++) {
@@ -99,6 +101,12 @@ if ($type == 'photostream') {
 	$post = $current_post;
 	setup_postdata($post);
 }
+*/
+
+/***************************************************
+ * 미디어 나열 album-medias 20221207
+ */
+$album_medias = $Frontend->get_medias($album_id, 1, 999999)->posts;
 
 /****************************************************
  * 비디오 처리
@@ -123,6 +131,7 @@ if ($matches) {
 		$subtitle = $match[0];
 	}
 }
+
 
 ?>
 
@@ -194,12 +203,43 @@ if ($matches) {
 
 
 
+				<?php if ($album_medias) : ?>
+					<div class="album-media-wrap">
+						<?php if (get_query_var('type') == 'photo') : ?>
+							<div class="album-media-action">
+								<div>
+									<div class="ww-checkbox">
+										<input type="checkbox" name="checkAll" id="checkAllMedia">
+										<label for="checkAllMedia"> 전체 선택</label>
+									</div>
+								</div>
+								<div>
+									<a href="<?php echo site_url('/medialibrary/download/?type=all&album_id=' . $album_id); ?>" class="downloadSelected">선택 다운로드</a>
+								</div>
+							</div>
+						<?php endif; ?>
+						<div class="album-medias">
+							<?php foreach ($album_medias as $post) : setup_postdata($post); ?>
+								<div class="album-media-item">
+									<a href="<?php the_permalink() ?>?type=<?php echo $type; ?>&paged=<?php echo get_query_var('paged'); ?>">
+										<div>
+											<?php if (get_query_var('type') == 'photo') : ?>
+												<div class="ww-checkbox">
+													<input type="checkbox" name="downloadChecked[]" class="media-checkbox" id="media_<?php the_ID(); ?>" value="<?php echo get_post_thumbnail_id($post->ID); ?>">
+												</div>
+											<?php endif; ?>
+											<?php the_post_thumbnail('category-list') ?>
+										</div>
+										<p><?php the_title() ?></p>
+									</a>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				<?php endif; ?>
+				<input type="hidden" id="content-url" value="<?php echo the_permalink(); ?>">
 
-
-
-
-
-
+				<?php /* 중단: 나열형태로 변경 20221207
 				<div class="media-thumbs">
 					<div id="media-thumb-prev">
 						<?php if (isset($next_1)) { ?>
@@ -255,6 +295,7 @@ if ($matches) {
 						<?php } ?>
 					</div>
 				</div>
+				*/ ?>
 			</div>
 		</div>
 	</div>

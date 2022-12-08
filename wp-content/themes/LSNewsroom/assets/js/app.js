@@ -22,6 +22,7 @@ switch (Utils.currentPage) {
 		import('./category')
 		break
 	case 'single':
+		// case 'medialibrary':
 		import('./single')
 		break
 	case 'medialibrary':

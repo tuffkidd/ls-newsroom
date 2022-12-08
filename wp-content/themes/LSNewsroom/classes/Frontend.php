@@ -141,6 +141,8 @@ class Frontend extends Theme
 		$vars[] = "o"; // 정렬
 		$vars[] = "c"; // 카테고리
 		$vars[] = "paged"; // 페이지
+		$vars[] = "type"; // 미디어라이브러리 타입
+
 		return $vars;
 	}
 

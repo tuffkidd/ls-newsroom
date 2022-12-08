@@ -70,7 +70,7 @@
 	<?php wp_footer(); ?>
 
 	<div class="utils">
-		<?php if (is_single() || is_page('회사소개') || is_page('지속가능경영 보고서')) { ?>
+		<?php if (is_singular('post') || is_page('회사소개') || is_page('지속가능경영 보고서')) { ?>
 			<div class="mob-util">
 				<div class="entry-share">
 					<a href="#" class="mob-copy copy-url hidden-text" title="URL 복사">URL 복사</a>

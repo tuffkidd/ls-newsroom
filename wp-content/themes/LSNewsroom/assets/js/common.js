@@ -85,9 +85,7 @@
 						function () {
 							$('#header-gnb > ul > li > a.gnb-fold').removeClass('on')
 							$('ul.sub-menu').hide()
-							$(this)
-								.siblings('ul.sub-menu')
-								.show()
+							$(this).siblings('ul.sub-menu').show()
 							$(this).addClass('on')
 							return false
 						}
@@ -97,9 +95,7 @@
 						'click.mob-gnb-fold',
 						'#header-gnb > ul > li > a.gnb-fold.on',
 						function () {
-							$(this)
-								.siblings('ul.sub-menu')
-								.hide()
+							$(this).siblings('ul.sub-menu').hide()
 							$(this).removeClass('on')
 							return false
 						}
@@ -126,9 +122,7 @@
 						} else {
 							$('#header-wrap').addClass('active')
 							$(this).addClass('open')
-							$('#header-gnb')
-								.stop(true, true)
-								.slideDown(300, 'easeOutQuad')
+							$('#header-gnb').stop(true, true).slideDown(300, 'easeOutQuad')
 						}
 						return false
 					})
@@ -357,9 +351,7 @@
 					$(this).addClass('active')
 				}
 
-				$(this)
-					.siblings('.option-list')
-					.toggle()
+				$(this).siblings('.option-list').toggle()
 
 				$('.search-date-picker-wrap').hide()
 			}
@@ -387,19 +379,13 @@
 				$('#gnbSearchFrm [name=' + option_key + ']').val(option_value)
 
 				// 현재 목록 닫자.
-				$(this)
-					.closest('.option-list')
-					.toggle()
+				$(this).closest('.option-list').toggle()
 			}
 		)
 
 		// 키워드 삭제
 		$(document).on('click', '#header-search-box #del-keyword', function () {
-			$(this)
-				.closest('form')
-				.find('input[name="s"]')
-				.val('')
-				.focus()
+			$(this).closest('form').find('input[name="s"]').val('').focus()
 			$(this).hide()
 			return false
 		})
@@ -418,10 +404,7 @@
 			'click',
 			'#header-search-box .option-value.date-picker',
 			function () {
-				$(this)
-					.closest('.search-option')
-					.find('.option-list')
-					.hide()
+				$(this).closest('.search-option').find('.option-list').hide()
 				$('#header-search-box .search-date-picker-wrap').show()
 				if ($(window).innerWidth() <= 768) {
 					$('.dim-screen').show()
@@ -525,29 +508,23 @@
 		// 비디오 자막 보기
 		$(document).on('click', 'a.toggle-video-subtitle', function () {
 			// console.log($(this).siblings('p.video-subtitle').is(':visible'));
-			const is_visible = $(this)
-				.siblings('p.video-subtitle')
-				.is(':visible')
+			const is_visible = $(this).siblings('p.video-subtitle').is(':visible')
 			if (is_visible == false) {
-				$(this)
-					.addClass('arrow-up')
-					.removeClass('arrow-down')
+				$(this).addClass('arrow-up').removeClass('arrow-down')
 				$(this).text('자막 닫기')
 			} else {
-				$(this)
-					.addClass('arrow-down')
-					.removeClass('arrow-up')
+				$(this).addClass('arrow-down').removeClass('arrow-up')
 				$(this).text('자막 보기')
 			}
 
-			$(this)
-				.siblings('p.video-subtitle')
-				.toggle()
+			$(this).siblings('p.video-subtitle').toggle()
 			return false
 		})
 
 		// 컨텐츠 프로그레스 바
 		const scrollProgress = document.getElementById('content-progress')
+		console.log(scrollProgress)
+		// if (scrollProgress) {
 		const height =
 			document.documentElement.scrollHeight -
 			document.documentElement.clientHeight
@@ -557,5 +534,6 @@
 				document.body.scrollTop || document.documentElement.scrollTop
 			scrollProgress.style.width = `${(scrollTop / height) * 100}%`
 		})
+		// }
 	})
 })(jQuery)

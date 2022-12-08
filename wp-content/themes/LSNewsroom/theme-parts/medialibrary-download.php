@@ -69,10 +69,12 @@ function singleDownload($thumb_id, $thumb_size)
 
 function selectedDownload($medias)
 {
+
 	if ($medias) {
 		foreach ($medias as $key => $media) {
-			$images[] = wp_get_attachment_url($media);
+			// $images[] = wp_get_attachment_url($media);
 			$orig = wp_get_original_image_path($media);
+
 			if ($orig) {
 				$images[] = $orig;
 				// $images[] = wp_get_attachment_image_src($media, 'thumb-720')[0];
@@ -93,9 +95,15 @@ function selectedDownload($medias)
 		$zip->open($zippath, ZipArchive::CREATE);
 
 		foreach ($images as $image) {
-			$image = str_replace($base_dir, $base_url, $image);
+			//  $image = str_replace($base_dir, $base_url, $image);
+
 			$download_file = file_get_contents($image, FILE_USE_INCLUDE_PATH);
-			$zip->addFromString(basename($image), $download_file);
+			$image_name = basename($image);
+			if (!\Normalizer::isNormalized($image_name)) {
+				$image_name = \Normalizer::normalize($image_name);
+			}
+
+			$zip->addFromString($image_name, $download_file);
 		}
 
 		$zip->close();
@@ -108,8 +116,12 @@ function selectedDownload($medias)
 	}
 }
 
+
 if ($_POST['type'] == 'all') {
+
+	// allDownload($_GET['album_id']);
 	selectedDownload($_POST['medias']);
+} else if ($_POST['type'] == 'selected') {
 	// } else if ($_GET['type'] == 'video') {
 	// 	$src = $_GET['video_src'];
 	// 	header('Content-Type: application/octet-stream');

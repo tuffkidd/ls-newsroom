@@ -63,8 +63,7 @@ if ($custom_taxo_page == 'multimedia') {
 	<?php wp_body_open(); ?>
 	<header>
 		<?php if (is_single() || is_page()) : ?>
-			<div id=" content-progress">
-			</div>
+			<div id="content-progress"></div>
 		<?php endif; ?>
 		<div id="header-wrap">
 			<div class="container" id="header-left">

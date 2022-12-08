@@ -92,24 +92,16 @@
 		// 비디오 자막 보기
 		$(document).on('click', 'a.toggle-video-subtitle', function () {
 			// console.log($(this).siblings('p.video-subtitle').is(':visible'));
-			const is_visible = $(this)
-				.siblings('p.video-subtitle')
-				.is(':visible')
+			const is_visible = $(this).siblings('p.video-subtitle').is(':visible')
 			if (is_visible == false) {
-				$(this)
-					.addClass('arrow-up')
-					.removeClass('arrow-down')
+				$(this).addClass('arrow-up').removeClass('arrow-down')
 				$(this).text('자막 닫기')
 			} else {
-				$(this)
-					.addClass('arrow-down')
-					.removeClass('arrow-up')
+				$(this).addClass('arrow-down').removeClass('arrow-up')
 				$(this).text('자막 보기')
 			}
 
-			$(this)
-				.siblings('p.video-subtitle')
-				.toggle()
+			$(this).siblings('p.video-subtitle').toggle()
 			return false
 		})
 	})

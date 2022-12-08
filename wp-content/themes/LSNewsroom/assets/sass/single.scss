@@ -472,6 +472,11 @@
 
 				.entry-top-date {
 					font-size: 14px;
+					&:before {
+						height: 14px;
+						top: -40%;
+						transform: translate(50%, 50%);
+					}
 				}
 			}
 		}
@@ -573,6 +578,11 @@
 
 				.entry-top-date {
 					font-size: 12px;
+					&:before {
+						height: 12px;
+						top: -35%;
+						transform: translate(50%, 50%);
+					}
 				}
 			}
 		}

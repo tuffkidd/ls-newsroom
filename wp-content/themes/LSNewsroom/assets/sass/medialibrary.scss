@@ -498,6 +498,89 @@
 		}
 	}
 
+	// 앨범 상세보기 시 하단 썸네일 변경 : 나열형
+	.album-media-wrap {
+		max-width: 840px;
+		margin: 30px auto;
+
+		.album-media-action {
+			margin-bottom: 20px;
+			> div {
+				display: inline-block;
+			}
+			div + div {
+				margin-left: 20px;
+			}
+
+			.ww-checkbox {
+				cursor: pointer;
+				#checkAllMedia {
+					vertical-align: text-bottom;
+				}
+				label {
+					cursor: pointer;
+					margin-left: 5px;
+				}
+			}
+
+			.downloadSelected {
+				padding: 5px 10px;
+				background-color: #000;
+				color: #fff;
+				font-size: 14px;
+			}
+		}
+
+		.album-medias {
+			display: grid;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			width: 100%;
+			gap: 10px;
+
+			.album-media-item {
+				a {
+					display: block;
+
+					&:hover,
+					&:focus {
+						div {
+							img {
+								transform: scale(1.1);
+							}
+						}
+					}
+
+					> div {
+						position: relative;
+						overflow: hidden;
+						border-radius: 15px;
+						font-size: 0;
+						.ww-checkbox {
+							z-index: 1;
+							position: absolute;
+							top: 10px;
+							left: 10px;
+						}
+						img {
+							object-fit: cover;
+							width: 100%;
+							height: 100%;
+							transition: all 0.3s;
+						}
+					}
+					p {
+						word-break: break-all;
+						padding: 0 5px;
+						line-height: 26px;
+						color: #000;
+						// @include ellipsis(1, 26px);
+					}
+				}
+			}
+		}
+	}
+	// 앨범 나열형 끝
+
 	.media-thumbs {
 		display: flex;
 		justify-content: space-between;
@@ -609,6 +692,44 @@
 			}
 		}
 
+		// 앨범 상세보기 시 하단 썸네일 변경 : 나열형
+		.album-media-wrap {
+			.album-media-action {
+				margin-bottom: 20px;
+				> div {
+					display: inline-block;
+				}
+				div + div {
+					margin-left: 20px;
+				}
+
+				.ww-checkbox {
+					label {
+						font-size: 13px;
+					}
+				}
+
+				.downloadSelected {
+					padding: 5px 10px;
+					font-size: 12px;
+				}
+			}
+
+			.album-medias {
+				display: grid;
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				.album-media-item {
+					a {
+						p {
+							line-height: 21px;
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
+		// 앨범 나열형 끝
+
 		.media-thumbs {
 			align-items: stretch;
 			gap: 5px;
@@ -690,6 +811,40 @@
 				}
 			}
 		}
+	}
+}
+
+@include media('<=mobile') {
+	.media-wrap {
+		// 앨범 상세보기 시 하단 썸네일 변경 : 나열형
+		.album-media-wrap {
+			.album-media-action {
+				margin-bottom: 20px;
+				> div {
+					display: inline-block;
+				}
+				div + div {
+					margin-left: 20px;
+				}
+
+				.ww-checkbox {
+					label {
+						font-size: 13px;
+					}
+				}
+
+				.downloadSelected {
+					padding: 5px 10px;
+					font-size: 12px;
+				}
+			}
+
+			.album-medias {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+		// 앨범 나열형 끝
 	}
 }
 
