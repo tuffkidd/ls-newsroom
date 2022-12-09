@@ -32,7 +32,7 @@ $albums = $Frontend->get_albums(get_queried_object_id(), $paged);
 									</span>
 									*/ ?>
 									<div class="album-thumb-wrap">
-										<div class="album-thumb-overlay"></div>
+										<!-- <div class="album-thumb-overlay"></div> -->
 										<img src="<?php echo $img[0]; ?>" alt="<?php echo $album->name; ?> 앨범 대표 이미지">
 									</div>
 									<span class="album-title"><?php echo $album->name; ?></span>

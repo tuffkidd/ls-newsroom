@@ -214,7 +214,8 @@ if ($matches) {
 									</div>
 								</div>
 								<div>
-									<a href="<?php echo site_url('/medialibrary/download/?type=all&album_id=' . $album_id); ?>" class="downloadSelected">선택 다운로드</a>
+									<a href="<?php echo site_url('/medialibrary/download/?type=all'); ?>" class="media-download-btn downloadSelected">선택 다운로드</a>
+									<a href="<?php echo site_url('/medialibrary/download/?type=all'); ?>" class="media-download-btn downloadAll">전체 다운로드</a>
 								</div>
 							</div>
 						<?php endif; ?>

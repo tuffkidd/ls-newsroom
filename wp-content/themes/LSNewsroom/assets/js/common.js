@@ -523,7 +523,7 @@
 
 		// 컨텐츠 프로그레스 바
 		const scrollProgress = document.getElementById('content-progress')
-		console.log(scrollProgress)
+
 		// if (scrollProgress) {
 		const height =
 			document.documentElement.scrollHeight -

@@ -59,9 +59,38 @@
 		}
 
 		$form.appendTo('body')
-		console.log($form)
+
 		$form.submit()
 
 		// return false
+	})
+
+	// 전체 다운로드
+	$(document).on('click', '.downloadAll', function (e) {
+		e.preventDefault()
+		var $form = $('<form></form>')
+		$form.attr('method', 'POST')
+		$form.attr('action', '/medialibrary/download/')
+		$form.append($('<input/>', { type: 'hidden', name: 'type', value: 'all' }))
+
+		var cnt = $('.media-checkbox').length
+		if (cnt > 0) {
+			$.each($('.media-checkbox'), function (i, e) {
+				// if ($(e).prop('checked')) {
+				$form.append(
+					'<input type="hidden" name="medias[]" value="' + $(e).val() + '">'
+				)
+				// }
+			})
+		} else {
+			alert(
+				'다운로드 받을 미디어의 좌측 상단 체크박스를 최소 1개 이상 체크하세요.'
+			)
+			return false
+		}
+
+		$form.appendTo('body')
+
+		$form.submit()
 	})
 })(jQuery)
