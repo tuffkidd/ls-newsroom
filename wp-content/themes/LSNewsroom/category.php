@@ -8,7 +8,8 @@ $current_cat = rawurldecode(get_queried_object()->slug);
 $h_tags = $recommendTagsFrontend->getHiTechTags();
 
 $current_tag = rawurldecode(get_query_var('tag'));
-
+$ckey = esc_attr(get_query_var('ckey'));
+$cat_query = new WP_Query(['s' => $ckey]);
 ?>
 <section id="content">
 	<div class="container">
@@ -38,13 +39,24 @@ $current_tag = rawurldecode(get_query_var('tag'));
 						endforeach;
 					endif; ?>
 				</div>
+			<?php elseif ($current_cat == '보도자료') : ?>
+				<form id="categorySearchFrm" method="get" action="<?php echo get_term_link(get_queried_object_id()) ?>">
+					<div class="category-search">
+						<div class="category-search-wrap">
+							<label for="ckey" class="hidden-text">보도자료 검색</label>
+							<input type="text" name="ckey" id="ckey" placeholder="보도자료 검색" value="<?php echo $ckey; ?>">
+							<a href="#" id="del-ckey" class="hidden-text" title="검색어 삭제">검색어 삭제</a>
+							<button type="submit" class="hidden-text" title="검색하기">검색하기</button>
+						</div>
+					</div>
+				</form>
 			<?php endif; ?>
 			<?php
 			if (have_posts()) :
 			?>
 				<ul class="post-list">
 					<?php
-					while (have_posts()) : the_post();
+					while ($cat_query->have_posts()) : $cat_query->the_post();
 					?>
 						<li class="post-item-wrap" id="post-<?php the_ID(); ?>">
 							<div class="post-thumb">
