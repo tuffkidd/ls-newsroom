@@ -1,5 +1,5 @@
 <?php
-global $wp_query, $search_posts, $allposts, $photostream_medias, $photostream_query_var;
+global $wp_query, $search_posts, $allposts, $photostream_medias, $photostream_query_var, $cat_query;
 
 // print_r2($wp_query);
 if (is_search() && 0 === $wp_query->found_posts) {
@@ -11,8 +11,10 @@ if (is_search() && 0 === $wp_query->found_posts) {
 } else if (isset($wp_query->query_vars['medialib']) && $wp_query->query_vars['medialib'] == 'photostream') {
 	$tmp_wp_query = $wp_query;
 	$wp_query = $photostream_medias;
+} else if (get_queried_object()->name == '보도자료') {
+	$tmp_wp_query = $wp_query;
+	$wp_query = $cat_query;
 }
-
 // $wp_query = $search_posts;
 ?>
 

@@ -8,15 +8,26 @@ $current_cat = rawurldecode(get_queried_object()->slug);
 $h_tags = $recommendTagsFrontend->getHiTechTags();
 
 $current_tag = rawurldecode(get_query_var('tag'));
-$ckey = esc_attr(get_query_var('ckey'));
-$cat_query = new WP_Query(['s' => $ckey]);
+
+
+if ($current_cat == '보도자료') {
+	$ckey = esc_attr(get_query_var('ckey'));
+	if ($ckey && $ckey != '') {
+		$cat_query = new WP_Query(['s' => $ckey, 'category_name' => '보도자료']);
+	} else {
+		$cat_query = $wp_query;
+	}
+} else {
+	$cat_query = $wp_query;
+}
+
 ?>
 <section id="content">
 	<div class="container">
 		<div class="post-list-wrap">
 			<div class="post-list-header">
 				<h1><?php echo get_queried_object()->name; ?></h1>
-				<span>총 <?php echo $wp_query->found_posts; ?>건의 글이 있습니다</span>
+				<span>총 <?php echo $cat_query->found_posts; ?>건의 글이 있습니다</span>
 			</div>
 			<?php if ($current_cat == 'hi테크놀러지') : ?>
 				<div class="category-tags">
